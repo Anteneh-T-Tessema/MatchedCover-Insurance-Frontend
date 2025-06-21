@@ -1,0 +1,309 @@
+/* Test User Switcher Styles */
+
+.container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header p {
+  margin: 8px 0 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.selectedUser {
+  position: relative;
+}
+
+.userInfo {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.userInfo:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.userDetails {
+  flex: 1;
+}
+
+.userName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.userRole {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+.userEmail {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.userStats {
+  display: flex;
+  gap: 16px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.expandIcon {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.userDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  margin-top: 8px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.userGrid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.userCard {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.userCard:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+}
+
+.userCard.active {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+
+.cardHeader {
+  margin-bottom: 8px;
+}
+
+.cardName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.cardRole {
+  font-size: 0.85rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.cardDescription {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.cardStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cardStat {
+  text-align: center;
+}
+
+.cardStatLabel {
+  display: block;
+  font-size: 0.7rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardStatValue {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 2px;
+}
+
+.cardRisk {
+  text-align: center;
+}
+
+.riskBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.riskLow {
+  background: #d4edda;
+  color: #155724;
+}
+
+.riskMedium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.riskHigh {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.riskCritical {
+  background: #f5c6cb;
+  color: #721c24;
+}
+
+.currentUserSummary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.summaryHeader {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.capability {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+}
+
+.capabilityIcon {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.capabilityLabel {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.capabilityValue {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .userStats {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .userGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .capabilityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .userInfo {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .capabilityGrid {
+    grid-template-columns: 1fr;
+  }
+}

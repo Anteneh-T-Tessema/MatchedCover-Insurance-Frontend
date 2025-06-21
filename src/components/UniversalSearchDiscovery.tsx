@@ -60,6 +60,33 @@ export default function UniversalSearchDiscovery() {
   const [isLoading, setIsLoading] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
 
+  // Handler functions for action buttons
+  const handleView = (result: SearchResult) => {
+    console.log('Viewing result:', result.title);
+    // TODO: Implement view functionality - could open modal or navigate to detail page
+    alert(`Opening detailed view for: ${result.title}`);
+  };
+
+  const handleBookmark = (resultId: string) => {
+    console.log('Bookmarking result:', resultId);
+    // TODO: Implement bookmark functionality
+    alert('Bookmark saved! This would add the item to your saved list.');
+  };
+
+  const handleShare = (result: SearchResult) => {
+    const shareText = `Check out this insurance resource: ${result.title} - ${result.description}`;
+    if (navigator.share) {
+      navigator.share({
+        title: result.title,
+        text: shareText,
+        url: window.location.href
+      });
+    } else {
+      navigator.clipboard.writeText(shareText);
+      alert('Link copied to clipboard!');
+    }
+  };
+
   // Mock search results (globally applicable)
   const mockResults: SearchResult[] = useMemo(() => [
     {
@@ -445,13 +472,25 @@ export default function UniversalSearchDiscovery() {
                     </div>
                     
                     <div className="ml-4 flex items-center space-x-2">
-                      <button className="p-2 hover:bg-gray-100 rounded-lg" title="View">
+                      <button 
+                        onClick={() => handleView(result)}
+                        className="p-2 hover:bg-gray-100 rounded-lg" 
+                        title="View"
+                      >
                         <Eye className="h-4 w-4" />
                       </button>
-                      <button className="p-2 hover:bg-gray-100 rounded-lg" title="Bookmark">
+                      <button 
+                        onClick={() => handleBookmark(result.id)}
+                        className="p-2 hover:bg-gray-100 rounded-lg" 
+                        title="Bookmark"
+                      >
                         <Bookmark className="h-4 w-4" />
                       </button>
-                      <button className="p-2 hover:bg-gray-100 rounded-lg" title="Share">
+                      <button 
+                        onClick={() => handleShare(result)}
+                        className="p-2 hover:bg-gray-100 rounded-lg" 
+                        title="Share"
+                      >
                         <Share2 className="h-4 w-4" />
                       </button>
                     </div>

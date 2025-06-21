@@ -233,7 +233,7 @@ export default function RentersInsurancePage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
+                  className={`py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
                     activeTab === tab.id
                       ? 'border-orange-500 text-orange-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -268,7 +268,7 @@ export default function RentersInsurancePage() {
                         <h3 className="text-lg font-semibold text-gray-900">{option.title}</h3>
                         <p className="text-sm text-gray-600 mt-1">{option.description}</p>
                       </div>
-                      <div className={ml-4 ${option.included ? 'text-orange-500' : 'text-gray-400'}`}>
+                      <div className={`ml-4 ${option.included ? 'text-orange-500' : 'text-gray-400'}`}>
                         <CheckCircle className="h-6 w-6" />
                       </div>
                     </div>
@@ -325,7 +325,7 @@ export default function RentersInsurancePage() {
                 {pricingTiers.map((tier, index) => (
                   <div
                     key={index}
-                    className={relative bg-white border-2 rounded-lg p-8 ${
+                    className={`relative bg-white border-2 rounded-lg p-8 ${
                       tier.popular
                         ? 'border-orange-500 shadow-lg'
                         : 'border-gray-200'
@@ -358,7 +358,7 @@ export default function RentersInsurancePage() {
                     </ul>
                     
                     <button
-                      className={w-full py-3 px-4 rounded-lg font-medium transition-colors ${
+                      className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${
                         tier.popular
                           ? 'bg-orange-600 text-white hover:bg-orange-700'
                           : 'bg-gray-100 text-gray-900 hover:bg-gray-200'

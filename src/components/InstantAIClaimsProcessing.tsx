@@ -169,6 +169,20 @@ export default function InstantAIClaimsProcessing() {
     }
   };
 
+  const acceptSettlement = () => {
+    // TODO: Implement settlement acceptance workflow
+    console.log('Accepting settlement:', claimData?.settlement);
+    alert(`Settlement of $${claimData?.settlement.toLocaleString()} accepted! Funds will be processed within 24 hours.`);
+    // You could navigate to a payment confirmation page or show a success modal
+  };
+
+  const requestReview = () => {
+    // TODO: Implement review request workflow
+    console.log('Requesting human review for claim:', claimData?.id);
+    alert('Review requested! A claims specialist will contact you within 2 business hours.');
+    // You could navigate to a case tracking page or show a confirmation modal
+  };
+
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     setUploadedFiles(files);
@@ -440,11 +454,17 @@ export default function InstantAIClaimsProcessing() {
           </div>
 
           <div className="flex items-center justify-center space-x-4">
-            <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2">
+            <button 
+              onClick={acceptSettlement}
+              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
+            >
               <CreditCard className="h-4 w-4" />
               <span>Accept Settlement</span>
             </button>
-            <button className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+            <button 
+              onClick={requestReview}
+              className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            >
               Request Review
             </button>
             <button

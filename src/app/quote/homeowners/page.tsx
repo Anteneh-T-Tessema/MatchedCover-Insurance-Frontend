@@ -159,7 +159,7 @@ export default function HomeownersQuotePage() {
             {STEPS.map((step, index) => (
               <div key={step.id} className="flex items-center">
                 <div
-                  className={w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                     index <= currentStep
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-200 text-gray-600'
@@ -173,7 +173,7 @@ export default function HomeownersQuotePage() {
                 </div>
                 {index < STEPS.length - 1 && (
                   <div
-                    className={w-12 h-1 mx-2 ${
+                    className={`w-12 h-1 mx-2 ${
                       index < currentStep ? 'bg-blue-600' : 'bg-gray-200'
                     }`}
                   />
@@ -655,7 +655,7 @@ function QuoteResultsStep({ quote, isLoading }: {
         
         <div className="space-y-4">
           {quote.providers.map((provider: Provider, index: number) => (
-            <div key={provider.name} className={border rounded-lg p-4 ${index === 0 ? 'border-blue-300 bg-blue-50' : 'border-gray-200'}`}>
+            <div key={provider.name} className={`border rounded-lg p-4 ${index === 0 ? 'border-blue-300 bg-blue-50' : 'border-gray-200'}`}>
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-3">

@@ -105,12 +105,12 @@ export class TrustCenterAgent {
       ];
 
       for (const dir of directories) {
-  try {
-        await fs.mkdir(path.join(this.trustCenterDir, dir), { recursive: true   } catch (error) {
-    console.error("Error:", error);
-    throw error;
-  }
-});
+        try {
+          await fs.mkdir(path.join(this.trustCenterDir, dir), { recursive: true });
+        } catch (error) {
+          console.error("Error:", error);
+          throw error;
+        }
       }
 
       console.log('✅ Trust Center directory structure created');
@@ -210,7 +210,6 @@ Return JSON format:
 `;
 
     try {
-  try {
       const result = await this.model.generateContent(prompt);
       let responseText = result.response.text();
       
@@ -226,11 +225,7 @@ Return JSON format:
         privacy: scoreData.privacy,
         availability: scoreData.availability,
         lastUpdated: new Date()
-        } catch (error) {
-    console.error("Error:", error);
-    throw error;
-  }
-};
+      };
 
       const scorePath = path.join(this.trustCenterDir, 'trust-scores', `trust-score-${Date.now()}.json`);
       await fs.mkdir(path.join(this.trustCenterDir, 'trust-scores'), { recursive: true });

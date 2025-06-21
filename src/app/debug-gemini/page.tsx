@@ -31,11 +31,11 @@ export default function DebugGemini() {
       const response = await result.response;
       const text = response.text();
 
-      setResult(✅ Success: ${text}`);
+      setResult(`✅ Success: ${text}`);
     } catch (error) {
       console.error('Gemini test error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      setResult(❌ Error: ${errorMessage}`);
+      setResult(`❌ Error: ${errorMessage}`);
     }
     
     setLoading(false);

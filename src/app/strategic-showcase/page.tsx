@@ -185,7 +185,7 @@ export default function StrategicIntegrationPage() {
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <button
             onClick={() => setActiveDemo('ai')}
-            className={px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
               activeDemo === 'ai'
                 ? 'bg-blue-600 text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -195,7 +195,7 @@ export default function StrategicIntegrationPage() {
           </button>
           <button
             onClick={() => setActiveDemo('gamification')}
-            className={px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
               activeDemo === 'gamification'
                 ? 'bg-purple-600 text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -205,7 +205,7 @@ export default function StrategicIntegrationPage() {
           </button>
           <button
             onClick={() => setActiveDemo('voice')}
-            className={px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
               activeDemo === 'voice'
                 ? 'bg-green-600 text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -215,7 +215,7 @@ export default function StrategicIntegrationPage() {
           </button>
           <button
             onClick={() => setActiveDemo('mga')}
-            className={px-6 py-3 rounded-lg font-semibold transition-all ${
+            className={`px-6 py-3 rounded-lg font-semibold transition-all ${
               activeDemo === 'mga'
                 ? 'bg-orange-600 text-white shadow-lg'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -459,7 +459,7 @@ export default function StrategicIntegrationPage() {
                     <div key={feature.name} className="border border-gray-200 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-3">
                         <h4 className="font-semibold text-gray-800">{feature.name}</h4>
-                        <span className={px-2 py-1 text-xs rounded-full ${
+                        <span className={`px-2 py-1 text-xs rounded-full ${
                           feature.implementation_status === 'complete' 
                             ? 'bg-green-100 text-green-800' 
                             : feature.implementation_status === 'demo'

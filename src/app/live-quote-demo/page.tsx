@@ -46,7 +46,7 @@ export default function LiveQuoteDemo() {
 
     try {
       const quoteRequest: QuoteRequest = {
-        customerId: demo_${Date.now()}`,
+        customerId: `demo_${Date.now()}`,
         productType: 'auto',
         applicant: {
           firstName: formData.firstName,

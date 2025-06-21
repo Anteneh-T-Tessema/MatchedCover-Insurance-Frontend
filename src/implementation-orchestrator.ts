@@ -83,7 +83,7 @@ class ImplementationOrchestrator {
 
       await this.savePhaseResult(phaseResult);
       
-      console.log(\n✅ Phase 1 completed with ${validation.completionPercentage}% success`);
+      console.log(`\n✅ Phase 1 completed with ${validation.completionPercentage}% success`);
       
       return phaseResult;
     } catch (error) {
@@ -140,7 +140,7 @@ class ImplementationOrchestrator {
 
       await this.savePhaseResult(phaseResult);
       
-      console.log(\n✅ Phase 2 completed with ${validation.completionPercentage}% success`);
+      console.log(`\n✅ Phase 2 completed with ${validation.completionPercentage}% success`);
       
       return phaseResult;
     } catch (error) {
@@ -168,13 +168,13 @@ class ImplementationOrchestrator {
     };
 
     try {
-      console.log(  🔧 Executing: ${stepName}`);
+      console.log(`  🔧 Executing: ${stepName}`);
       
       // Execute the implementation
       await implementation();
       
       // Validate the step
-      console.log(  🔍 Validating: ${stepName}`);
+      console.log(`  🔍 Validating: ${stepName}`);
       const validation = await this.statusAgent.validatePhase(stepId);
       
       stepResult.endTime = new Date().toISOString();
@@ -185,11 +185,11 @@ class ImplementationOrchestrator {
 
       const statusEmoji = stepResult.status === 'completed' ? '✅' : 
                          stepResult.status === 'mostly_complete' ? '🟡' : '❌';
-      console.log(  ${statusEmoji} ${stepName}: ${stepResult.completionPercentage}%`);
+      console.log(`  ${statusEmoji} ${stepName}: ${stepResult.completionPercentage}%`);
       
       return stepResult;
     } catch (error) {
-      console.error(  ❌ ${stepName} failed:`, error);
+      console.error(`  ❌ ${stepName} failed:`, error);
       stepResult.endTime = new Date().toISOString();
       stepResult.status = 'failed';
       stepResult.error = error instanceof Error ? error.message : String(error);

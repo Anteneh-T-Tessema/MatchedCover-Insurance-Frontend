@@ -1,0 +1,130 @@
+/* Role Management Dashboard Styles */
+.progressBar {
+  width: var(--progress-width);
+}
+
+.roleCard {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.roleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.permissionBadge {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.permissionBadge:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.tabButton {
+  transition: all 0.2s ease-in-out;
+}
+
+.tabButton:hover {
+  background-color: #f3f4f6;
+}
+
+.tabButton.active {
+  border-bottom: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.userAvatar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.auditLogItem {
+  border-left: 3px solid #e5e7eb;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.auditLogItem.critical {
+  border-left-color: #ef4444;
+}
+
+.auditLogItem.warning {
+  border-left-color: #f59e0b;
+}
+
+.auditLogItem.info {
+  border-left-color: #3b82f6;
+}
+
+.auditLogItem.success {
+  border-left-color: #10b981;
+}
+
+.complianceIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.complianceIndicator.compliant {
+  color: #10b981;
+}
+
+.complianceIndicator.non-compliant {
+  color: #ef4444;
+}
+
+.complianceIndicator.warning {
+  color: #f59e0b;
+}
+
+.analyticsCard {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.analyticsCard h3 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.loadingSpinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideIn {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

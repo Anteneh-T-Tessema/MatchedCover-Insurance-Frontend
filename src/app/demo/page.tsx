@@ -238,16 +238,16 @@ export default function MatchedCoverDemo() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={${agent.color} border-2 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer`}
+              className={`${agent.color} border-2 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer`}
               onClick={() => {
                 setShowChat(true);
               }}
             >
               <div className="text-4xl mb-4">{agent.emoji}</div>
-              <h3 className={text-xl font-bold ${agent.textColor} mb-2`}>
+              <h3 className={`text-xl font-bold ${agent.textColor} mb-2`}>
                 {agent.name}
               </h3>
-              <p className={font-medium ${agent.textColor} mb-2`}>
+              <p className={`font-medium ${agent.textColor} mb-2`}>
                 {agent.role}
               </p>
               <p className="text-sm text-gray-600 mb-3">
@@ -259,7 +259,7 @@ export default function MatchedCoverDemo() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={mt-4 ${agent.textColor} border border-current px-4 py-2 rounded-lg text-sm font-medium hover:bg-current hover:text-white transition-colors`}
+                className={`mt-4 ${agent.textColor} border border-current px-4 py-2 rounded-lg text-sm font-medium hover:bg-current hover:text-white transition-colors`}
               >
                 Chat with {agent.name}
               </motion.button>
@@ -277,7 +277,7 @@ export default function MatchedCoverDemo() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
-              <div className={bg-gradient-to-r ${section.color} w-16 h-16 rounded-lg flex items-center justify-center text-white mb-4`}>
+              <div className={`bg-gradient-to-r ${section.color} w-16 h-16 rounded-lg flex items-center justify-center text-white mb-4`}>
                 {section.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -298,7 +298,7 @@ export default function MatchedCoverDemo() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => startDemo(section.id)}
-                className={w-full bg-gradient-to-r ${section.color} text-white py-3 rounded-lg font-medium hover:shadow-lg transition-shadow`}
+                className={`w-full bg-gradient-to-r ${section.color} text-white py-3 rounded-lg font-medium hover:shadow-lg transition-shadow`}
               >
                 Try Demo
               </motion.button>

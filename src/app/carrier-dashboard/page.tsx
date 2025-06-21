@@ -40,16 +40,16 @@ export default function CarrierDashboard() {
     const fetchCarrierStatus = async (carrierId: string): Promise<CarrierStatus> => {
       try {
         // In production, call your carrier monitoring service
-        const response = await fetch(/api/carriers/${carrierId}/status`, {
+        const response = await fetch(`/api/carriers/${carrierId}/status`, {
           method: 'GET',
           headers: {
-            'Authorization': Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
             'Content-Type': 'application/json'
           }
         });
         
         if (!response.ok) {
-          throw new Error(Monitoring API failed: ${response.status}`);
+          throw new Error(`Monitoring API failed: ${response.status}`);
         }
         
         const data = await response.json();
@@ -71,7 +71,7 @@ export default function CarrierDashboard() {
         };
         
       } catch (error) {
-        console.error(Error fetching status for ${carrierId}:`, error);
+        console.error(`Error fetching status for ${carrierId}:`, error);
         throw error;
       }
     };
@@ -169,7 +169,7 @@ export default function CarrierDashboard() {
         if (result.status === 'fulfilled') {
           liveCarriers.push(result.value);
         } else {
-          console.warn(⚠️ Failed to fetch status for ${carrierId}:`, result.reason);
+          console.warn(`⚠️ Failed to fetch status for ${carrierId}:`, result.reason);
           liveCarriers.push(getFallbackCarrierStatus(carrierId));
         }
       });
@@ -238,7 +238,7 @@ export default function CarrierDashboard() {
         const healthResponse = await fetch('/api/system/health', {
           method: 'GET',
           headers: {
-            'Authorization': Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
             'Content-Type': 'application/json'
           }
         });
@@ -256,7 +256,7 @@ export default function CarrierDashboard() {
           
           if (healthData.overall_score < 85) {
             newAlerts.push({
-              id: alert_${Date.now()}_health`,
+              id: `alert_${Date.now()}_health`,
               type: 'error',
               message: 'System health degraded. Multiple carriers experiencing issues.',
               timestamp: new Date()
@@ -265,7 +265,7 @@ export default function CarrierDashboard() {
           
           if (healthData.avg_latency_ms > 2000) {
             newAlerts.push({
-              id: alert_${Date.now()}_latency`,
+              id: `alert_${Date.now()}_latency`,
               type: 'warning',
               message: 'High API latency detected. Response times above normal.',
               timestamp: new Date()
@@ -274,7 +274,7 @@ export default function CarrierDashboard() {
 
           if (healthData.error_rate_percent > 5) {
             newAlerts.push({
-              id: alert_${Date.now()}_errors`,
+              id: `alert_${Date.now()}_errors`,
               type: 'error',
               message: 'Error rate elevated. Check carrier API integrations.',
               timestamp: new Date()
@@ -320,18 +320,18 @@ export default function CarrierDashboard() {
     const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60));
     
     if (diffMinutes < 1) return 'Just now';
-    if (diffMinutes < 60) return ${diffMinutes}m ago`;
-    if (diffMinutes < 1440) return ${Math.floor(diffMinutes / 60)}h ago`;
-    return ${Math.floor(diffMinutes / 1440)}d ago`;
+    if (diffMinutes < 60) return `${diffMinutes}m ago`;
+    if (diffMinutes < 1440) return `${Math.floor(diffMinutes / 60)}h ago`;
+    return `${Math.floor(diffMinutes / 1440)}d ago`;
   };
 
   // Enhanced carrier testing functionality
   const testCarrierConnection = async (carrierId: string) => {
     try {
-      const testResponse = await fetch(/api/carriers/${carrierId}/test`, {
+      const testResponse = await fetch(`/api/carriers/${carrierId}/test`, {
         method: 'POST',
         headers: {
-          'Authorization': Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -343,17 +343,17 @@ export default function CarrierDashboard() {
       if (testResponse.ok) {
         const testResult = await testResponse.json();
         setAlerts(prev => [{
-          id: test_${Date.now()}_${carrierId}`,
+          id: `test_${Date.now()}_${carrierId}`,
           type: testResult.success ? 'info' : 'error',
-          message: ${carrierId.toUpperCase()} test ${testResult.success ? 'passed' : 'failed'}: ${testResult.message}`,
+          message: `${carrierId.toUpperCase()} test ${testResult.success ? 'passed' : 'failed'}: ${testResult.message}`,
           timestamp: new Date()
         }, ...prev.slice(0, 9)]);
       }
     } catch (error) {
       setAlerts(prev => [{
-        id: test_error_${Date.now()}_${carrierId}`,
+        id: `test_error_${Date.now()}_${carrierId}`,
         type: 'error',
-        message: Failed to test ${carrierId.toUpperCase()}: ${error}`,
+        message: `Failed to test ${carrierId.toUpperCase()}: ${error}`,
         timestamp: new Date()
       }, ...prev.slice(0, 9)]);
     }
@@ -363,7 +363,7 @@ export default function CarrierDashboard() {
     setLoading(true);
     loadCarrierData();
     setAlerts(prev => [{
-      id: refresh_${Date.now()}`,
+      id: `refresh_${Date.now()}`,
       type: 'info',
       message: 'Carrier status refresh initiated',
       timestamp: new Date()
@@ -373,7 +373,7 @@ export default function CarrierDashboard() {
   const viewAPILogs = () => {
     // In production, this would open a separate log viewer or redirect to monitoring dashboard
     setAlerts(prev => [{
-      id: logs_${Date.now()}`,
+      id: `logs_${Date.now()}`,
       type: 'info',
       message: 'API logs viewer accessed. Check monitoring dashboard for details.',
       timestamp: new Date()
@@ -446,7 +446,7 @@ export default function CarrierDashboard() {
                       <h3 className="text-lg font-semibold text-gray-900">{carrier.name}</h3>
                       <div className="text-sm text-gray-500">ID: {carrier.carrierId}</div>
                     </div>
-                    <span className={px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(carrier.status)}`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(carrier.status)}`}>
                       {carrier.status.toUpperCase()}
                     </span>
                   </div>
@@ -492,11 +492,11 @@ export default function CarrierDashboard() {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div
-                        className={h-2 rounded-full transition-all duration-300 ${
+                        className={`h-2 rounded-full transition-all duration-300 ${
                           carrier.successRate >= 98 ? 'bg-green-500' :
                           carrier.successRate >= 95 ? 'bg-yellow-500' : 'bg-red-500'
                         }`}
-                        data-width={${carrier.successRate}%`}
+                        data-width={`${carrier.successRate}%`}
                       ></div>
                     </div>
                   </div>
@@ -564,11 +564,11 @@ export default function CarrierDashboard() {
               <div className="flex items-center">
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mr-2">
                   <div
-                    className={h-2.5 rounded-full transition-all duration-300 ${
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
                       systemHealth.overall >= 95 ? 'bg-green-500' :
                       systemHealth.overall >= 85 ? 'bg-orange-500' : 'bg-red-500'
                     }`}
-                    style={{ width: ${systemHealth.overall}%` }}
+                    style={{ width: `${systemHealth.overall}%` }}
                   ></div>
                 </div>
                 <div className="text-sm font-medium text-gray-900">{systemHealth.overall}%</div>
@@ -580,10 +580,10 @@ export default function CarrierDashboard() {
               <div className="flex items-center">
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mr-2">
                   <div
-                    className={h-2.5 rounded-full transition-all duration-300 ${
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
                       systemHealth.apiLatency <= 250 ? 'bg-green-500' : 'bg-red-500'
                     }`}
-                    style={{ width: ${100 - systemHealth.apiLatency / 20}%` }}
+                    style={{ width: `${100 - systemHealth.apiLatency / 20}%` }}
                   ></div>
                 </div>
                 <div className="text-sm font-medium text-gray-900">{systemHealth.apiLatency}ms</div>
@@ -595,10 +595,10 @@ export default function CarrierDashboard() {
               <div className="flex items-center">
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mr-2">
                   <div
-                    className={h-2.5 rounded-full transition-all duration-300 ${
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
                       systemHealth.errorRate <= 1 ? 'bg-green-500' : 'bg-red-500'
                     }`}
-                    style={{ width: ${100 - systemHealth.errorRate * 20}%` }}
+                    style={{ width: `${100 - systemHealth.errorRate * 20}%` }}
                   ></div>
                 </div>
                 <div className="text-sm font-medium text-gray-900">{systemHealth.errorRate}%</div>
@@ -612,7 +612,7 @@ export default function CarrierDashboard() {
                   <div className="text-gray-500 text-sm">No recent alerts</div>
                 ) : (
                   alerts.map(alert => (
-                    <div key={alert.id} className={p-4 rounded-lg text-sm font-medium ${alert.type === 'error' ? 'bg-red-100 text-red-800' : alert.type === 'warning' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
+                    <div key={alert.id} className={`p-4 rounded-lg text-sm font-medium ${alert.type === 'error' ? 'bg-red-100 text-red-800' : alert.type === 'warning' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
                       <div className="flex justify-between">
                         <div>{alert.message}</div>
                         <div className="text-gray-400">{formatTime(alert.timestamp.toISOString())}</div>

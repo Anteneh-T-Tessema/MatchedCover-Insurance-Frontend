@@ -119,32 +119,44 @@ export class SOC2ComplianceAgent {
    * Perform initial compliance gap analysis
    */
   async performInitialAssessment(): Promise<ComplianceGapAnalysis> {
-  try {
-    console.log("📊 Analyzing current compliance state...");
-    
-    // Assess current infrastructure
-    const infraAssessment = await this.assessInfrastructure();
-    const policyAssessment = await this.assessExistingPolicies();
-    const securityAssessment = await this.assessSecurityControls();
-    const monitoringAssessment = await this.assessMonitoringCapabilities();
-    
-    // Use AI to analyze gaps
-    const gapAnalysis = await this.analyzeGapsWithAI({
-      infrastructure: infraAssessment,
-      policies: policyAssessment,
-      security: securityAssessment,
-      monitoring: monitoringAssessment
-    });
-    
-    return {
-      security_gaps: (gapAnalysis.security_gaps as string[]) || [],
-      availability_gaps: (gapAnalysis.availability_gaps as string[]) || [],
-      processing_integrity_gaps: (gapAnalysis.processing_integrity_gaps as string[]) || [],
-      confidentiality_gaps: (gapAnalysis.confidentiality_gaps as string[]) || [],
-      privacy_gaps: (gapAnalysis.privacy_gaps as string[]) || [],
-      overall_readiness: (gapAnalysis.overall_readiness as number) || 0,
-      priority_items: (gapAnalysis.priority_items as string[]) || []
-    };
+    try {
+      console.log("📊 Analyzing current compliance state...");
+      
+      // Assess current infrastructure
+      const infraAssessment = await this.assessInfrastructure();
+      const policyAssessment = await this.assessExistingPolicies();
+      const securityAssessment = await this.assessSecurityControls();
+      const monitoringAssessment = await this.assessMonitoringCapabilities();
+      
+      // Use AI to analyze gaps
+      const gapAnalysis = await this.analyzeGapsWithAI({
+        infrastructure: infraAssessment,
+        policies: policyAssessment,
+        security: securityAssessment,
+        monitoring: monitoringAssessment
+      });
+      
+      return {
+        security_gaps: (gapAnalysis.security_gaps as string[]) || [],
+        availability_gaps: (gapAnalysis.availability_gaps as string[]) || [],
+        processing_integrity_gaps: (gapAnalysis.processing_integrity_gaps as string[]) || [],
+        confidentiality_gaps: (gapAnalysis.confidentiality_gaps as string[]) || [],
+        privacy_gaps: (gapAnalysis.privacy_gaps as string[]) || [],
+        overall_readiness: (gapAnalysis.overall_readiness as number) || 0,
+        priority_items: (gapAnalysis.priority_items as string[]) || []
+      };
+    } catch (error) {
+      console.error("Error performing initial assessment:", error);
+      return {
+        security_gaps: [],
+        availability_gaps: [],
+        processing_integrity_gaps: [],
+        confidentiality_gaps: [],
+        privacy_gaps: [],
+        overall_readiness: 0,
+        priority_items: []
+      };
+    }
   }
   
   /**
@@ -200,12 +212,12 @@ export class SOC2ComplianceAgent {
       network: networkSecurity,
       access: accessControls,
       monitoring: monitoring
-      } catch (error) {
+    };
+  } catch (error) {
     console.error("Error:", error);
     throw error;
   }
-};
-  }
+}
   
   /**
    * Check cloud configuration
@@ -353,17 +365,17 @@ export class SOC2ComplianceAgent {
    * Get implementation status
    */
   async getImplementationStatus(): Promise<any> {
-  try {
-    return {
-      security_controls: await this.securityAgent.getImplementationStatus(),
-      documentation: await this.documentationAgent.getDocumentationStatus(),
-      monitoring: await this.monitoringAgent.getMonitoringStatus(),
-      audit_readiness: await this.auditAgent.getAuditReadiness()
-      } catch (error) {
-    console.error("Error:", error);
-    throw error;
-  }
-};
+    try {
+      return {
+        security_controls: await this.securityAgent.getImplementationStatus(),
+        documentation: await this.documentationAgent.getDocumentationStatus(),
+        monitoring: await this.monitoringAgent.getMonitoringStatus(),
+        audit_readiness: await this.auditAgent.getAuditReadiness()
+      };
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
   }
   
   /**

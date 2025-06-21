@@ -251,18 +251,3 @@ async function getPolicyFromDatabase(policyNumber: string): Promise<any> {
     throw new Error('Failed to fetch policy from database');
   }
 }
-  return {
-    policyNumber,
-    status: 'active',
-    effectiveDate: new Date().toISOString(),
-    coverages: [
-      { type: 'liability', limit: '100/300/100' },
-      { type: 'collision', deductible: 500 },
-      { type: 'comprehensive', deductible: 500 }
-    ],
-    premium: {
-      annual: 1200,
-      monthly: 100
-    }
-  };
-}

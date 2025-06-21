@@ -8,20 +8,8 @@ import { carrierIntegrationService, QuoteRequest, QuoteResponse } from '@/servic
 import { Locale } from '@/i18n/config';
 
 export interface AgentQuoteRequest {
-   private getGreetingPrompt(agentId: string, locale: string = 'en'): string {
-    const responses = {
-      en: {
-        maya: "I'm so excited to help you find amazing insurance deals! 🌟 Could you tell me what type of insurance you're looking for and which state you're in? I'll find you the best savings!",
-        alex: "I'd be happy to analyze your insurance needs systematically. 📊 To provide the most accurate assessment, I'll need to know your location, the type of coverage you need, and your current situation.",
-        sam: "I'm here to make this process as easy as possible for you! 💙 Let's start with the basics - what type of insurance are you interested in, and how can I best help you today?"
-      }
-    };
-    
-    const validAgentIds = ['maya', 'alex', 'sam'] as const;
-    const validAgentId = validAgentIds.includes(agentId as any) ? agentId as keyof typeof responses.en : 'maya';
-    
-    return responses[locale as keyof typeof responses]?.[validAgentId] || responses.en[validAgentId];
-  } string;
+  message: string;
+  userInput: string;
   agentId: 'maya' | 'alex' | 'sam';
   locale: Locale;
   userProfile?: UserQuoteProfile;
@@ -403,7 +391,10 @@ Respond with empathy and focus on peace of mind, customer service, and making in
       }
     };
     
-    return responses[locale as keyof typeof responses]?.[agentId] || responses.en[agentId];
+    const validAgentIds = ['maya', 'alex', 'sam'] as const;
+    const validAgentId = (validAgentIds as readonly string[]).includes(agentId) ? agentId as keyof typeof responses.en : 'maya';
+    
+    return responses[locale as keyof typeof responses]?.[validAgentId] || responses.en[validAgentId];
   }
 }
 

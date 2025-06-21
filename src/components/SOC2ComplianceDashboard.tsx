@@ -495,6 +495,35 @@ const SOC2ComplianceDashboard: React.FC = () => {
     }
   };
 
+  const updateSystemDescription = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/compliance/soc2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'update-system-description' })
+      });
+
+      if (response.ok) {
+        toast.success('System description update initiated');
+        await refreshData();
+      } else {
+        toast.error('Failed to update system description');
+      }
+    } catch (error) {
+      console.error('Error updating system description:', error);
+      toast.error('Error updating system description');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const scheduleReview = () => {
+    // TODO: Implement calendar integration or modal
+    console.log('Schedule review clicked');
+    alert('Schedule Review feature coming soon! This would open a calendar to schedule compliance reviews.');
+  };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'implemented':
@@ -1245,11 +1274,18 @@ const SOC2ComplianceDashboard: React.FC = () => {
                           <FileText className="w-5 h-5" />
                           <span>Generate All Documents</span>
                         </button>
-                        <button className="w-full flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                        <button 
+                          onClick={updateSystemDescription}
+                          disabled={isLoading}
+                          className="w-full flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 disabled:opacity-50"
+                        >
                           <Database className="w-5 h-5" />
                           <span>Update System Description</span>
                         </button>
-                        <button className="w-full flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50">
+                        <button 
+                          onClick={scheduleReview}
+                          className="w-full flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50"
+                        >
                           <Calendar className="w-5 h-5" />
                           <span>Schedule Review</span>
                         </button>
