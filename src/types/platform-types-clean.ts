@@ -63,7 +63,7 @@ export interface ValidationResult {
 export interface InputValidationResult {
   isValid: boolean;
   error?: string;
-  sanitizedValue?;
+  sanitizedValue?: any;
   details?: Record<string, unknown>;
 }
 

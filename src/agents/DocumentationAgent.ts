@@ -1,6 +1,5 @@
 import { environmentManager } from '../utils/enhanced-environment';
 import { EnhancedErrorHandler } from '../utils/enhanced-error-handling';
-import type { SecurityControlStatus, Evidence, ValidationResult, ComplianceValidationResult, ErrorContext } from '../types/platform-types';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as fs from 'fs';
 import * as path from 'path';

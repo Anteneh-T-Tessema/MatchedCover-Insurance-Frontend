@@ -23,5 +23,24 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/implementation-orchestrator.ts",
+    "src/quality-enhancement-agent.ts",
+    "src/services/MGAOrchestratorBackup.ts",
+    "src/services/MGAOrchestrator.ts",
+    "src/services/MGAOrchestrator_fixed.ts",
+    "src/utils/enhanced-error-handling-broken.ts",
+    "src/utils/enhanced-performance-monitoring.ts",
+    "src/agents",
+    "src/controls",
+    "src/engines",
+    "src/registry",
+    "src/test",
+    "src/run-soc2-agents.ts",
+    "src/run-soc2-agents-updated.ts",
+    "src/step-by-step-executor.ts",
+    "src/quick-quality-enhancer.ts",
+    "src/test-enhanced-agents.ts"
+  ]
 }

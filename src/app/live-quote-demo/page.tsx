@@ -324,7 +324,7 @@ export default function LiveQuoteDemo() {
                           {Object.entries(quote.coverage).map(([type, details]) => (
                             <div key={type} className="flex justify-between">
                               <span className="capitalize">{type.replace('_', ' ')}:</span>
-                              <span>{details.limit}</span>
+                              <span>{(details as any).limit}</span>
                             </div>
                           ))}
                         </div>

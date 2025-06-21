@@ -212,6 +212,7 @@ export const StrategyImplementationAIChatInterface: React.FC = () => {
     try {
       // Use AI Agent Quote Service for intelligent responses with real quote data
       const agentRequest: AgentQuoteRequest = {
+        message: userMessage,
         userInput: userMessage,
         agentId: currentAgent,
         locale: 'en',

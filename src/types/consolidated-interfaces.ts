@@ -490,221 +490,66 @@ export interface Claim {
 }
 
 /**
- * Location risks interface
- * Geographic risk factors
+ * Insurance history interface
+ * Complete insurance history for a user
  * 
- * @interface LocationRisks
+ * @interface InsuranceHistory
  */
-export interface LocationRisks {
-  /** Crime statistics */
-  crimeData: CrimeData;
-  /** Natural disaster risks */
-  disasterRisks: DisasterRisks;
-  /** Economic factors */
-  economicData: EconomicData;
-  /** Weather patterns */
-  weatherData: WeatherData;
-  /** Traffic density */
-  trafficDensity: number;
+export interface InsuranceHistory {
+  /** Previous insurance carriers */
+  previousCarriers: string[];
+  /** Years of continuous coverage */
+  yearsOfCoverage: number;
+  /** Current insurance status */
+  currentlyInsured: boolean;
+  /** Claims history */
+  claimsHistory: ClaimsHistory;
+  /** Lapse in coverage periods */
+  coverageLapses: CoverageLapse[];
+  /** Policy types held */
+  policyTypes: string[];
 }
 
 /**
- * Crime data interface
- * Crime statistics for risk assessment
+ * Coverage lapse interface
+ * Period without insurance coverage
  * 
- * @interface CrimeData
+ * @interface CoverageLapse
  */
-export interface CrimeData {
-  /** Overall crime rate per 1000 residents */
-  overallCrimeRate: number;
-  /** Violent crime rate per 1000 residents */
-  violentCrimeRate: number;
-  /** Property crime rate per 1000 residents */
-  propertyCrimeRate: number;
-  /** Auto theft rate per 1000 vehicles */
-  autoTheftRate: number;
-  /** Vandalism rate per 1000 residents */
-  vandalismRate: number;
-  /** Neighborhood safety score (1-10) */
-  safetyScore: number;
+export interface CoverageLapse {
+  /** Start of lapse period */
+  startDate: string;
+  /** End of lapse period */
+  endDate: string;
+  /** Reason for lapse */
+  reason: string;
+  /** Duration in days */
+  duration: number;
 }
 
 /**
- * Disaster risks interface
- * Natural disaster risk scores
+ * Account settings interface
+ * User account configuration settings
  * 
- * @interface DisasterRisks
+ * @interface AccountSettings
  */
-export interface DisasterRisks {
-  /** Flood risk score (0-10) */
-  floodRisk: number;
-  /** Earthquake risk score (0-10) */
-  earthquakeRisk: number;
-  /** Hurricane risk score (0-10) */
-  hurricaneRisk: number;
-  /** Tornado risk score (0-10) */
-  tornadoRisk: number;
-  /** Wildfire risk score (0-10) */
-  wildfireRisk: number;
-  /** Hail risk score (0-10) */
-  hailRisk: number;
-  /** Winter storm risk score (0-10) */
-  winterStormRisk: number;
-}
-
-/**
- * Weather data interface
- * Weather-related risk factors
- * 
- * @interface WeatherData
- */
-export interface WeatherData {
-  /** Average annual precipitation (inches) */
-  annualPrecipitation: number;
-  /** Average temperature range */
-  temperatureRange: {
-    min: number;
-    max: number;
-  };
-  /** Severe weather frequency */
-  severeWeatherDays: number;
-  /** UV index */
-  uvIndex: number;
-  /** Wind speed averages */
-  averageWindSpeed: number;
-}
-
-/**
- * Vehicle risks interface
- * Vehicle-specific risk factors
- * 
- * @interface VehicleRisks
- */
-export interface VehicleRisks {
-  /** Vehicle information */
-  vehicleInfo: VehicleInfo;
-  /** Theft risk score (0-10) */
-  theftRisk: number;
-  /** Safety rating */
-  safetyRating: number;
-  /** Repair cost index */
-  repairCostIndex: number;
-  /** Anti-theft devices */
-  antiTheftDevices: string[];
-  /** Safety features */
-  safetyFeatures: string[];
-}
-
-/**
- * Vehicle information interface
- * Detailed vehicle specifications
- * 
- * @interface VehicleInfo
- */
-export interface VehicleInfo {
-  /** Vehicle year */
-  year: number;
-  /** Vehicle make */
-  make: string;
-  /** Vehicle model */
-  model: string;
-  /** Vehicle trim/style */
-  trim?: string;
-  /** Vehicle identification number */
-  vin?: string;
-  /** Engine type */
-  engineType?: string;
-  /** Transmission type */
-  transmission?: string;
-  /** Fuel type */
-  fuelType: string;
-  /** Vehicle usage */
-  usage: 'personal' | 'business' | 'pleasure' | 'commute';
-  /** Annual mileage */
-  annualMileage: number;
-  /** Garaging location */
-  garagingAddress?: Address;
-}
-
-/**
- * Property risks interface
- * Property-specific risk factors
- * 
- * @interface PropertyRisks
- */
-export interface PropertyRisks {
-  /** Property information */
-  propertyInfo: PropertyInfo;
-  /** Construction risk score (0-10) */
-  constructionRisk: number;
-  /** Age-related risk score (0-10) */
-  ageRisk: number;
-  /** Occupancy type */
-  occupancyType: 'owner' | 'tenant' | 'landlord';
-  /** Security features */
-  securityFeatures: string[];
-  /** Safety features */
-  safetyFeatures: string[];
-}
-
-/**
- * Property information interface
- * Detailed property specifications
- * 
- * @interface PropertyInfo
- */
-export interface PropertyInfo {
-  /** Property type */
-  propertyType: 'single_family' | 'condo' | 'townhome' | 'apartment' | 'mobile_home';
-  /** Year built */
-  yearBuilt: number;
-  /** Square footage */
-  squareFootage: number;
-  /** Number of stories */
-  stories: number;
-  /** Number of bedrooms */
-  bedrooms: number;
-  /** Number of bathrooms */
-  bathrooms: number;
-  /** Construction type */
-  constructionType: string;
-  /** Roof type */
-  roofType: string;
-  /** Heating type */
-  heatingType: string;
-  /** Cooling type */
-  coolingType?: string;
-  /** Electrical system */
-  electricalSystem: string;
-  /** Plumbing system */
-  plumbingSystem: string;
-  /** Pool present */
-  hasPool: boolean;
-  /** Detached structures */
-  detachedStructures: boolean;
-}
-
-/**
- * User profile interface
- * Complete user profile information
- * 
- * @interface UserProfile
- */
-export interface UserProfile {
-  /** User unique identifier */
-  userId: string;
-  /** Personal information */
-  personalInfo: CustomerInfo;
-  /** Insurance history */
-  insuranceHistory: InsuranceHistory;
-  /** Preferences */
-  preferences: UserPreferences;
-  /** Account settings */
-  accountSettings: AccountSettings;
-  /** Profile creation date */
-  createdAt: string;
-  /** Last update timestamp */
-  updatedAt: string;
+export interface AccountSettings {
+  /** Email notifications enabled */
+  emailNotifications: boolean;
+  /** SMS notifications enabled */
+  smsNotifications: boolean;
+  /** Push notifications enabled */
+  pushNotifications: boolean;
+  /** Two-factor authentication enabled */
+  twoFactorAuth: boolean;
+  /** Account privacy level */
+  privacyLevel: 'public' | 'private' | 'limited';
+  /** Data sharing preferences */
+  dataSharing: boolean;
+  /** Auto-renewal preferences */
+  autoRenewal: boolean;
+  /** Password last changed */
+  passwordLastChanged: string;
 }
 
 // Privacy Compliance Interfaces
@@ -869,7 +714,7 @@ export interface AuditLogEntry {
 }
 
 export interface PersonalDataUpdates {
-  [field: string];
+  [field: string]: any;
 }
 
 export type LawfulBasis = 
@@ -879,3 +724,80 @@ export type LawfulBasis =
   | 'vital_interests'
   | 'public_task'
   | 'legitimate_interests';
+
+/**
+ * Location risks interface
+ * Geographic and location-based risk factors
+ * 
+ * @interface LocationRisks
+ */
+export interface LocationRisks {
+  /** ZIP code risk score */
+  zipCodeRisk: number;
+  /** Crime rate score */
+  crimeRate: number;
+  /** Weather risk score */
+  weatherRisk: number;
+  /** Natural disaster risk */
+  catastropheRisk: number;
+  /** Population density factor */
+  populationDensity: number;
+  /** Proximity to fire station (miles) */
+  fireStationDistance?: number;
+  /** Proximity to hospital (miles) */
+  hospitalDistance?: number;
+}
+
+/**
+ * Vehicle risks interface
+ * Vehicle-specific risk factors for auto insurance
+ * 
+ * @interface VehicleRisks
+ */
+export interface VehicleRisks {
+  /** Vehicle safety rating */
+  safetyRating: number;
+  /** Theft risk score */
+  theftRisk: number;
+  /** Repair cost factor */
+  repairCostFactor: number;
+  /** Performance/speed factor */
+  performanceFactor: number;
+  /** Age-related depreciation factor */
+  ageFactor: number;
+  /** Mileage-based risk */
+  mileageRisk: number;
+  /** Anti-theft devices present */
+  hasAntiTheftDevices: boolean;
+  /** Safety features score */
+  safetyFeatures: number;
+}
+
+/**
+ * Property risks interface
+ * Property-specific risk factors for home/renters insurance
+ * 
+ * @interface PropertyRisks
+ */
+export interface PropertyRisks {
+  /** Property age factor */
+  propertyAge: number;
+  /** Construction type risk */
+  constructionRisk: number;
+  /** Roof condition score */
+  roofCondition: number;
+  /** Electrical system risk */
+  electricalRisk: number;
+  /** Plumbing system risk */
+  plumbingRisk: number;
+  /** Foundation condition */
+  foundationCondition: number;
+  /** Security system present */
+  hasSecuritySystem: boolean;
+  /** Fire protection systems */
+  fireProtection: number;
+  /** Flood zone risk */
+  floodZoneRisk: number;
+  /** Wildfire risk */
+  wildfireRisk: number;
+}

@@ -161,7 +161,7 @@ export class QualityEnhancementAgent {
     // Add import for utility types if not present
     if (!content.includes('import { EnhancedEnvironment }') && 
         (content.includes('process.env') || content.includes('env.'))) {
-      enhancedContent = import { EnhancedEnvironment } from '../utils/enhanced-environment';\n${enhancedContent};
+      enhancedContent = `import { EnhancedEnvironment } from '../utils/enhanced-environment';\n${enhancedContent}`;
       enhancements.push('Added EnhancedEnvironment import');
     }
 

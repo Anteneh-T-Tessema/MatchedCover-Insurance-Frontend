@@ -191,7 +191,7 @@ export default function SocialCommunityFeatures() {
           insuranceExpertise: 'Auto Insurance'
         },
         content: "Question: Filed my first claim through the app. How long does processing usually take? Anyone have recent experience?",
-        type: 'question',
+        type: 'question' as const,
         timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
         likes: 12,
         comments: 15,
@@ -209,7 +209,7 @@ export default function SocialCommunityFeatures() {
           insuranceExpertise: 'Claims Expert'
         },
         content: "Achievement unlocked! 🎉 Just completed my 50th peer help session. Love helping fellow community members navigate insurance!",
-        type: 'achievement',
+        type: 'achievement' as const,
         timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000),
         likes: 47,
         comments: 12,

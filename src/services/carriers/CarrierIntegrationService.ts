@@ -319,7 +319,7 @@ export interface PolicyDocument {
 }
 
 interface CacheEntry {
-  data;
+  data: any;
   timestamp: number;
 }
 
@@ -568,7 +568,7 @@ export class CarrierIntegrationService {
   /**
    * Type guard for QuoteResponse
    */
-  private isQuoteResponse(obj): obj is QuoteResponse {
+  private isQuoteResponse(obj: any): obj is QuoteResponse {
     return typeof obj === 'object' && obj !== null && 
            'quoteId' in obj && 'carrierId' in obj && 'premium' in obj;
   }
@@ -1049,7 +1049,7 @@ export class CarrierIntegrationService {
     return null;
   }
 
-  private setCachedData(key: string, data): void {
+  private setCachedData(key: string, data: any): void {
     this.apiCache.set(key, {
       data,
       timestamp: Date.now()

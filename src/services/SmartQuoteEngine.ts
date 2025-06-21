@@ -685,7 +685,7 @@ export class SmartQuoteEngine {
 
   // Helper methods for risk data processing
 
-  private processWeatherDataForRisk(weatherData): number {
+  private processWeatherDataForRisk(weatherData: any): number {
     // Process NOAA/weather service data
     if (!weatherData || typeof weatherData !== 'object') return 3;
     const data = weatherData as Record<string, unknown>;
@@ -695,7 +695,7 @@ export class SmartQuoteEngine {
     return Math.min(severityScore, 10);
   }
 
-  private calculateWeatherRiskFromData(weatherData): number {
+  private calculateWeatherRiskFromData(weatherData: any): number {
     // Calculate risk from comprehensive weather data
     if (!weatherData || typeof weatherData !== 'object') return 3;
     const data = weatherData as Record<string, unknown>;
@@ -713,7 +713,7 @@ export class SmartQuoteEngine {
     return Math.min(riskScore, 10);
   }
 
-  private processFloodRiskData(floodData): number {
+  private processFloodRiskData(floodData: any): number {
     // Process FEMA flood zone data
     if (!floodData || typeof floodData !== 'object') return 3;
     const data = floodData as Record<string, unknown>;
@@ -729,7 +729,7 @@ export class SmartQuoteEngine {
     return Math.min(riskScore, 10);
   }
 
-  private processSeismicRiskData(seismicData): number {
+  private processSeismicRiskData(seismicData: any): number {
     // Process USGS seismic risk data
     if (!seismicData || typeof seismicData !== 'object') return 3;
     const data = seismicData as Record<string, unknown>;
@@ -745,7 +745,7 @@ export class SmartQuoteEngine {
     return Math.min(riskScore, 10);
   }
 
-  private processCrimeRiskData(crimeData): number {
+  private processCrimeRiskData(crimeData: any): number {
     // Process crime statistics
     if (!crimeData || typeof crimeData !== 'object') return 3;
     const data = crimeData as Record<string, unknown>;

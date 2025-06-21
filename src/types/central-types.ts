@@ -176,7 +176,7 @@ export interface ValidationRule {
   maxLength?: number;
   pattern?: RegExp;
   enumValues?: string[];
-  customValidator?: (value) => boolean;
+  customValidator?: (value: any) => boolean;
 }
 
 export interface ValidationResult {
@@ -189,7 +189,7 @@ export interface ValidationError {
   field: string;
   message: string;
   code: string;
-  value?;
+  value?: any;
 }
 
 // Performance Monitoring Types
