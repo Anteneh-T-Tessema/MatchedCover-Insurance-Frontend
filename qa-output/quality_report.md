@@ -1,7 +1,7 @@
 # Quality Assurance Report
 
-**Timestamp:** 2025-06-21T15:11:03.336Z
-**Overall Score:** 69%
+**Timestamp:** 2025-06-21T15:25:40.081Z
+**Overall Score:** 68%
 
 ## Summary
 
@@ -26,49 +26,49 @@
 ### Documentation
 - **Total Tests:** 3
 - **Passed:** 2
-- **Average Score:** 76%
+- **Average Score:** 77%
 
 ### Security
 - **Total Tests:** 3
 - **Passed:** 0
-- **Average Score:** 42%
+- **Average Score:** 40%
 
 ### Performance
 - **Total Tests:** 2
 - **Passed:** 1
-- **Average Score:** 79%
+- **Average Score:** 77%
 
 
 ## Failed Tests
 
 
-- **Type Coverage**: Type coverage: 5% (2116/40643 lines) (Score: 5%)
+- **Type Coverage**: Type coverage: 5% (1954/38135 lines) (Score: 5%)
 
-- **Interface Consistency**: Found 279 interface issues (247 duplicates, 32 naming issues) (Score: 0%)
+- **Interface Consistency**: Found 277 interface issues (245 duplicates, 32 naming issues) (Score: 0%)
 
 - **File Naming Conventions**: Found 4 naming convention violations (Score: 80%)
 
 - **Documentation Quality**: Average documentation quality: 67% across 3 documents (Score: 67%)
 
-- **Environment Variable Handling**: 22/89 files handle environment variables securely (Score: 25%)
+- **Environment Variable Handling**: 20/89 files handle environment variables securely (Score: 22%)
 
-- **Input Validation**: 10/20 input-handling files include validation (Score: 50%)
+- **Input Validation**: 9/18 input-handling files include validation (Score: 50%)
 
-- **Error Handling**: 46/89 files have proper error handling (Score: 52%)
+- **Error Handling**: 42/89 files have proper error handling (Score: 47%)
 
-- **Async/Await Usage**: 54/89 files use async/await properly (Score: 61%)
+- **Async/Await Usage**: 50/89 files use async/await properly (Score: 56%)
 
 
 ## Recommendations
 
-- Improve TypeScript quality: Type coverage: 5% (2116/40643 lines)
-- Improve TypeScript quality: Found 279 interface issues (247 duplicates, 32 naming issues)
+- Improve TypeScript quality: Type coverage: 5% (1954/38135 lines)
+- Improve TypeScript quality: Found 277 interface issues (245 duplicates, 32 naming issues)
 - Fix code structure: Found 4 naming convention violations
 - Enhance documentation: Average documentation quality: 67% across 3 documents
-- Address security issue: 22/89 files handle environment variables securely
-- Address security issue: 10/20 input-handling files include validation
-- Address security issue: 46/89 files have proper error handling
-- Optimize performance: 54/89 files use async/await properly
+- Address security issue: 20/89 files handle environment variables securely
+- Address security issue: 9/18 input-handling files include validation
+- Address security issue: 42/89 files have proper error handling
+- Optimize performance: 50/89 files use async/await properly
 
 ---
 
