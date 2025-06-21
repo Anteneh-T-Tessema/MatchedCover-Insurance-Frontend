@@ -1,0 +1,17 @@
+{
+  "id": "vendor_1750440130324_dj6x1exlb",
+  "name": "AWS Cloud Services",
+  "type": "critical",
+  "services": [
+    "Cloud Infrastructure",
+    "Data Storage",
+    "Computing"
+  ],
+  "dataAccess": [
+    "Customer Data",
+    "Application Data"
+  ],
+  "criticality": 9,
+  "country": "United States",
+  "industry": "Cloud Computing"
+}

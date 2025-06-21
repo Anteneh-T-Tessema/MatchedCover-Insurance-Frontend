@@ -1,0 +1,71 @@
+{
+  "timestamp": "2025-06-20T21:39:18.590Z",
+  "overallAPIHealth": 100,
+  "tests": [
+    {
+      "id": "rest_endpoints_test",
+      "testName": "REST Endpoints Test",
+      "passed": true,
+      "duration": 120,
+      "statusCode": 200,
+      "responseTime": 85,
+      "details": "REST endpoints respond correctly",
+      "timestamp": "2025-06-20T21:39:18.589Z"
+    },
+    {
+      "id": "graphql_endpoints_test",
+      "testName": "GraphQL Endpoints Test",
+      "passed": true,
+      "duration": 140,
+      "statusCode": 200,
+      "responseTime": 92,
+      "details": "GraphQL endpoints respond correctly",
+      "timestamp": "2025-06-20T21:39:18.590Z"
+    },
+    {
+      "id": "authentication_test",
+      "testName": "Authentication Test",
+      "passed": true,
+      "duration": 180,
+      "statusCode": 200,
+      "responseTime": 110,
+      "details": "Authentication system works correctly",
+      "timestamp": "2025-06-20T21:39:18.590Z"
+    },
+    {
+      "id": "rate_limiting_test",
+      "testName": "Rate Limiting Test",
+      "passed": true,
+      "duration": 160,
+      "statusCode": 429,
+      "responseTime": 45,
+      "details": "Rate limiting properly enforced",
+      "timestamp": "2025-06-20T21:39:18.590Z"
+    },
+    {
+      "id": "api_error_handling_test",
+      "testName": "API Error Handling Test",
+      "passed": true,
+      "duration": 100,
+      "statusCode": 400,
+      "responseTime": 60,
+      "details": "API error handling works correctly",
+      "timestamp": "2025-06-20T21:39:18.590Z"
+    }
+  ],
+  "endpoints": [
+    "REST Endpoints Test (200)",
+    "GraphQL Endpoints Test (200)",
+    "Authentication Test (200)",
+    "Rate Limiting Test (429)",
+    "API Error Handling Test (400)"
+  ],
+  "performanceMetrics": {
+    "averageResponseTime": 78.4,
+    "maxResponseTime": 110,
+    "minResponseTime": 45
+  },
+  "recommendations": [
+    "All API tests passing - maintain current implementation"
+  ]
+}

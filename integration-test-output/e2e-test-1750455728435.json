@@ -1,0 +1,106 @@
+{
+  "timestamp": "2025-06-20T21:42:08.428Z",
+  "overallSuccessRate": 100,
+  "tests": [
+    {
+      "id": "soc2_audit_workflow_test",
+      "testName": "SOC 2 Audit Workflow Test",
+      "passed": true,
+      "duration": 1200,
+      "steps": [
+        "Initialize audit",
+        "Collect evidence",
+        "Generate report"
+      ],
+      "userActions": [
+        "Login",
+        "Navigate to audit",
+        "Review findings"
+      ],
+      "details": "Complete SOC 2 audit workflow executed successfully",
+      "timestamp": "2025-06-20T21:42:08.428Z"
+    },
+    {
+      "id": "multi_framework_workflow_test",
+      "testName": "Multi-Framework Workflow Test",
+      "passed": true,
+      "duration": 900,
+      "steps": [
+        "Select frameworks",
+        "Configure mapping",
+        "Generate reports"
+      ],
+      "userActions": [
+        "Select ISO 27001",
+        "Configure controls",
+        "Review output"
+      ],
+      "details": "Multi-framework compliance workflow working",
+      "timestamp": "2025-06-20T21:42:08.428Z"
+    },
+    {
+      "id": "incident_response_workflow_test",
+      "testName": "Incident Response Workflow Test",
+      "passed": true,
+      "duration": 600,
+      "steps": [
+        "Detect incident",
+        "Assess impact",
+        "Execute response"
+      ],
+      "userActions": [
+        "View alert",
+        "Investigate",
+        "Take action"
+      ],
+      "details": "Incident response workflow functioning properly",
+      "timestamp": "2025-06-20T21:42:08.428Z"
+    },
+    {
+      "id": "vendor_risk_workflow_test",
+      "testName": "Vendor Risk Workflow Test",
+      "passed": true,
+      "duration": 800,
+      "steps": [
+        "Add vendor",
+        "Assess risk",
+        "Monitor compliance"
+      ],
+      "userActions": [
+        "Enter vendor data",
+        "Review risk score",
+        "Set monitoring"
+      ],
+      "details": "Vendor risk assessment workflow working correctly",
+      "timestamp": "2025-06-20T21:42:08.428Z"
+    },
+    {
+      "id": "user_journey_workflows_test",
+      "testName": "User Journey Workflows Test",
+      "passed": true,
+      "duration": 1000,
+      "steps": [
+        "User onboarding",
+        "Task completion",
+        "Report generation"
+      ],
+      "userActions": [
+        "Complete setup",
+        "Execute tasks",
+        "Export reports"
+      ],
+      "details": "User journey workflows complete successfully",
+      "timestamp": "2025-06-20T21:42:08.428Z"
+    }
+  ],
+  "failures": [],
+  "userExperienceMetrics": {
+    "averageWorkflowTime": 900,
+    "maxWorkflowTime": 1200,
+    "minWorkflowTime": 600,
+    "totalSteps": 15
+  },
+  "recommendations": [
+    "All E2E tests passing - excellent user experience"
+  ]
+}

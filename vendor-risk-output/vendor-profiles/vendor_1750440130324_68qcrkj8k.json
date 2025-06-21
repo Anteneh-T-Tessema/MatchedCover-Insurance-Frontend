@@ -1,0 +1,16 @@
+{
+  "id": "vendor_1750440130324_68qcrkj8k",
+  "name": "Salesforce CRM",
+  "type": "high",
+  "services": [
+    "Customer Relationship Management",
+    "Sales Automation"
+  ],
+  "dataAccess": [
+    "Customer Contact Data",
+    "Sales Data"
+  ],
+  "criticality": 7,
+  "country": "United States",
+  "industry": "Software"
+}

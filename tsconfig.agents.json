@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": [
+    "src/run-soc2-agents.ts",
+    "src/agents/**/*.ts",
+    "src/config/**/*.ts",
+    "src/interfaces/**/*.ts",
+    "src/step-by-step-executor.ts",
+    "src/implementation-orchestrator.ts",
+    "src/utils/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/@types/react*",
+    "node_modules/react*",
+    "src/app",
+    "src/components",
+    "src/i18n",
+    "src/services",
+    "src/stores",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}

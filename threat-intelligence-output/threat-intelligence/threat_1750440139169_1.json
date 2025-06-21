@@ -1,0 +1,23 @@
+{
+  "id": "threat_1750440139169_1",
+  "source": "CISA Alert",
+  "type": "vulnerability",
+  "severity": "high",
+  "description": "Critical vulnerability in web application frameworks",
+  "indicators": [
+    "CVE-2024-0001",
+    "Unusual HTTP requests",
+    "Memory corruption"
+  ],
+  "affectedSystems": [
+    "Web Applications",
+    "API Servers"
+  ],
+  "mitigationSteps": [
+    "Apply security patches immediately",
+    "Monitor for exploitation attempts",
+    "Implement additional access controls"
+  ],
+  "timestamp": "2025-06-20T17:22:19.169Z",
+  "confidence": 95
+}

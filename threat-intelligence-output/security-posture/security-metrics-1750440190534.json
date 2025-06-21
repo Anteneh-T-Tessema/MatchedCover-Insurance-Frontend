@@ -1,0 +1,20 @@
+{
+  "overallScore": 87,
+  "vulnerabilityScore": 92,
+  "threatExposure": 25,
+  "incidentResponseReadiness": 95,
+  "complianceScore": 94,
+  "lastUpdated": "2025-06-20T17:23:10.534Z",
+  "trends": {
+    "improving": [
+      "Incident Response Readiness",
+      "Compliance Score",
+      "Vulnerability Management"
+    ],
+    "declining": [],
+    "stable": [
+      "Overall Security Posture",
+      "Threat Detection Capabilities"
+    ]
+  }
+}

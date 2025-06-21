@@ -1,0 +1,30 @@
+{
+  "phaseId": "1",
+  "timestamp": "2025-06-20T17:55:16.672Z",
+  "status": "blocked",
+  "completionPercentage": 0,
+  "validations": [
+    {
+      "id": "unknown_phase",
+      "passed": false,
+      "message": "Unknown phase: 1",
+      "timestamp": "2025-06-20T17:55:16.672Z"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "unknown_phase",
+      "description": "Unknown phase: 1",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    }
+  ],
+  "recommendations": [
+    "Address validation failure: Unknown phase: 1"
+  ],
+  "nextSteps": [
+    "Address failing validations before proceeding",
+    "Re-run validation after fixes are implemented",
+    "Focus on critical and high-severity blockers first"
+  ]
+}

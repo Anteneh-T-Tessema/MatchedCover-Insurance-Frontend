@@ -1,0 +1,180 @@
+{
+  "timestamp": "2025-06-20T21:30:53.249Z",
+  "overallScore": 65,
+  "tests": [
+    {
+      "id": "typescript-config",
+      "name": "TypeScript Configuration",
+      "category": "typescript",
+      "passed": true,
+      "score": 100,
+      "message": "TypeScript configuration score: 100% (strict: true, strictNullChecks: true, noImplicitAny: true)"
+    },
+    {
+      "id": "type-coverage",
+      "name": "Type Coverage",
+      "category": "typescript",
+      "passed": false,
+      "score": 5,
+      "message": "Type coverage: 5% (1913/37291 lines)"
+    },
+    {
+      "id": "any-types",
+      "name": "Any Types Usage",
+      "category": "typescript",
+      "passed": true,
+      "score": 100,
+      "message": "Found 47 any types in 37291 lines (0%)"
+    },
+    {
+      "id": "interface-consistency",
+      "name": "Interface Consistency",
+      "category": "typescript",
+      "passed": false,
+      "score": 0,
+      "message": "Found 151 interface issues (131 duplicates, 20 naming issues)"
+    },
+    {
+      "id": "directory-structure",
+      "name": "Directory Structure",
+      "category": "structure",
+      "passed": true,
+      "score": 100,
+      "message": "All expected directories found"
+    },
+    {
+      "id": "file-naming",
+      "name": "File Naming Conventions",
+      "category": "structure",
+      "passed": false,
+      "score": 90,
+      "message": "Found 2 naming convention violations"
+    },
+    {
+      "id": "code-organization",
+      "name": "Code Organization",
+      "category": "structure",
+      "passed": true,
+      "score": 100,
+      "message": "20/20 agents are well-organized"
+    },
+    {
+      "id": "dependency-management",
+      "name": "Dependency Management",
+      "category": "structure",
+      "passed": false,
+      "score": 60,
+      "message": "Dependency management score: 60%"
+    },
+    {
+      "id": "documentation-completeness",
+      "name": "Documentation Completeness",
+      "category": "documentation",
+      "passed": false,
+      "score": 25,
+      "message": "1/4 required documents found"
+    },
+    {
+      "id": "documentation-quality",
+      "name": "Documentation Quality",
+      "category": "documentation",
+      "passed": true,
+      "score": 100,
+      "message": "Average documentation quality: 100% across 1 documents"
+    },
+    {
+      "id": "code-comments",
+      "name": "Code Comments",
+      "category": "documentation",
+      "passed": false,
+      "score": 50,
+      "message": "10% of lines contain comments"
+    },
+    {
+      "id": "env-variable-handling",
+      "name": "Environment Variable Handling",
+      "category": "security",
+      "passed": false,
+      "score": 30,
+      "message": "23/77 files handle environment variables securely"
+    },
+    {
+      "id": "input-validation",
+      "name": "Input Validation",
+      "category": "security",
+      "passed": false,
+      "score": 58,
+      "message": "11/19 input-handling files include validation"
+    },
+    {
+      "id": "error-handling",
+      "name": "Error Handling",
+      "category": "security",
+      "passed": false,
+      "score": 56,
+      "message": "43/77 files have proper error handling"
+    },
+    {
+      "id": "async-usage",
+      "name": "Async/Await Usage",
+      "category": "performance",
+      "passed": false,
+      "score": 68,
+      "message": "52/77 files use async/await properly"
+    },
+    {
+      "id": "memory-efficiency",
+      "name": "Memory Efficiency",
+      "category": "performance",
+      "passed": true,
+      "score": 97,
+      "message": "75/77 files show memory-efficient patterns"
+    }
+  ],
+  "recommendations": [
+    "Improve TypeScript quality: Type coverage: 5% (1913/37291 lines)",
+    "Improve TypeScript quality: Found 151 interface issues (131 duplicates, 20 naming issues)",
+    "Fix code structure: Found 2 naming convention violations",
+    "Fix code structure: Dependency management score: 60%",
+    "Enhance documentation: 1/4 required documents found",
+    "Enhance documentation: 10% of lines contain comments",
+    "Address security issue: 23/77 files handle environment variables securely",
+    "Address security issue: 11/19 input-handling files include validation",
+    "Address security issue: 43/77 files have proper error handling",
+    "Optimize performance: 52/77 files use async/await properly"
+  ],
+  "metrics": {
+    "totalTests": 16,
+    "passedTests": 6,
+    "failedTests": 10,
+    "averageScore": 65,
+    "categoryBreakdown": {
+      "typescript": {
+        "total": 4,
+        "passed": 2,
+        "avgScore": 51
+      },
+      "structure": {
+        "total": 4,
+        "passed": 2,
+        "avgScore": 88
+      },
+      "documentation": {
+        "total": 3,
+        "passed": 1,
+        "avgScore": 58
+      },
+      "security": {
+        "total": 3,
+        "passed": 0,
+        "avgScore": 48
+      },
+      "performance": {
+        "total": 2,
+        "passed": 1,
+        "avgScore": 83
+      }
+    }
+  },
+  "benchmarks": {}
+}

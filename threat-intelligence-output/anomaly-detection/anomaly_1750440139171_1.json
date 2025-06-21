@@ -1,0 +1,14 @@
+{
+  "id": "anomaly_1750440139171_1",
+  "type": "user-behavior",
+  "description": "Unusual login patterns detected for administrative accounts",
+  "severity": "high",
+  "timestamp": "2025-06-20T17:22:19.171Z",
+  "affectedAssets": [
+    "Admin Portal",
+    "Database Systems"
+  ],
+  "baselineDeviation": 3.2,
+  "investigationRequired": true,
+  "falsePositiveProbability": 0.15
+}

@@ -1,0 +1,233 @@
+{
+  "timestamp": "2025-06-21T02:29:54.057Z",
+  "overallScore": 70,
+  "tests": [
+    {
+      "id": "typescript-config",
+      "name": "TypeScript Configuration",
+      "category": "typescript",
+      "passed": true,
+      "score": 100,
+      "details": "TypeScript configuration analysis: strict: true, strictNullChecks: true, noImplicitAny: true",
+      "message": "TypeScript configuration score: 100% (strict: true, strictNullChecks: true, noImplicitAny: true)",
+      "timestamp": "2025-06-21T02:29:53.974Z"
+    },
+    {
+      "id": "type-coverage",
+      "name": "Type Coverage",
+      "category": "typescript",
+      "passed": false,
+      "score": 5,
+      "details": "Analyzed 83 TypeScript files with 41675 total lines",
+      "message": "Type coverage: 5% (2251/41675 lines)",
+      "timestamp": "2025-06-21T02:29:53.998Z"
+    },
+    {
+      "id": "any-types",
+      "name": "Any Types Usage",
+      "category": "typescript",
+      "passed": true,
+      "score": 100,
+      "details": "Analyzed 83 TypeScript files for any type usage",
+      "message": "Found 23 any types in 41675 lines (0%)",
+      "timestamp": "2025-06-21T02:29:54.006Z"
+    },
+    {
+      "id": "interface-consistency",
+      "name": "Interface Consistency",
+      "category": "typescript",
+      "passed": false,
+      "score": 0,
+      "details": "Analyzed 647 interfaces across 83 files",
+      "message": "Found 268 interface issues (238 duplicates, 30 naming issues)",
+      "timestamp": "2025-06-21T02:29:54.012Z"
+    },
+    {
+      "id": "directory-structure",
+      "name": "Directory Structure",
+      "category": "structure",
+      "passed": true,
+      "score": 100,
+      "details": "Expected directories: src, src/agents, src/types, src/utils",
+      "message": "All expected directories found",
+      "timestamp": "2025-06-21T02:29:54.012Z"
+    },
+    {
+      "id": "file-naming",
+      "name": "File Naming Conventions",
+      "category": "structure",
+      "passed": false,
+      "score": 85,
+      "details": "Analyzed 83 TypeScript files",
+      "message": "Found 3 naming convention violations",
+      "timestamp": "2025-06-21T02:29:54.015Z"
+    },
+    {
+      "id": "code-organization",
+      "name": "Code Organization",
+      "category": "structure",
+      "passed": true,
+      "score": 100,
+      "details": "Analyzed 20 agent files",
+      "message": "20/20 agents are well-organized",
+      "timestamp": "2025-06-21T02:29:54.016Z"
+    },
+    {
+      "id": "dependency-management",
+      "name": "Dependency Management",
+      "category": "structure",
+      "passed": true,
+      "score": 100,
+      "details": "Dependencies: 28, DevDeps: 20, Scripts: 43",
+      "message": "Dependency management score: 100%",
+      "timestamp": "2025-06-21T02:29:54.016Z"
+    },
+    {
+      "id": "documentation-completeness",
+      "name": "Documentation Completeness",
+      "category": "documentation",
+      "passed": true,
+      "score": 100,
+      "details": "Required: README.md, SECURITY.md, COMPLIANCE.md, docs/architecture.md",
+      "message": "4/4 required documents found",
+      "timestamp": "2025-06-21T02:29:54.016Z"
+    },
+    {
+      "id": "documentation-quality",
+      "name": "Documentation Quality",
+      "category": "documentation",
+      "passed": false,
+      "score": 67,
+      "details": "Analyzed 3 documentation files",
+      "message": "Average documentation quality: 67% across 3 documents",
+      "timestamp": "2025-06-21T02:29:54.016Z"
+    },
+    {
+      "id": "code-comments",
+      "name": "Code Comments",
+      "category": "documentation",
+      "passed": true,
+      "score": 60,
+      "details": "Analyzed 41675 lines across 83 files",
+      "message": "12% of lines contain comments",
+      "timestamp": "2025-06-21T02:29:54.025Z"
+    },
+    {
+      "id": "env-variable-handling",
+      "name": "Environment Variable Handling",
+      "category": "security",
+      "passed": false,
+      "score": 28,
+      "details": "Found 172 environment variable usages across 83 files",
+      "message": "23/83 files handle environment variables securely",
+      "timestamp": "2025-06-21T02:29:54.030Z"
+    },
+    {
+      "id": "input-validation",
+      "name": "Input Validation",
+      "category": "security",
+      "passed": false,
+      "score": 58,
+      "details": "Analyzed 19 files that handle input data",
+      "message": "11/19 input-handling files include validation",
+      "timestamp": "2025-06-21T02:29:54.036Z"
+    },
+    {
+      "id": "error-handling",
+      "name": "Error Handling",
+      "category": "security",
+      "passed": false,
+      "score": 55,
+      "details": "Analyzed error handling patterns across 83 TypeScript files",
+      "message": "46/83 files have proper error handling",
+      "timestamp": "2025-06-21T02:29:54.042Z"
+    },
+    {
+      "id": "async-usage",
+      "name": "Async/Await Usage",
+      "category": "performance",
+      "passed": false,
+      "score": 64,
+      "details": "Found 742 async methods across 83 files",
+      "message": "53/83 files use async/await properly",
+      "timestamp": "2025-06-21T02:29:54.050Z"
+    },
+    {
+      "id": "memory-efficiency",
+      "name": "Memory Efficiency",
+      "category": "performance",
+      "passed": true,
+      "score": 96,
+      "details": "Analyzed memory efficiency patterns across 83 files",
+      "message": "80/83 files show memory-efficient patterns",
+      "timestamp": "2025-06-21T02:29:54.057Z"
+    }
+  ],
+  "recommendations": [
+    "Improve TypeScript quality: Type coverage: 5% (2251/41675 lines)",
+    "Improve TypeScript quality: Found 268 interface issues (238 duplicates, 30 naming issues)",
+    "Fix code structure: Found 3 naming convention violations",
+    "Enhance documentation: Average documentation quality: 67% across 3 documents",
+    "Address security issue: 23/83 files handle environment variables securely",
+    "Address security issue: 11/19 input-handling files include validation",
+    "Address security issue: 46/83 files have proper error handling",
+    "Optimize performance: 53/83 files use async/await properly"
+  ],
+  "metrics": {
+    "total": 16,
+    "passed": 8,
+    "failed": 8,
+    "avgScore": 70,
+    "categories": {},
+    "totalTests": 16,
+    "passedTests": 8,
+    "failedTests": 8,
+    "categoryBreakdown": {
+      "typescript": {
+        "total": 4,
+        "passed": 2,
+        "avgScore": 51
+      },
+      "structure": {
+        "total": 4,
+        "passed": 3,
+        "avgScore": 96
+      },
+      "documentation": {
+        "total": 3,
+        "passed": 2,
+        "avgScore": 76
+      },
+      "security": {
+        "total": 3,
+        "passed": 0,
+        "avgScore": 47
+      },
+      "performance": {
+        "total": 2,
+        "passed": 1,
+        "avgScore": 80
+      }
+    }
+  },
+  "categories": [],
+  "securityAudit": {
+    "timestamp": "2025-06-21T02:29:54.057Z",
+    "overallScore": 85,
+    "checks": [],
+    "vulnerabilities": [],
+    "recommendations": [
+      "Implement additional security measures"
+    ]
+  },
+  "performance": {
+    "timestamp": "2025-06-21T02:29:54.057Z",
+    "overallScore": 80,
+    "tests": [],
+    "metrics": {},
+    "recommendations": [
+      "Optimize performance bottlenecks"
+    ]
+  },
+  "benchmarks": {}
+}

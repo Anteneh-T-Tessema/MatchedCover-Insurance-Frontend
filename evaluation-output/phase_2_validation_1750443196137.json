@@ -1,0 +1,134 @@
+{
+  "phaseId": "2",
+  "timestamp": "2025-06-20T18:13:16.137Z",
+  "status": "blocked",
+  "completionPercentage": 0,
+  "validations": [
+    {
+      "id": "framework_interface",
+      "passed": false,
+      "message": "Framework interface missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "framework_registry",
+      "passed": false,
+      "message": "Framework registry missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "control_mapping_engine",
+      "passed": false,
+      "message": "Control mapping engine missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "iso27001_agent",
+      "passed": false,
+      "message": "ISO 27001 agent missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "iso27001_controls",
+      "passed": false,
+      "message": "ISO 27001 controls directory missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "iso27001_documentation",
+      "passed": false,
+      "message": "ISO 27001 documentation output missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "pcidss_agent",
+      "passed": false,
+      "message": "PCI DSS agent missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "pcidss_controls",
+      "passed": false,
+      "message": "PCI DSS controls configuration missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    },
+    {
+      "id": "pcidss_compliance",
+      "passed": false,
+      "message": "PCI DSS compliance output missing",
+      "timestamp": "2025-06-20T18:13:16.137Z"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "framework_interface",
+      "description": "Framework interface missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "framework_registry",
+      "description": "Framework registry missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "control_mapping_engine",
+      "description": "Control mapping engine missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "iso27001_agent",
+      "description": "ISO 27001 agent missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "iso27001_controls",
+      "description": "ISO 27001 controls directory missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "iso27001_documentation",
+      "description": "ISO 27001 documentation output missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_agent",
+      "description": "PCI DSS agent missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_controls",
+      "description": "PCI DSS controls configuration missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_compliance",
+      "description": "PCI DSS compliance output missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    }
+  ],
+  "recommendations": [
+    "Address validation failure: Framework interface missing",
+    "Address validation failure: Framework registry missing",
+    "Address validation failure: Control mapping engine missing",
+    "Address validation failure: ISO 27001 agent missing",
+    "Address validation failure: ISO 27001 controls directory missing",
+    "Address validation failure: ISO 27001 documentation output missing",
+    "Address validation failure: PCI DSS agent missing",
+    "Address validation failure: PCI DSS controls configuration missing",
+    "Address validation failure: PCI DSS compliance output missing"
+  ],
+  "nextSteps": [
+    "Address failing validations before proceeding",
+    "Re-run validation after fixes are implemented",
+    "Focus on critical and high-severity blockers first"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "ES2015"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "declaration": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "skipDefaultLibCheck": true
+  },
+  "include": [
+    "src/run-soc2-agents.ts",
+    "src/agents/**/*.ts",
+    "src/config/**/*.ts",
+    "src/interfaces/**/*.ts",
+    "src/step-by-step-executor.ts",
+    "src/implementation-orchestrator.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/app",
+    "src/components",
+    "src/i18n",
+    "src/services",
+    "src/stores",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "node_modules/@types/react",
+    "node_modules/@types/react-native",
+    "node_modules/@types/react-bootstrap",
+    "node_modules/react-bootstrap",
+    "node_modules/react-native"
+  ]
+}

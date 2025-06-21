@@ -1,0 +1,176 @@
+{
+  "overall": {
+    "status": "pass",
+    "score": 100,
+    "findings": [
+      "8 controls passed",
+      "0 controls failed",
+      "0 controls have warnings"
+    ],
+    "recommendations": [
+      "Maintain current compliance standards"
+    ],
+    "details": {
+      "totalControls": 8,
+      "passedControls": 8,
+      "failedControls": 0,
+      "warningControls": 0
+    }
+  },
+  "controls": {
+    "CC1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC1.1 is fully implemented",
+        "Control CC1.1 has been tested",
+        "Control CC1.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "CC1.1",
+        "description": "The entity demonstrates independence of board members and key personnel",
+        "category": "CC",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "CC1.2": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC1.2 is fully implemented",
+        "Control CC1.2 has been tested",
+        "Control CC1.2 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "CC1.2",
+        "description": "Management demonstrates commitment to integrity and ethical values",
+        "category": "CC",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "CC2.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC2.1 is fully implemented",
+        "Control CC2.1 has been tested",
+        "Control CC2.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "CC2.1",
+        "description": "Management communicates information supporting internal control",
+        "category": "CC",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "CC3.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC3.1 is fully implemented",
+        "Control CC3.1 has been tested",
+        "Control CC3.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "CC3.1",
+        "description": "Management identifies risks to achieving objectives",
+        "category": "CC",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "A1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control A1.1 is fully implemented",
+        "Control A1.1 has been tested",
+        "Control A1.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "A1.1",
+        "description": "Systems are monitored for availability and performance",
+        "category": "A",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "CA1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CA1.1 is fully implemented",
+        "Control CA1.1 has been tested",
+        "Control CA1.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "CA1.1",
+        "description": "Data is classified based on sensitivity levels",
+        "category": "CA",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "PI1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control PI1.1 is fully implemented",
+        "Control PI1.1 has been tested",
+        "Control PI1.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "PI1.1",
+        "description": "System inputs are validated for completeness and accuracy",
+        "category": "PI",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    },
+    "P1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control P1.1 is fully implemented",
+        "Control P1.1 has been tested",
+        "Control P1.1 is operating effectively"
+      ],
+      "recommendations": [],
+      "details": {
+        "controlId": "P1.1",
+        "description": "Only necessary personal information is collected and processed",
+        "category": "P",
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective"
+      }
+    }
+  },
+  "framework": "SOC2",
+  "timestamp": "2025-06-20T20:08:07.140Z",
+  "overallComplianceScore": 100,
+  "summary": {
+    "totalControls": 8,
+    "passedControls": 8,
+    "failedControls": 0,
+    "warningControls": 0,
+    "overallScore": 100
+  }
+}

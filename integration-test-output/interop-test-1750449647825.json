@@ -1,0 +1,168 @@
+{
+  "timestamp": "2025-06-20T20:00:47.825Z",
+  "overallSuccessRate": 33,
+  "tests": [
+    {
+      "testId": "instantiate_ComplianceAgent",
+      "testName": "Instantiate ComplianceAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ComplianceAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:27.097Z"
+    },
+    {
+      "testId": "instantiate_PolicyAgent",
+      "testName": "Instantiate PolicyAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PolicyAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:29.504Z"
+    },
+    {
+      "testId": "instantiate_IncidentAgent",
+      "testName": "Instantiate IncidentAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/IncidentAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:31.847Z"
+    },
+    {
+      "testId": "instantiate_AuditAgent",
+      "testName": "Instantiate AuditAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/AuditAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:34.221Z"
+    },
+    {
+      "testId": "instantiate_RiskAgent",
+      "testName": "Instantiate RiskAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/RiskAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:36.504Z"
+    },
+    {
+      "testId": "instantiate_MonitoringAgent",
+      "testName": "Instantiate MonitoringAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/MonitoringAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:38.791Z"
+    },
+    {
+      "testId": "instantiate_DocumentationAgent",
+      "testName": "Instantiate DocumentationAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/DocumentationAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:41.055Z"
+    },
+    {
+      "testId": "instantiate_NotificationAgent",
+      "testName": "Instantiate NotificationAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/NotificationAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:41.055Z"
+    },
+    {
+      "testId": "instantiate_ReportingAgent",
+      "testName": "Instantiate ReportingAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ReportingAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:41.055Z"
+    },
+    {
+      "testId": "instantiate_TrustCenterAgent",
+      "testName": "Instantiate TrustCenterAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/TrustCenterAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:43.348Z"
+    },
+    {
+      "testId": "instantiate_VendorRiskAgent",
+      "testName": "Instantiate VendorRiskAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/VendorRiskAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:45.580Z"
+    },
+    {
+      "testId": "instantiate_PredictiveThreatAgent",
+      "testName": "Instantiate PredictiveThreatAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PredictiveThreatAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "communication_ComplianceAgent_AuditAgent",
+      "testName": "Communication between ComplianceAgent and AuditAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "communication_RiskAgent_VendorRiskAgent",
+      "testName": "Communication between RiskAgent and VendorRiskAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "communication_IncidentAgent_NotificationAgent",
+      "testName": "Communication between IncidentAgent and NotificationAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "communication_MonitoringAgent_PredictiveThreatAgent",
+      "testName": "Communication between MonitoringAgent and PredictiveThreatAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "data_flow_test",
+      "testName": "Agent Data Flow Test",
+      "passed": true,
+      "message": "Data flow test passed",
+      "executionTime": 200,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    },
+    {
+      "testId": "orchestrator_integration",
+      "testName": "Orchestrator Integration Test",
+      "passed": true,
+      "message": "Orchestrator integration test passed",
+      "executionTime": 150,
+      "timestamp": "2025-06-20T20:00:47.825Z"
+    }
+  ],
+  "failures": [
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ComplianceAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PolicyAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/IncidentAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/AuditAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/RiskAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/MonitoringAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/DocumentationAgent.ts\n",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/NotificationAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ReportingAgent.ts",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/TrustCenterAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/VendorRiskAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PredictiveThreatAgent.ts\n"
+  ],
+  "recommendations": [
+    "Review agent interfaces for consistency",
+    "Implement proper error handling"
+  ]
+}

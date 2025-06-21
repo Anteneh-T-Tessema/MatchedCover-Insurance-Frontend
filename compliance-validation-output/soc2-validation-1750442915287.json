@@ -1,0 +1,472 @@
+{
+  "timestamp": "2025-06-20T18:08:35.287Z",
+  "overallComplianceScore": 50,
+  "controlValidations": [
+    {
+      "controlId": "CC1.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC1.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC1.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC1.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC1.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC1.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC1.4",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC1.4"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC1.5",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC1.5"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC2.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC2.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC2.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC2.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC2.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC2.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC3.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC3.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC3.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC3.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC3.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC3.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC3.4",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC3.4"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC4.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC4.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC4.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC4.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC5.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC5.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC5.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC5.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC5.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC5.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.6",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.6"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.7",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.7"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC6.8",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC6.8"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC7.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC7.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC7.2",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC7.2"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC7.3",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC7.3"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC7.4",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC7.4"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC7.5",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC7.5"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC8.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC8.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "controlId": "CC9.1",
+      "implemented": true,
+      "tested": true,
+      "effective": true,
+      "score": 100,
+      "evidence": [
+        "Evidence for CC9.1"
+      ],
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    }
+  ],
+  "evidenceValidations": [
+    {
+      "evidenceType": "policies_and_procedures",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "system_configurations",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "access_reviews",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "monitoring_reports",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "incident_records",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "training_records",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "vendor_assessments",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "change_management",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "backup_procedures",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    },
+    {
+      "evidenceType": "business_continuity",
+      "exists": true,
+      "current": true,
+      "complete": true,
+      "score": 100,
+      "lastUpdated": "2025-06-20T18:08:35.287Z",
+      "gaps": [],
+      "timestamp": "2025-06-20T18:08:35.287Z"
+    }
+  ],
+  "policyValidations": [],
+  "processValidations": [],
+  "gaps": [],
+  "recommendations": []
+}

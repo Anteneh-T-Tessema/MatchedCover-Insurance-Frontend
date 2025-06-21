@@ -1,0 +1,168 @@
+{
+  "timestamp": "2025-06-20T18:13:11.673Z",
+  "overallSuccessRate": 33,
+  "tests": [
+    {
+      "testId": "instantiate_ComplianceAgent",
+      "testName": "Instantiate ComplianceAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ComplianceAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_PolicyAgent",
+      "testName": "Instantiate PolicyAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PolicyAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_IncidentAgent",
+      "testName": "Instantiate IncidentAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/IncidentAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_AuditAgent",
+      "testName": "Instantiate AuditAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/AuditAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_RiskAgent",
+      "testName": "Instantiate RiskAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/RiskAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_MonitoringAgent",
+      "testName": "Instantiate MonitoringAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/MonitoringAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:02.558Z"
+    },
+    {
+      "testId": "instantiate_DocumentationAgent",
+      "testName": "Instantiate DocumentationAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/DocumentationAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:04.854Z"
+    },
+    {
+      "testId": "instantiate_NotificationAgent",
+      "testName": "Instantiate NotificationAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/NotificationAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:04.854Z"
+    },
+    {
+      "testId": "instantiate_ReportingAgent",
+      "testName": "Instantiate ReportingAgent",
+      "passed": false,
+      "message": "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ReportingAgent.ts",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:04.854Z"
+    },
+    {
+      "testId": "instantiate_TrustCenterAgent",
+      "testName": "Instantiate TrustCenterAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/TrustCenterAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:07.098Z"
+    },
+    {
+      "testId": "instantiate_VendorRiskAgent",
+      "testName": "Instantiate VendorRiskAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/VendorRiskAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:09.394Z"
+    },
+    {
+      "testId": "instantiate_PredictiveThreatAgent",
+      "testName": "Instantiate PredictiveThreatAgent",
+      "passed": false,
+      "message": "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PredictiveThreatAgent.ts\n",
+      "executionTime": 0,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "communication_ComplianceAgent_AuditAgent",
+      "testName": "Communication between ComplianceAgent and AuditAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "communication_RiskAgent_VendorRiskAgent",
+      "testName": "Communication between RiskAgent and VendorRiskAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "communication_IncidentAgent_NotificationAgent",
+      "testName": "Communication between IncidentAgent and NotificationAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "communication_MonitoringAgent_PredictiveThreatAgent",
+      "testName": "Communication between MonitoringAgent and PredictiveThreatAgent",
+      "passed": true,
+      "message": "Communication test passed",
+      "executionTime": 100,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "data_flow_test",
+      "testName": "Agent Data Flow Test",
+      "passed": true,
+      "message": "Data flow test passed",
+      "executionTime": 200,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    },
+    {
+      "testId": "orchestrator_integration",
+      "testName": "Orchestrator Integration Test",
+      "passed": true,
+      "message": "Orchestrator integration test passed",
+      "executionTime": 150,
+      "timestamp": "2025-06-20T18:13:11.673Z"
+    }
+  ],
+  "failures": [
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ComplianceAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PolicyAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/IncidentAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/AuditAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/RiskAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/MonitoringAgent.ts",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/DocumentationAgent.ts\n",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/NotificationAgent.ts",
+    "Agent file not found: /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/ReportingAgent.ts",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/TrustCenterAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/VendorRiskAgent.ts\n",
+    "Instantiation failed: Error: Command failed: npx tsc --noEmit /Users/antenehtessema/Desktop/mactedcoverfrontend/src/agents/PredictiveThreatAgent.ts\n"
+  ],
+  "recommendations": [
+    "Review agent interfaces for consistency",
+    "Implement proper error handling"
+  ]
+}

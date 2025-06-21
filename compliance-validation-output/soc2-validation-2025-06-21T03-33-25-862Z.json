@@ -1,0 +1,217 @@
+{
+  "overall": {
+    "status": "pass",
+    "score": 100,
+    "findings": [
+      "8 controls passed",
+      "0 controls failed",
+      "0 controls have warnings"
+    ],
+    "recommendations": [
+      "Conduct regular compliance assessments",
+      "Implement automated monitoring for continuous compliance"
+    ],
+    "details": {
+      "totalControls": 8,
+      "passedControls": 8,
+      "failedControls": 0,
+      "warningControls": 0
+    }
+  },
+  "controls": {
+    "CC1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC1.1 is fully implemented",
+        "Control CC1.1 has been tested",
+        "Control CC1.1 is operating effectively",
+        "Control CC1.1 has comprehensive evidence",
+        "Control CC1.1 has complete documentation",
+        "Control CC1.1 is highly automated",
+        "Control CC1.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "CC1.2": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC1.2 is fully implemented",
+        "Control CC1.2 has been tested",
+        "Control CC1.2 is operating effectively",
+        "Control CC1.2 has comprehensive evidence",
+        "Control CC1.2 has complete documentation",
+        "Control CC1.2 is highly automated",
+        "Control CC1.2 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "CC2.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC2.1 is fully implemented",
+        "Control CC2.1 has been tested",
+        "Control CC2.1 is operating effectively",
+        "Control CC2.1 has comprehensive evidence",
+        "Control CC2.1 has complete documentation",
+        "Control CC2.1 is highly automated",
+        "Control CC2.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "CC3.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CC3.1 is fully implemented",
+        "Control CC3.1 has been tested",
+        "Control CC3.1 is operating effectively",
+        "Control CC3.1 has comprehensive evidence",
+        "Control CC3.1 has complete documentation",
+        "Control CC3.1 is highly automated",
+        "Control CC3.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "A1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control A1.1 is fully implemented",
+        "Control A1.1 has been tested",
+        "Control A1.1 is operating effectively",
+        "Control A1.1 has comprehensive evidence",
+        "Control A1.1 has complete documentation",
+        "Control A1.1 is highly automated",
+        "Control A1.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "CA1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control CA1.1 is fully implemented",
+        "Control CA1.1 has been tested",
+        "Control CA1.1 is operating effectively",
+        "Control CA1.1 has comprehensive evidence",
+        "Control CA1.1 has complete documentation",
+        "Control CA1.1 is highly automated",
+        "Control CA1.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "PI1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control PI1.1 is fully implemented",
+        "Control PI1.1 has been tested",
+        "Control PI1.1 is operating effectively",
+        "Control PI1.1 has comprehensive evidence",
+        "Control PI1.1 has complete documentation",
+        "Control PI1.1 is highly automated",
+        "Control PI1.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    },
+    "P1.1": {
+      "status": "pass",
+      "score": 100,
+      "findings": [
+        "Control P1.1 is fully implemented",
+        "Control P1.1 has been tested",
+        "Control P1.1 is operating effectively",
+        "Control P1.1 has comprehensive evidence",
+        "Control P1.1 has complete documentation",
+        "Control P1.1 is highly automated",
+        "Control P1.1 has comprehensive monitoring"
+      ],
+      "recommendations": [],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 10,
+        "documentationCompleteness": 10,
+        "automationLevel": 5,
+        "monitoringScore": 5
+      }
+    }
+  },
+  "framework": "SOC2",
+  "timestamp": "2025-06-21T03:33:25.862Z",
+  "overallComplianceScore": 100,
+  "summary": {
+    "totalControls": 8,
+    "passedControls": 8,
+    "failedControls": 0,
+    "warningControls": 0,
+    "overallScore": 100
+  }
+}

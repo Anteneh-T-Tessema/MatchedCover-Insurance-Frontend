@@ -1,0 +1,162 @@
+{
+  "timestamp": "2025-06-21T12:01:59.719Z",
+  "overallScore": 100,
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "name": "Install and maintain network security controls",
+      "category": "Network Security",
+      "status": "compliant",
+      "evidence": [
+        "Firewall configuration",
+        "Network segmentation",
+        "Router configuration"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-2",
+      "name": "Apply secure configurations to all system components",
+      "category": "System Configuration",
+      "status": "compliant",
+      "evidence": [
+        "System hardening guides",
+        "Configuration baselines",
+        "Change management"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-3",
+      "name": "Protect stored cardholder data",
+      "category": "Data Protection",
+      "status": "compliant",
+      "evidence": [
+        "Encryption policies",
+        "Data retention policies",
+        "Secure storage"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-4",
+      "name": "Protect cardholder data with strong cryptography during transmission",
+      "category": "Cryptography",
+      "status": "compliant",
+      "evidence": [
+        "TLS configuration",
+        "Key management",
+        "Encryption protocols"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-5",
+      "name": "Protect all systems and networks from malicious software",
+      "category": "Malware Protection",
+      "status": "compliant",
+      "evidence": [
+        "Antivirus deployment",
+        "Malware scanning",
+        "Update procedures"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-6",
+      "name": "Develop and maintain secure systems and software",
+      "category": "Secure Development",
+      "status": "compliant",
+      "evidence": [
+        "Secure coding practices",
+        "Vulnerability management",
+        "Patch management"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-7",
+      "name": "Restrict access to cardholder data by business need to know",
+      "category": "Access Control",
+      "status": "compliant",
+      "evidence": [
+        "Role-based access control",
+        "Access reviews",
+        "Need-to-know basis"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-8",
+      "name": "Identify users and authenticate access to system components",
+      "category": "Authentication",
+      "status": "compliant",
+      "evidence": [
+        "Multi-factor authentication",
+        "User identification",
+        "Authentication policies"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-9",
+      "name": "Restrict physical access to cardholder data",
+      "category": "Physical Security",
+      "status": "compliant",
+      "evidence": [
+        "Physical access controls",
+        "Visitor management",
+        "Media handling"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-10",
+      "name": "Log and monitor all access to network resources and cardholder data",
+      "category": "Logging & Monitoring",
+      "status": "compliant",
+      "evidence": [
+        "Audit logging",
+        "Log monitoring",
+        "SIEM implementation"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-11",
+      "name": "Test security of systems and networks regularly",
+      "category": "Security Testing",
+      "status": "compliant",
+      "evidence": [
+        "Vulnerability scanning",
+        "Penetration testing",
+        "File integrity monitoring"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    },
+    {
+      "id": "REQ-12",
+      "name": "Support information security with organizational policies and programs",
+      "category": "Information Security Policy",
+      "status": "compliant",
+      "evidence": [
+        "Security policies",
+        "Security awareness training",
+        "Incident response plan"
+      ],
+      "lastAssessed": "2025-06-21T12:01:59.719Z"
+    }
+  ],
+  "gaps": [],
+  "recommendations": [
+    "Implement continuous monitoring for cardholder data environment",
+    "Conduct regular security awareness training for all personnel",
+    "Establish automated vulnerability scanning processes",
+    "Implement network segmentation to isolate cardholder data environment",
+    "Develop comprehensive incident response procedures",
+    "Maintain up-to-date asset inventory for all system components",
+    "Implement file integrity monitoring for critical system files",
+    "Establish secure key management procedures"
+  ],
+  "complianceLevel": 100
+}

@@ -1,0 +1,31 @@
+{
+  "phaseId": "2.2",
+  "timestamp": "2025-06-20T21:42:50.653Z",
+  "status": "completed",
+  "completionPercentage": 100,
+  "validations": [
+    {
+      "id": "iso27001_agent",
+      "passed": true,
+      "message": "ISO 27001 agent found",
+      "timestamp": "2025-06-20T21:42:50.653Z"
+    },
+    {
+      "id": "iso27001_controls",
+      "passed": true,
+      "message": "ISO 27001 controls directory found",
+      "timestamp": "2025-06-20T21:42:50.653Z"
+    },
+    {
+      "id": "iso27001_documentation",
+      "passed": true,
+      "message": "ISO 27001 documentation output found",
+      "timestamp": "2025-06-20T21:42:50.653Z"
+    }
+  ],
+  "blockers": [],
+  "recommendations": [],
+  "nextSteps": [
+    "Proceed to next phase after 2.2"
+  ]
+}

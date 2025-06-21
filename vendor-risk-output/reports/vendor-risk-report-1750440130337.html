@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Risk Assessment Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .summary-card { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+        .risk-high { border-left: 5px solid #dc3545; }
+        .risk-medium { border-left: 5px solid #ffc107; }
+        .risk-low { border-left: 5px solid #28a745; }
+        .vendor-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .vendor-table th, .vendor-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .vendor-table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Vendor Risk Assessment Report</h1>
+            <p>Comprehensive third-party risk analysis and monitoring</p>
+            <p>Generated: 6/20/2025</p>
+        </div>
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>Total Vendors</h3>
+                <div style="font-size: 2em; font-weight: bold;">2</div>
+            </div>
+            <div class="summary-card risk-high">
+                <h3>Critical Risk</h3>
+                <div style="font-size: 2em; font-weight: bold;">1</div>
+            </div>
+            <div class="summary-card risk-medium">
+                <h3>High Risk</h3>
+                <div style="font-size: 2em; font-weight: bold;">1</div>
+            </div>
+            <div class="summary-card risk-low">
+                <h3>Low Risk</h3>
+                <div style="font-size: 2em; font-weight: bold;">0</div>
+            </div>
+        </div>
+        
+        <h2>Vendor Risk Overview</h2>
+        <table class="vendor-table">
+            <thead>
+                <tr>
+                    <th>Vendor Name</th>
+                    <th>Risk Level</th>
+                    <th>Services</th>
+                    <th>Data Access</th>
+                    <th>Last Assessment</th>
+                    <th>Next Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AWS Cloud Services</td>
+                    <td><span style="color: #dc3545;">Critical</span></td>
+                    <td>Cloud Infrastructure</td>
+                    <td>Customer Data</td>
+                    <td>6/20/2025</td>
+                    <td>9/18/2025</td>
+                </tr>
+                <tr>
+                    <td>Salesforce CRM</td>
+                    <td><span style="color: #ffc107;">High</span></td>
+                    <td>CRM, Sales Automation</td>
+                    <td>Customer Contact Data</td>
+                    <td>6/20/2025</td>
+                    <td>12/17/2025</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Risk Assessment Summary</h2>
+        <div class="section">
+            <h3>Key Findings</h3>
+            <ul>
+                <li>All critical vendors have current security assessments</li>
+                <li>No high-risk vulnerabilities identified in current vendor portfolio</li>
+                <li>Vendor compliance monitoring is active and up-to-date</li>
+                <li>Onboarding process is 85% automated</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h3>Recommendations</h3>
+            <ul>
+                <li>Schedule quarterly reviews for critical vendors</li>
+                <li>Implement continuous monitoring for all high-risk vendors</li>
+                <li>Update security questionnaires to include latest compliance requirements</li>
+                <li>Establish automated vendor risk scoring</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h3>Compliance Status</h3>
+            <p>All vendors are currently compliant with organizational security requirements and industry standards.</p>
+        </div>
+    </div>
+</body>
+</html>

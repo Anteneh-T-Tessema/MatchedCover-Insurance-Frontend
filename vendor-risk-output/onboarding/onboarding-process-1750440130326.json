@@ -1,0 +1,16 @@
+{
+  "processDate": "2025-06-20T17:22:10.326Z",
+  "steps": [
+    "Initial vendor registration",
+    "Security questionnaire distribution",
+    "Risk assessment execution",
+    "Contract review and approval",
+    "Monitoring setup configuration"
+  ],
+  "automationLevel": "85%",
+  "manualSteps": [
+    "Final contract approval",
+    "Security questionnaire review"
+  ],
+  "averageOnboardingTime": "5-7 business days"
+}

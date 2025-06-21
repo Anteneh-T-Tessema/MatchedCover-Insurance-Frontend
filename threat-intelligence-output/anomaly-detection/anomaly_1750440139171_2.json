@@ -1,0 +1,14 @@
+{
+  "id": "anomaly_1750440139171_2",
+  "type": "network-traffic",
+  "description": "Unexpected data exfiltration patterns in network traffic",
+  "severity": "medium",
+  "timestamp": "2025-06-20T17:22:19.171Z",
+  "affectedAssets": [
+    "Internal Network",
+    "Data Servers"
+  ],
+  "baselineDeviation": 2.1,
+  "investigationRequired": true,
+  "falsePositiveProbability": 0.25
+}

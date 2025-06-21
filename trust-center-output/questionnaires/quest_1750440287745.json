@@ -1,0 +1,23 @@
+{
+  "id": "quest_1750440287745",
+  "customerName": "Enterprise Customer",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Do you have a formal information security policy?",
+      "category": "Governance",
+      "framework": "SOC 2",
+      "required": true
+    },
+    {
+      "id": "q2",
+      "question": "Is data encrypted in transit and at rest?",
+      "category": "Data Protection",
+      "framework": "SOC 2",
+      "required": true
+    }
+  ],
+  "responses": [],
+  "status": "pending",
+  "createdAt": "2025-06-20T17:24:47.745Z"
+}

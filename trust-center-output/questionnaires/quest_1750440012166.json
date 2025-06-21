@@ -1,0 +1,45 @@
+{
+  "id": "quest_1750440012166",
+  "customerName": "Sample Customer",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Do you have a formal information security policy?",
+      "category": "Governance",
+      "framework": "SOC 2",
+      "required": true
+    },
+    {
+      "id": "q2",
+      "question": "Is data encrypted in transit and at rest?",
+      "category": "Data Protection",
+      "framework": "SOC 2",
+      "required": true
+    }
+  ],
+  "responses": [
+    {
+      "questionId": "q1",
+      "answer": "Yes, we have implemented comprehensive governance controls as part of our SOC 2 Type II, ISO 27001 compliance program.",
+      "evidence": [
+        "Governance-Policy.pdf",
+        "Governance-Procedures.pdf"
+      ],
+      "confidence": 95,
+      "aiGenerated": true
+    },
+    {
+      "questionId": "q2",
+      "answer": "Yes, we have implemented comprehensive data protection controls as part of our SOC 2 Type II, ISO 27001 compliance program.",
+      "evidence": [
+        "Data Protection-Policy.pdf",
+        "Data Protection-Procedures.pdf"
+      ],
+      "confidence": 95,
+      "aiGenerated": true
+    }
+  ],
+  "status": "completed",
+  "createdAt": "2025-06-20T17:20:12.166Z",
+  "completedAt": "2025-06-20T17:20:12.169Z"
+}

@@ -1,0 +1,17 @@
+{
+  "reportDate": "2025-06-20T17:23:00.768Z",
+  "totalVendors": 2,
+  "criticalVendors": 1,
+  "highRiskVendors": 1,
+  "complianceStatus": {
+    "compliant": 2,
+    "nonCompliant": 0,
+    "unknown": 0
+  },
+  "upcomingReviews": 1,
+  "recommendations": [
+    "Schedule quarterly reviews for critical vendors",
+    "Update vendor security questionnaires",
+    "Implement continuous monitoring for high-risk vendors"
+  ]
+}

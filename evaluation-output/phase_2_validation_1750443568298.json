@@ -1,0 +1,106 @@
+{
+  "phaseId": "2",
+  "timestamp": "2025-06-20T18:19:28.298Z",
+  "status": "blocked",
+  "completionPercentage": 44,
+  "validations": [
+    {
+      "id": "framework_interface",
+      "passed": true,
+      "message": "Framework interface found",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "framework_registry",
+      "passed": true,
+      "message": "Framework registry found",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "control_mapping_engine",
+      "passed": true,
+      "message": "Control mapping engine found",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "iso27001_agent",
+      "passed": true,
+      "message": "ISO 27001 agent found",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "iso27001_controls",
+      "passed": false,
+      "message": "ISO 27001 controls directory missing",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "iso27001_documentation",
+      "passed": false,
+      "message": "ISO 27001 documentation output missing",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "pcidss_agent",
+      "passed": false,
+      "message": "PCI DSS agent missing",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "pcidss_controls",
+      "passed": false,
+      "message": "PCI DSS controls configuration missing",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    },
+    {
+      "id": "pcidss_compliance",
+      "passed": false,
+      "message": "PCI DSS compliance output missing",
+      "timestamp": "2025-06-20T18:19:28.298Z"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "iso27001_controls",
+      "description": "ISO 27001 controls directory missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "iso27001_documentation",
+      "description": "ISO 27001 documentation output missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_agent",
+      "description": "PCI DSS agent missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_controls",
+      "description": "PCI DSS controls configuration missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    },
+    {
+      "id": "pcidss_compliance",
+      "description": "PCI DSS compliance output missing",
+      "severity": "low",
+      "estimatedResolutionTime": "1-3 hours"
+    }
+  ],
+  "recommendations": [
+    "Address validation failure: ISO 27001 controls directory missing",
+    "Address validation failure: ISO 27001 documentation output missing",
+    "Address validation failure: PCI DSS agent missing",
+    "Address validation failure: PCI DSS controls configuration missing",
+    "Address validation failure: PCI DSS compliance output missing"
+  ],
+  "nextSteps": [
+    "Address failing validations before proceeding",
+    "Re-run validation after fixes are implemented",
+    "Focus on critical and high-severity blockers first"
+  ]
+}

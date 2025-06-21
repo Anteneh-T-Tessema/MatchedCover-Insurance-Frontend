@@ -1,0 +1,320 @@
+{
+  "timestamp": "2025-06-21T14:21:53.262Z",
+  "overallScore": 100,
+  "controls": [
+    {
+      "id": "A.5.1.1",
+      "name": "Information Security Policy",
+      "category": "Information Security Policies",
+      "status": "implemented",
+      "evidence": [
+        "Security policy document",
+        "Management approval",
+        "Regular reviews"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.261Z"
+    },
+    {
+      "id": "A.5.1.2",
+      "name": "Review of Information Security Policy",
+      "category": "Information Security Policies",
+      "status": "implemented",
+      "evidence": [
+        "Review schedule",
+        "Update history",
+        "Stakeholder feedback"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.6.1.1",
+      "name": "Information Security Roles and Responsibilities",
+      "category": "Organization of Information Security",
+      "status": "implemented",
+      "evidence": [
+        "Role definitions",
+        "Responsibility matrix",
+        "Job descriptions"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.6.1.2",
+      "name": "Segregation of Duties",
+      "category": "Organization of Information Security",
+      "status": "implemented",
+      "evidence": [
+        "Access controls with role-based permissions",
+        "Multi-person approval workflows for critical operations",
+        "Segregated development, testing, and production environments",
+        "Documented duty separation matrix",
+        "Regular review of access privileges"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.7.1.1",
+      "name": "Screening",
+      "category": "Human Resource Security",
+      "status": "implemented",
+      "evidence": [
+        "Background check procedures",
+        "Reference verification"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.7.2.1",
+      "name": "Management Responsibilities",
+      "category": "Human Resource Security",
+      "status": "implemented",
+      "evidence": [
+        "Security awareness training",
+        "Confidentiality agreements"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.8.1.1",
+      "name": "Inventory of Assets",
+      "category": "Asset Management",
+      "status": "implemented",
+      "evidence": [
+        "Asset register",
+        "Classification scheme",
+        "Owner assignment"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.8.2.1",
+      "name": "Classification of Information",
+      "category": "Asset Management",
+      "status": "implemented",
+      "evidence": [
+        "Classification guidelines",
+        "Labeling procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.9.1.1",
+      "name": "Access Control Policy",
+      "category": "Access Control",
+      "status": "implemented",
+      "evidence": [
+        "Access control policy",
+        "Implementation procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.9.2.1",
+      "name": "User Registration and De-registration",
+      "category": "Access Control",
+      "status": "implemented",
+      "evidence": [
+        "User provisioning process",
+        "De-provisioning procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.9.4.2",
+      "name": "Secure Log-on Procedures",
+      "category": "Access Control",
+      "status": "implemented",
+      "evidence": [
+        "Multi-factor authentication",
+        "Password policies"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.10.1.1",
+      "name": "Policy on the Use of Cryptographic Controls",
+      "category": "Cryptography",
+      "status": "implemented",
+      "evidence": [
+        "Cryptography policy",
+        "Algorithm standards"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.10.1.2",
+      "name": "Key Management",
+      "category": "Cryptography",
+      "status": "implemented",
+      "evidence": [
+        "Key management procedures",
+        "Secure storage"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.11.1.1",
+      "name": "Physical Security Perimeter",
+      "category": "Physical and Environmental Security",
+      "status": "implemented",
+      "evidence": [
+        "Security perimeter controls",
+        "Access restrictions"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.11.2.1",
+      "name": "Equipment",
+      "category": "Physical and Environmental Security",
+      "status": "implemented",
+      "evidence": [
+        "Equipment protection",
+        "Environmental monitoring"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.12.1.1",
+      "name": "Documented Operating Procedures",
+      "category": "Operations Security",
+      "status": "implemented",
+      "evidence": [
+        "Operating procedures",
+        "Change management"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.12.6.1",
+      "name": "Management of Technical Vulnerabilities",
+      "category": "Operations Security",
+      "status": "implemented",
+      "evidence": [
+        "Vulnerability management",
+        "Patch procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.13.1.1",
+      "name": "Network Security Management",
+      "category": "Communications Security",
+      "status": "implemented",
+      "evidence": [
+        "Network security controls",
+        "Monitoring procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.13.2.1",
+      "name": "Information Transfer Policies and Procedures",
+      "category": "Communications Security",
+      "status": "implemented",
+      "evidence": [
+        "Data transfer procedures",
+        "Encryption protocols"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.14.1.1",
+      "name": "Information Security Requirements Analysis and Specification",
+      "category": "System Acquisition, Development and Maintenance",
+      "status": "implemented",
+      "evidence": [
+        "Security requirements",
+        "Development standards"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.14.2.1",
+      "name": "Secure Development Policy",
+      "category": "System Acquisition, Development and Maintenance",
+      "status": "implemented",
+      "evidence": [
+        "Secure coding standards",
+        "Security testing"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.15.1.1",
+      "name": "Information Security Policy for Supplier Relationships",
+      "category": "Supplier Relationships",
+      "status": "implemented",
+      "evidence": [
+        "Comprehensive supplier security policy",
+        "Security requirements in all supplier agreements",
+        "Supplier security assessment procedures",
+        "Regular supplier security reviews",
+        "Incident response procedures for supplier-related issues",
+        "Data protection clauses in supplier contracts"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.16.1.1",
+      "name": "Responsibilities and Procedures",
+      "category": "Information Security Incident Management",
+      "status": "implemented",
+      "evidence": [
+        "Incident response procedures",
+        "Response team"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.16.1.2",
+      "name": "Reporting Information Security Events",
+      "category": "Information Security Incident Management",
+      "status": "implemented",
+      "evidence": [
+        "Reporting procedures",
+        "Event logging"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.17.1.1",
+      "name": "Planning Information Security Continuity",
+      "category": "Business Continuity Management",
+      "status": "implemented",
+      "evidence": [
+        "Continuity planning",
+        "Recovery procedures"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.18.1.1",
+      "name": "Identification of Applicable Legislation and Contractual Requirements",
+      "category": "Compliance",
+      "status": "implemented",
+      "evidence": [
+        "Legal register",
+        "Compliance monitoring"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    },
+    {
+      "id": "A.18.2.1",
+      "name": "Independent Review of Information Security",
+      "category": "Compliance",
+      "status": "implemented",
+      "evidence": [
+        "Internal audits",
+        "External assessments"
+      ],
+      "lastAssessed": "2025-06-21T14:21:53.262Z"
+    }
+  ],
+  "gaps": [],
+  "recommendations": [
+    "Conduct regular internal audits to maintain compliance",
+    "Prepare for external certification audit"
+  ],
+  "certificationReadiness": 100
+}

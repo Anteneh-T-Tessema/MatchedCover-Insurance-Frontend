@@ -1,0 +1,28 @@
+{
+  "vendorId": "vendor_1750440180765_k01n26gww",
+  "assessmentDate": "2025-06-20T17:23:00.768Z",
+  "overallRisk": 100,
+  "riskCategories": {
+    "security": 90,
+    "privacy": 80,
+    "operational": 110.00000000000001,
+    "financial": 70,
+    "compliance": 90
+  },
+  "findings": [
+    {
+      "category": "Security",
+      "severity": "high",
+      "description": "AWS Cloud Services requires enhanced security monitoring due to critical risk classification",
+      "impact": "Potential data exposure risk",
+      "recommendation": "Implement continuous security monitoring",
+      "mitigated": false
+    }
+  ],
+  "recommendations": [
+    "Conduct quarterly security reviews",
+    "Implement automated compliance monitoring",
+    "Update vendor security requirements"
+  ],
+  "status": "completed"
+}

@@ -1,0 +1,244 @@
+{
+  "overall": {
+    "status": "pass",
+    "score": 89.5,
+    "findings": [
+      "4 controls passed",
+      "0 controls failed",
+      "4 controls have warnings"
+    ],
+    "recommendations": [
+      "Review and improve 4 controls with warnings",
+      "Conduct regular compliance assessments",
+      "Implement automated monitoring for continuous compliance"
+    ],
+    "details": {
+      "totalControls": 8,
+      "passedControls": 4,
+      "failedControls": 0,
+      "warningControls": 4
+    }
+  },
+  "controls": {
+    "CC1.1": {
+      "status": "warning",
+      "score": 87,
+      "findings": [
+        "Control CC1.1 is fully implemented",
+        "Control CC1.1 has been tested",
+        "Control CC1.1 is operating effectively",
+        "Control CC1.1 has adequate evidence",
+        "Control CC1.1 has complete documentation",
+        "Control CC1.1 lacks automation",
+        "Control CC1.1 lacks monitoring"
+      ],
+      "recommendations": [
+        "Enhance evidence collection for CC1.1",
+        "Implement automation for CC1.1",
+        "Implement monitoring and alerting for CC1.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 7,
+        "documentationCompleteness": 10,
+        "automationLevel": 0,
+        "monitoringScore": 0
+      }
+    },
+    "CC1.2": {
+      "status": "warning",
+      "score": 88,
+      "findings": [
+        "Control CC1.2 is fully implemented",
+        "Control CC1.2 has been tested",
+        "Control CC1.2 is operating effectively",
+        "Control CC1.2 has comprehensive evidence",
+        "Control CC1.2 has complete documentation",
+        "Control CC1.2 lacks automation",
+        "Control CC1.2 lacks monitoring"
+      ],
+      "recommendations": [
+        "Implement automation for CC1.2",
+        "Implement monitoring and alerting for CC1.2"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 0,
+        "monitoringScore": 0
+      }
+    },
+    "CC2.1": {
+      "status": "pass",
+      "score": 92,
+      "findings": [
+        "Control CC2.1 is fully implemented",
+        "Control CC2.1 has been tested",
+        "Control CC2.1 is operating effectively",
+        "Control CC2.1 has comprehensive evidence",
+        "Control CC2.1 has complete documentation",
+        "Control CC2.1 has partial automation",
+        "Control CC2.1 has basic monitoring"
+      ],
+      "recommendations": [
+        "Increase automation for CC2.1",
+        "Enhance monitoring for CC2.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 2,
+        "monitoringScore": 2
+      }
+    },
+    "CC3.1": {
+      "status": "warning",
+      "score": 87,
+      "findings": [
+        "Control CC3.1 is fully implemented",
+        "Control CC3.1 has been tested",
+        "Control CC3.1 is operating effectively",
+        "Control CC3.1 has adequate evidence",
+        "Control CC3.1 has complete documentation",
+        "Control CC3.1 lacks automation",
+        "Control CC3.1 lacks monitoring"
+      ],
+      "recommendations": [
+        "Enhance evidence collection for CC3.1",
+        "Implement automation for CC3.1",
+        "Implement monitoring and alerting for CC3.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 7,
+        "documentationCompleteness": 10,
+        "automationLevel": 0,
+        "monitoringScore": 0
+      }
+    },
+    "A1.1": {
+      "status": "pass",
+      "score": 92,
+      "findings": [
+        "Control A1.1 is fully implemented",
+        "Control A1.1 has been tested",
+        "Control A1.1 is operating effectively",
+        "Control A1.1 has comprehensive evidence",
+        "Control A1.1 has complete documentation",
+        "Control A1.1 has partial automation",
+        "Control A1.1 has basic monitoring"
+      ],
+      "recommendations": [
+        "Increase automation for A1.1",
+        "Enhance monitoring for A1.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 2,
+        "monitoringScore": 2
+      }
+    },
+    "CA1.1": {
+      "status": "pass",
+      "score": 90,
+      "findings": [
+        "Control CA1.1 is fully implemented",
+        "Control CA1.1 has been tested",
+        "Control CA1.1 is operating effectively",
+        "Control CA1.1 has comprehensive evidence",
+        "Control CA1.1 has complete documentation",
+        "Control CA1.1 has partial automation",
+        "Control CA1.1 lacks monitoring"
+      ],
+      "recommendations": [
+        "Increase automation for CA1.1",
+        "Implement monitoring and alerting for CA1.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 2,
+        "monitoringScore": 0
+      }
+    },
+    "PI1.1": {
+      "status": "pass",
+      "score": 92,
+      "findings": [
+        "Control PI1.1 is fully implemented",
+        "Control PI1.1 has been tested",
+        "Control PI1.1 is operating effectively",
+        "Control PI1.1 has comprehensive evidence",
+        "Control PI1.1 has complete documentation",
+        "Control PI1.1 has partial automation",
+        "Control PI1.1 has basic monitoring"
+      ],
+      "recommendations": [
+        "Increase automation for PI1.1",
+        "Enhance monitoring for PI1.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 2,
+        "monitoringScore": 2
+      }
+    },
+    "P1.1": {
+      "status": "warning",
+      "score": 88,
+      "findings": [
+        "Control P1.1 is fully implemented",
+        "Control P1.1 has been tested",
+        "Control P1.1 is operating effectively",
+        "Control P1.1 has comprehensive evidence",
+        "Control P1.1 has complete documentation",
+        "Control P1.1 lacks automation",
+        "Control P1.1 lacks monitoring"
+      ],
+      "recommendations": [
+        "Implement automation for P1.1",
+        "Implement monitoring and alerting for P1.1"
+      ],
+      "details": {
+        "implementationStatus": "implemented",
+        "testingStatus": "tested",
+        "effectiveness": "effective",
+        "evidenceQuality": 8,
+        "documentationCompleteness": 10,
+        "automationLevel": 0,
+        "monitoringScore": 0
+      }
+    }
+  },
+  "framework": "SOC2",
+  "timestamp": "2025-06-20T22:19:26.476Z",
+  "overallComplianceScore": 89.5,
+  "summary": {
+    "totalControls": 8,
+    "passedControls": 4,
+    "failedControls": 0,
+    "warningControls": 4,
+    "overallScore": 89.5
+  }
+}

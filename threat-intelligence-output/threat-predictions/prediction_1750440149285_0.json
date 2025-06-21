@@ -1,0 +1,18 @@
+{
+  "id": "prediction_1750440149285_0",
+  "threatType": "Ransomware targeting insurance data",
+  "probability": 75,
+  "timeframe": "30-60 days",
+  "potentialImpact": "High - Customer data exposure and business disruption",
+  "indicators": [
+    "Increase in reconnaissance activities",
+    "Phishing campaigns targeting employees"
+  ],
+  "recommendedActions": [
+    "Enhance backup procedures",
+    "Conduct incident response drills",
+    "Update endpoint protection"
+  ],
+  "confidence": 85,
+  "generatedAt": "2025-06-20T17:22:29.285Z"
+}

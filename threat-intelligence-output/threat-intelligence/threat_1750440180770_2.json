@@ -1,0 +1,23 @@
+{
+  "id": "threat_1750440180770_2",
+  "source": "Industry Threat Feed",
+  "type": "phishing",
+  "severity": "medium",
+  "description": "Targeted phishing campaign against insurance companies",
+  "indicators": [
+    "Suspicious email domains",
+    "Credential harvesting",
+    "Social engineering"
+  ],
+  "affectedSystems": [
+    "Email Systems",
+    "User Workstations"
+  ],
+  "mitigationSteps": [
+    "Enhance email security filters",
+    "Conduct phishing awareness training",
+    "Implement additional email authentication"
+  ],
+  "timestamp": "2025-06-20T17:23:00.770Z",
+  "confidence": 87
+}

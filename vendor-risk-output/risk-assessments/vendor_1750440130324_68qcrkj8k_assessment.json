@@ -1,0 +1,28 @@
+{
+  "vendorId": "vendor_1750440130324_68qcrkj8k",
+  "assessmentDate": "2025-06-20T17:23:00.767Z",
+  "overallRisk": 70,
+  "riskCategories": {
+    "security": 63,
+    "privacy": 56,
+    "operational": 77,
+    "financial": 49,
+    "compliance": 63
+  },
+  "findings": [
+    {
+      "category": "Security",
+      "severity": "medium",
+      "description": "Salesforce CRM requires enhanced security monitoring due to high risk classification",
+      "impact": "Potential data exposure risk",
+      "recommendation": "Implement continuous security monitoring",
+      "mitigated": false
+    }
+  ],
+  "recommendations": [
+    "Conduct quarterly security reviews",
+    "Implement automated compliance monitoring",
+    "Update vendor security requirements"
+  ],
+  "status": "completed"
+}
