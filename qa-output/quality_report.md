@@ -1,6 +1,6 @@
 # Quality Assurance Report
 
-**Timestamp:** 2025-06-21T14:21:54.356Z
+**Timestamp:** 2025-06-21T15:11:03.336Z
 **Overall Score:** 69%
 
 ## Summary
@@ -31,44 +31,44 @@
 ### Security
 - **Total Tests:** 3
 - **Passed:** 0
-- **Average Score:** 45%
+- **Average Score:** 42%
 
 ### Performance
 - **Total Tests:** 2
 - **Passed:** 1
-- **Average Score:** 81%
+- **Average Score:** 79%
 
 
 ## Failed Tests
 
 
-- **Type Coverage**: Type coverage: 5% (2314/43852 lines) (Score: 5%)
+- **Type Coverage**: Type coverage: 5% (2116/40643 lines) (Score: 5%)
 
-- **Interface Consistency**: Found 292 interface issues (256 duplicates, 36 naming issues) (Score: 0%)
+- **Interface Consistency**: Found 279 interface issues (247 duplicates, 32 naming issues) (Score: 0%)
 
 - **File Naming Conventions**: Found 4 naming convention violations (Score: 80%)
 
 - **Documentation Quality**: Average documentation quality: 67% across 3 documents (Score: 67%)
 
-- **Environment Variable Handling**: 25/89 files handle environment variables securely (Score: 28%)
+- **Environment Variable Handling**: 22/89 files handle environment variables securely (Score: 25%)
 
-- **Input Validation**: 11/21 input-handling files include validation (Score: 52%)
+- **Input Validation**: 10/20 input-handling files include validation (Score: 50%)
 
-- **Error Handling**: 50/89 files have proper error handling (Score: 56%)
+- **Error Handling**: 46/89 files have proper error handling (Score: 52%)
 
-- **Async/Await Usage**: 58/89 files use async/await properly (Score: 65%)
+- **Async/Await Usage**: 54/89 files use async/await properly (Score: 61%)
 
 
 ## Recommendations
 
-- Improve TypeScript quality: Type coverage: 5% (2314/43852 lines)
-- Improve TypeScript quality: Found 292 interface issues (256 duplicates, 36 naming issues)
+- Improve TypeScript quality: Type coverage: 5% (2116/40643 lines)
+- Improve TypeScript quality: Found 279 interface issues (247 duplicates, 32 naming issues)
 - Fix code structure: Found 4 naming convention violations
 - Enhance documentation: Average documentation quality: 67% across 3 documents
-- Address security issue: 25/89 files handle environment variables securely
-- Address security issue: 11/21 input-handling files include validation
-- Address security issue: 50/89 files have proper error handling
-- Optimize performance: 58/89 files use async/await properly
+- Address security issue: 22/89 files handle environment variables securely
+- Address security issue: 10/20 input-handling files include validation
+- Address security issue: 46/89 files have proper error handling
+- Optimize performance: 54/89 files use async/await properly
 
 ---
 
