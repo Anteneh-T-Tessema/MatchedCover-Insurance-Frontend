@@ -1,6 +1,36 @@
 version: '3.8'
 
 services:
+  # MatchedCover Frontend Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILD_ID: ${BUILD_ID:-local}
+        GIT_COMMIT: ${GIT_COMMIT:-unknown}
+        BUILD_DATE: ${BUILD_DATE:-unknown}
+    image: matched-cover-frontend:latest
+    container_name: matched-cover-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      NEXT_TELEMETRY_DISABLED: 1
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/system/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - matched-cover-network
+
+  # SOC2 Compliance System (existing)
   soc2-agents:
     build: .
     container_name: soc2-compliance-system
@@ -116,6 +146,8 @@ volumes:
     driver: local
 
 networks:
+  matched-cover-network:
+    driver: bridge
   soc2-network:
     driver: bridge
     ipam:

@@ -13,7 +13,12 @@ const nextConfig: NextConfig = {
     serverActions: {
       allowedOrigins: ['*']
     }
-  }
+  },
+  // Enable standalone output for Docker deployment
+  output: 'standalone',
+  // Optimize for production
+  compress: true,
+  poweredByHeader: false
 };
 
 export default nextConfig;

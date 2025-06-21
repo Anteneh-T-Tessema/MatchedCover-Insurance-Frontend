@@ -53,7 +53,7 @@ export default function InstantAIClaimsProcessing() {
   const [description, setDescription] = useState('');
   const [claimType, setClaimType] = useState<ClaimData['type']>('auto');
   const [showResults, setShowResults] = useState(false);
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Enhanced claims processing steps (beating Lemonade's 7 seconds)
   const claimSteps: ClaimStep[] = [

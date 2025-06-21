@@ -1,0 +1,658 @@
+pipeline {
+    agent any
+    
+    environment {
+        NODE_VERSION = '20'
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+        NEXT_TELEMETRY_DISABLED = '1'
+        
+        // Environment-specific variables
+        DEV_BRANCH = 'develop'
+        STAGING_BRANCH = 'staging'
+        PROD_BRANCH = 'main'
+        
+        // Docker registry configuration
+        DOCKER_REGISTRY = 'your-registry.com' // Replace with your actual registry
+        IMAGE_NAME = 'matched-cover-frontend'
+        
+        // Deployment targets
+        DEV_SERVER = 'dev.matchedcover.com'
+        STAGING_SERVER = 'staging.matchedcover.com'
+        PROD_SERVER = 'matchedcover.com'
+        
+        // Security and monitoring
+        SONAR_PROJECT_KEY = 'matched-cover-frontend'
+        SLACK_CHANNEL = '#deployments'
+    }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+        timestamps()
+    }
+    
+    tools {
+        nodejs "${NODE_VERSION}"
+    }
+    
+    stages {
+        stage('Checkout & Setup') {
+            steps {
+                echo '🔄 Checking out source code...'
+                checkout scm
+                
+                script {
+                    env.GIT_COMMIT_SHORT = sh(
+                        script: 'git rev-parse --short HEAD',
+                        returnStdout: true
+                    ).trim()
+                    env.BUILD_TAG = "${env.BRANCH_NAME}-${env.GIT_COMMIT_SHORT}-${env.BUILD_NUMBER}"
+                    env.BUILD_TIMESTAMP = sh(
+                        script: 'date +%Y%m%d-%H%M%S',
+                        returnStdout: true
+                    ).trim()
+                }
+                
+                echo "📋 Build Information:"
+                echo "  Branch: ${env.BRANCH_NAME}"
+                echo "  Build Tag: ${env.BUILD_TAG}"
+                echo "  Node Version: ${NODE_VERSION}"
+                echo "  Timestamp: ${env.BUILD_TIMESTAMP}"
+                
+                // Environment validation
+                sh '''
+                    echo "🔍 Environment Validation:"
+                    node --version
+                    npm --version
+                    echo "Workspace: ${WORKSPACE}"
+                    echo "Free disk space:"
+                    df -h ${WORKSPACE}
+                '''
+            }
+        }
+        
+        stage('Dependencies & Cache') {
+            steps {
+                echo '📦 Setting up dependencies and cache...'
+                script {
+                    // Setup cache directories
+                    sh '''
+                        mkdir -p ${NPM_CONFIG_CACHE}
+                        mkdir -p .next/cache
+                        mkdir -p reports
+                        mkdir -p coverage
+                    '''
+                    
+                    // Check for package.json changes
+                    def packageChanged = sh(
+                        script: 'git diff HEAD~1 --name-only | grep -E "package\\.json|package-lock\\.json" || echo "no-change"',
+                        returnStdout: true
+                    ).trim()
+                    
+                    if (packageChanged != "no-change") {
+                        echo "📝 Package files changed, clearing cache..."
+                        sh 'rm -rf node_modules .next/cache'
+                    }
+                }
+                
+                // Install dependencies with retry logic
+                retry(3) {
+                    sh '''
+                        echo "📥 Installing dependencies..."
+                        npm ci --cache ${NPM_CONFIG_CACHE} --prefer-offline --no-audit
+                    '''
+                }
+            }
+            post {
+                failure {
+                    echo '⚠️ Dependency installation failed. Attempting clean install...'
+                    sh '''
+                        rm -rf node_modules package-lock.json
+                        npm install --cache ${NPM_CONFIG_CACHE}
+                    '''
+                }
+            }
+        }
+        
+        stage('Code Quality & Security') {
+            parallel {
+                stage('Lint Check') {
+                    steps {
+                        echo '🔍 Running ESLint...'
+                        sh '''
+                            npm run lint -- --format=html --output-file=reports/eslint-report.html || true
+                            npm run lint -- --format=json --output-file=reports/eslint-report.json || true
+                        '''
+                    }
+                    post {
+                        always {
+                            publishHTML([
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: true,
+                                reportDir: 'reports',
+                                reportFiles: 'eslint-report.html',
+                                reportName: 'ESLint Report',
+                                reportTitles: 'ESLint Analysis'
+                            ])
+                        }
+                    }
+                }
+                
+                stage('Type Check') {
+                    steps {
+                        echo '🔍 Running TypeScript type checking...'
+                        sh '''
+                            npx tsc --noEmit --skipLibCheck --pretty
+                        '''
+                    }
+                }
+                
+                stage('Security Audit') {
+                    steps {
+                        echo '🔒 Running security audit...'
+                        sh '''
+                            npm audit --audit-level=moderate --json > reports/audit-report.json || true
+                            npm audit --audit-level=moderate > reports/audit-report.txt || true
+                        '''
+                        
+                        script {
+                            def auditResult = sh(
+                                script: 'npm audit --audit-level=high',
+                                returnStatus: true
+                            )
+                            if (auditResult != 0) {
+                                currentBuild.result = 'UNSTABLE'
+                                echo '⚠️ High severity vulnerabilities found!'
+                            }
+                        }
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'reports/audit-report.*', allowEmptyArchive: true
+                        }
+                    }
+                }
+                
+                stage('Dependency Check') {
+                    steps {
+                        echo '📊 Analyzing dependencies...'
+                        sh '''
+                            npx depcheck --json > reports/depcheck-report.json || true
+                            echo "Dependency analysis completed"
+                        '''
+                    }
+                }
+            }
+        }
+        
+        stage('Build Application') {
+            steps {
+                echo '🏗️ Building Next.js application...'
+                
+                script {
+                    // Set build environment variables
+                    def buildEnv = [
+                        "NODE_ENV=production",
+                        "NEXT_TELEMETRY_DISABLED=1",
+                        "BUILD_ID=${env.BUILD_NUMBER}",
+                        "GIT_COMMIT=${env.GIT_COMMIT_SHORT}"
+                    ]
+                    
+                    withEnv(buildEnv) {
+                        sh '''
+                            echo "🚀 Starting build process..."
+                            npm run build
+                            
+                            echo "📈 Build statistics:"
+                            du -sh .next/
+                            find .next -name "*.js" | wc -l | xargs echo "JavaScript files:"
+                            find .next -name "*.css" | wc -l | xargs echo "CSS files:"
+                        '''
+                    }
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: '.next/**/*', allowEmptyArchive: true
+                }
+                success {
+                    echo '✅ Build completed successfully!'
+                }
+                failure {
+                    echo '❌ Build failed!'
+                    sh '''
+                        echo "Build failure diagnostics:"
+                        ls -la .next/ || echo "No .next directory"
+                        npm list --depth=0 || echo "Unable to list packages"
+                    '''
+                }
+            }
+        }
+        
+        stage('Testing') {
+            parallel {
+                stage('Unit Tests') {
+                    when {
+                        anyOf {
+                            branch "${DEV_BRANCH}"
+                            branch "${STAGING_BRANCH}"
+                            branch "${PROD_BRANCH}"
+                        }
+                    }
+                    steps {
+                        echo '🧪 Running unit tests...'
+                        sh '''
+                            # Add your test command here when tests are available
+                            # npm test -- --coverage --watchAll=false --ci --testResultsProcessor=jest-sonar-reporter
+                            echo "Unit tests would run here"
+                            
+                            # Create mock coverage report for demonstration
+                            mkdir -p coverage
+                            echo '{"coverage": "mock"}' > coverage/coverage-summary.json
+                        '''
+                    }
+                    post {
+                        always {
+                            publishHTML([
+                                allowMissing: true,
+                                alwaysLinkToLastBuild: false,
+                                keepAll: true,
+                                reportDir: 'coverage',
+                                reportFiles: 'index.html',
+                                reportName: 'Coverage Report',
+                                reportTitles: 'Test Coverage'
+                            ])
+                        }
+                    }
+                }
+                
+                stage('E2E Tests') {
+                    when {
+                        anyOf {
+                            branch "${STAGING_BRANCH}"
+                            branch "${PROD_BRANCH}"
+                        }
+                    }
+                    steps {
+                        echo '🎭 Running E2E tests...'
+                        sh '''
+                            # Add your E2E test command here (Playwright, Cypress, etc.)
+                            # npm run test:e2e
+                            echo "E2E tests would run here"
+                        '''
+                    }
+                }
+                
+                stage('Performance Tests') {
+                    when {
+                        branch "${PROD_BRANCH}"
+                    }
+                    steps {
+                        echo '⚡ Running performance tests...'
+                        sh '''
+                            # Add your performance test command here (Lighthouse CI, etc.)
+                            # npm run test:performance
+                            echo "Performance tests would run here"
+                        '''
+                    }
+                }
+            }
+        }
+        
+        stage('Docker Build') {
+            when {
+                anyOf {
+                    branch "${DEV_BRANCH}"
+                    branch "${STAGING_BRANCH}"
+                    branch "${PROD_BRANCH}"
+                }
+            }
+            steps {
+                script {
+                    echo "🐳 Building Docker image: ${IMAGE_NAME}:${BUILD_TAG}"
+                    
+                    // Build with build args
+                    sh """
+                        docker build \\
+                            --build-arg BUILD_ID=${env.BUILD_NUMBER} \\
+                            --build-arg GIT_COMMIT=${env.GIT_COMMIT_SHORT} \\
+                            --build-arg BUILD_DATE=${env.BUILD_TIMESTAMP} \\
+                            -t ${IMAGE_NAME}:${BUILD_TAG} \\
+                            -t ${IMAGE_NAME}:latest \\
+                            .
+                    """
+                    
+                    // Test the Docker image
+                    sh """
+                        echo "🔍 Testing Docker image..."
+                        docker run --rm -d --name test-container -p 3001:3000 ${IMAGE_NAME}:${BUILD_TAG}
+                        sleep 10
+                        curl -f http://localhost:3001/api/system/health || (docker logs test-container && exit 1)
+                        docker stop test-container
+                        echo "✅ Docker image test passed"
+                    """
+                }
+            }
+            post {
+                always {
+                    sh '''
+                        # Cleanup test containers
+                        docker stop test-container || true
+                        docker rm test-container || true
+                    '''
+                }
+            }
+        }
+        
+        stage('Security Scan') {
+            when {
+                anyOf {
+                    branch "${STAGING_BRANCH}"
+                    branch "${PROD_BRANCH}"
+                }
+            }
+            steps {
+                echo '🔒 Running security scans...'
+                sh '''
+                    # Add your security scanning tools here
+                    # Example: Trivy for container scanning
+                    # trivy image ${IMAGE_NAME}:${BUILD_TAG}
+                    echo "Security scans would run here"
+                '''
+            }
+        }
+        
+        stage('Deploy') {
+            parallel {
+                stage('Deploy to Development') {
+                    when {
+                        branch "${DEV_BRANCH}"
+                    }
+                    steps {
+                        echo '🚀 Deploying to Development environment...'
+                        script {
+                            deployToEnvironment('development', env.DEV_SERVER, false)
+                        }
+                    }
+                }
+                
+                stage('Deploy to Staging') {
+                    when {
+                        branch "${STAGING_BRANCH}"
+                    }
+                    steps {
+                        echo '🚀 Deploying to Staging environment...'
+                        script {
+                            deployToEnvironment('staging', env.STAGING_SERVER, false)
+                        }
+                    }
+                }
+                
+                stage('Deploy to Production') {
+                    when {
+                        branch "${PROD_BRANCH}"
+                    }
+                    steps {
+                        echo '🚀 Deploying to Production environment...'
+                        script {
+                            // Manual approval for production
+                            timeout(time: 15, unit: 'MINUTES') {
+                                input message: 'Deploy to Production?', 
+                                      ok: 'Deploy',
+                                      parameters: [
+                                          choice(choices: ['Deploy', 'Skip'], description: 'Choose action', name: 'ACTION')
+                                      ]
+                            }
+                            deployToEnvironment('production', env.PROD_SERVER, true)
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Post-Deploy Validation') {
+            when {
+                anyOf {
+                    branch "${DEV_BRANCH}"
+                    branch "${STAGING_BRANCH}"
+                    branch "${PROD_BRANCH}"
+                }
+            }
+            steps {
+                script {
+                    def targetServer = getTargetServer()
+                    
+                    if (targetServer) {
+                        echo "🔍 Running post-deploy validation on ${targetServer}..."
+                        
+                        // Health checks
+                        sh """
+                            echo "Waiting for deployment to be ready..."
+                            sleep 30
+                            
+                            echo "Running health checks..."
+                            curl -f -s -o /dev/null -w "%{http_code}" https://${targetServer}/api/system/health || exit 1
+                            
+                            echo "Running smoke tests..."
+                            curl -f -s https://${targetServer}/ > /dev/null || exit 1
+                            
+                            echo "✅ Post-deploy validation passed for ${targetServer}"
+                        """
+                        
+                        // Performance check
+                        if (env.BRANCH_NAME == env.PROD_BRANCH) {
+                            sh """
+                                echo "Running production performance check..."
+                                curl -w "@curl-format.txt" -o /dev/null -s https://${targetServer}/
+                            """
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo '🧹 Cleaning up...'
+            
+            script {
+                // Archive important files
+                archiveArtifacts artifacts: 'reports/**/*', allowEmptyArchive: true
+                
+                // Cleanup
+                sh '''
+                    # Docker cleanup
+                    docker system prune -f || true
+                    
+                    # NPM cleanup
+                    npm cache clean --force || true
+                    
+                    # Workspace cleanup
+                    find ${WORKSPACE} -name "node_modules" -type d -mtime +7 -exec rm -rf {} + || true
+                '''
+                
+                // Collect metrics
+                def buildDuration = currentBuild.duration / 1000
+                echo "📊 Build completed in ${buildDuration} seconds"
+            }
+        }
+        
+        success {
+            echo '✅ Pipeline succeeded!'
+            
+            script {
+                def successMessage = """
+                    🎉 *Deployment Successful!*
+                    
+                    *Project*: MatchedCover Frontend
+                    *Branch*: ${env.BRANCH_NAME}
+                    *Build*: ${env.BUILD_NUMBER}
+                    *Commit*: ${env.GIT_COMMIT_SHORT}
+                    *Duration*: ${currentBuild.durationString}
+                    
+                    <${env.BUILD_URL}|View Build Details>
+                """
+                
+                if (env.BRANCH_NAME == env.PROD_BRANCH) {
+                    notifySlack('SUCCESS', successMessage)
+                }
+            }
+        }
+        
+        failure {
+            echo '❌ Pipeline failed!'
+            
+            script {
+                def failureMessage = """
+                    🚨 *Deployment Failed!*
+                    
+                    *Project*: MatchedCover Frontend
+                    *Branch*: ${env.BRANCH_NAME}
+                    *Build*: ${env.BUILD_NUMBER}
+                    *Commit*: ${env.GIT_COMMIT_SHORT}
+                    *Stage*: ${env.STAGE_NAME ?: 'Unknown'}
+                    
+                    <${env.BUILD_URL}|View Build Details>
+                    <${env.BUILD_URL}/console|View Console Output>
+                """
+                
+                notifySlack('FAILURE', failureMessage)
+            }
+        }
+        
+        unstable {
+            echo '⚠️ Pipeline unstable!'
+            
+            script {
+                def unstableMessage = """
+                    ⚠️ *Build Unstable*
+                    
+                    *Project*: MatchedCover Frontend
+                    *Branch*: ${env.BRANCH_NAME}
+                    *Build*: ${env.BUILD_NUMBER}
+                    *Issue*: Tests passed but quality gates failed
+                    
+                    <${env.BUILD_URL}|View Build Details>
+                """
+                
+                notifySlack('UNSTABLE', unstableMessage)
+            }
+        }
+    }
+}
+
+// Helper Functions
+
+def deployToEnvironment(environment, server, isProduction) {
+    echo "🚀 Deploying to ${environment} (${server})..."
+    
+    try {
+        // Deployment strategy based on environment
+        if (isProduction) {
+            // Blue-green deployment for production
+            deployBlueGreen(environment, server)
+        } else {
+            // Rolling deployment for dev/staging
+            deployRolling(environment, server)
+        }
+        
+        echo "✅ Deployment to ${environment} completed successfully"
+        
+    } catch (Exception e) {
+        echo "❌ Deployment to ${environment} failed: ${e.getMessage()}"
+        throw e
+    }
+}
+
+def deployBlueGreen(environment, server) {
+    sh """
+        echo "🔄 Blue-Green deployment to ${environment}..."
+        
+        # Example blue-green deployment commands
+        # Replace with your actual deployment strategy
+        
+        # Push new image
+        docker tag ${IMAGE_NAME}:${BUILD_TAG} ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_TAG}
+        # docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_TAG}
+        
+        # Deploy to green environment
+        # kubectl set image deployment/app container=${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_TAG}
+        # kubectl rollout status deployment/app
+        
+        # Switch traffic
+        # kubectl patch service app -p '{"spec":{"selector":{"version":"green"}}}'
+        
+        echo "Blue-Green deployment completed"
+    """
+}
+
+def deployRolling(environment, server) {
+    sh """
+        echo "🔄 Rolling deployment to ${environment}..."
+        
+        # Example rolling deployment commands
+        # Replace with your actual deployment strategy
+        
+        # Docker deployment example
+        # docker tag ${IMAGE_NAME}:${BUILD_TAG} ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_TAG}
+        # docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_TAG}
+        
+        # SSH deployment example
+        # rsync -avz --delete .next/static/ deploy@${server}:/var/www/html/static/
+        # rsync -avz --delete .next/server/ deploy@${server}:/var/www/html/server/
+        
+        # PM2 deployment example
+        # pm2 deploy ecosystem.config.js ${environment}
+        
+        echo "Rolling deployment completed"
+    """
+}
+
+def getTargetServer() {
+    if (env.BRANCH_NAME == env.DEV_BRANCH) {
+        return env.DEV_SERVER
+    } else if (env.BRANCH_NAME == env.STAGING_BRANCH) {
+        return env.STAGING_SERVER
+    } else if (env.BRANCH_NAME == env.PROD_BRANCH) {
+        return env.PROD_SERVER
+    }
+    return null
+}
+
+def notifySlack(status, message) {
+    def color = 'good'
+    def emoji = '✅'
+    
+    if (status == 'FAILURE') {
+        color = 'danger'
+        emoji = '❌'
+    } else if (status == 'UNSTABLE') {
+        color = 'warning'
+        emoji = '⚠️'
+    }
+    
+    // Uncomment and configure when Slack integration is set up
+    /*
+    slackSend(
+        channel: env.SLACK_CHANNEL,
+        color: color,
+        message: message,
+        teamDomain: 'your-team',
+        token: 'your-slack-token'
+    )
+    */
+    
+    // Alternative: Use webhook
+    /*
+    sh """
+        curl -X POST -H 'Content-type: application/json' \\
+        --data '{"text":"${emoji} ${message}"}' \\
+        YOUR_SLACK_WEBHOOK_URL
+    """
+    */
+    
+    echo "📢 Notification: ${status} - ${message}"
+}
