@@ -14,7 +14,6 @@ const nextConfig: NextConfig = {
   // Experimental features to fix font loading issues
   experimental: {
     optimizeCss: false, // Disable CSS optimization that can conflict with Tailwind
-    serverComponentsExternalPackages: ['@google/generative-ai'],
   },
   
   // Server external packages for Vercel optimization

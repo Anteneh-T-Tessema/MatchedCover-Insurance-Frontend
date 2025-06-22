@@ -5,7 +5,9 @@
     "env": {
       "NODE_ENV": "production",
       "NEXT_TELEMETRY_DISABLED": "1",
-      "NODE_OPTIONS": "--max-old-space-size=4096"
+      "NODE_OPTIONS": "--max-old-space-size=4096",
+      "DISABLE_NEXT_FONT": "1",
+      "SKIP_FONT_OPTIMIZATION": "1"
     }
   },
   "env": {
