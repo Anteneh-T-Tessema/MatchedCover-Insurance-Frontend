@@ -675,7 +675,7 @@ export class CarrierIntegrationAPI {
 
   private async submitCarrierRequest(
     url: string,
-    data: any,
+    data,
     carrierId: string,
     method: string = 'POST'
   ): Promise<unknown> {
@@ -709,7 +709,7 @@ export class CarrierIntegrationAPI {
     return request;
   }
 
-  private async transformQuoteResponse(response: any): Promise<CarrierQuoteResponse> {
+  private async transformQuoteResponse(response): Promise<CarrierQuoteResponse> {
     // Transform from carrier-specific format to standard format
     // This would be implemented per carrier
     return response as CarrierQuoteResponse;
@@ -720,7 +720,7 @@ export class CarrierIntegrationAPI {
     return request;
   }
 
-  private async transformPolicyResponse(response: any): Promise<PolicyIssuanceResponse> {
+  private async transformPolicyResponse(response): Promise<PolicyIssuanceResponse> {
     // Transform from carrier-specific format
     return response as PolicyIssuanceResponse;
   }
@@ -746,7 +746,7 @@ export class CarrierIntegrationAPI {
     console.log(`Carrier API - ${carrierId} ${operation}: ${duration}ms (${success ? 'success' : 'failure'})`);
   }
 
-  private async transformPolicyInfo(response: any): Promise<PolicyInfo> {
+  private async transformPolicyInfo(response): Promise<PolicyInfo> {
     return response as PolicyInfo;
   }
 
@@ -754,7 +754,7 @@ export class CarrierIntegrationAPI {
     return claimData;
   }
 
-  private async transformClaimResponse(response: any): Promise<ClaimResponse> {
+  private async transformClaimResponse(response): Promise<ClaimResponse> {
     return response as ClaimResponse;
   }
 

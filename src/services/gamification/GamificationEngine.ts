@@ -4,7 +4,7 @@
  * Features variable rewards, social comparison, loss aversion, and community building
  */
 
-import { GameState, Badge, Achievement, UserProfile, QuestStep } from '../../stores/AppStore';
+import { GameState, Badge, Achievement, UserProfile } from '../../stores/AppStore';
 import { GameReward, Quest } from '../ai/AIAgentOrchestrator';
 
 export interface GamificationEvent {
@@ -445,7 +445,7 @@ export class GamificationEngine {
   }> {
     const rewards: GameReward[] = [];
     const notifications: string[] = [];
-    const newGameState = { ...gameState };
+    let newGameState = { ...gameState };
 
     if (newGameState.currentQuest) {
       const quest = newGameState.currentQuest;
@@ -470,10 +470,9 @@ export class GamificationEngine {
     return { gameState: newGameState, rewards, notifications };
   }
 
-  private checkStepCompletion(step: QuestStep, _event: GamificationEvent): boolean {
+  private checkStepCompletion(step: { requirement: string; completed: boolean; description: string }, event: GamificationEvent): boolean {
     // Simple requirement matching - in production this would be more sophisticated
-    // For AppStore QuestStep, we'll check if current progress meets required progress
-    return step.currentProgress >= step.requiredProgress;
+    return step.requirement === event.type;
   }
 
   private async updateAchievements(event: GamificationEvent, gameState: GameState): Promise<{
@@ -483,7 +482,7 @@ export class GamificationEngine {
   }> {
     const rewards: GameReward[] = [];
     const notifications: string[] = [];
-    const newGameState = { ...gameState };
+    let newGameState = { ...gameState };
 
     // Initialize achievements if they don't exist
     if (!newGameState.achievements) {
@@ -1132,34 +1131,12 @@ export class AdvancedGamificationEngine extends GamificationEngine {
     return 8; // 8 hours
   }
 
-  private async checkRankThreat(userId: string): Promise<LossAversionTrigger | null> {
-    const threatData = {
+  private async checkRankThreat(userId: string): Promise<unknown> {
+    return {
       atRisk: this.getPseudoRandom(userId, 6) < 0.2,
       position: Math.floor(this.getPseudoRandom(userId, 7) * 100) + 1,
       threat: 'Medium'
     };
-
-    if (threatData.atRisk) {
-      return {
-        type: 'rank_threat',
-        urgency_level: 'medium',
-        time_remaining: 1440, // 24 hours
-        potential_loss: {
-          points: 0,
-          rank_positions: Math.floor(Math.random() * 5) + 1,
-          badges: [],
-          exclusive_access: []
-        },
-        action_required: 'Complete more activities to maintain your rank',
-        reward_for_action: {
-          type: 'points',
-          value: 100,
-          description: 'Rank protection bonus'
-        }
-      };
-    }
-
-    return null;
   }
 
   private getExpiringBonuses(_userId: string): Array<{

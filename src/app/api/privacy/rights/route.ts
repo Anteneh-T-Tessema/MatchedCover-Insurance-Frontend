@@ -56,10 +56,8 @@ export async function POST(request: NextRequest) {
           data.lawfulBasis,
           data.granted,
           {
-            ipAddress: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-            userAgent: request.headers.get('user-agent') || 'unknown',
-            source: 'web-form',
-            version: '1.0'
+            ipAddress: request.ip || 'unknown',
+            userAgent: request.headers.get('user-agent') || 'unknown'
           }
         );
         result = { consentId, message: 'Consent recorded successfully' };

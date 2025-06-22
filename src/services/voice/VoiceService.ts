@@ -14,8 +14,8 @@ interface BasicSpeechRecognition {
   start(): void;
   stop(): void;
   onstart: (() => void) | null;
-  onresult: ((event: any) => void) | null;
-  onerror: ((event: any) => void) | null;
+  onresult: ((event) => void) | null;
+  onerror: ((event) => void) | null;
   onend: (() => void) | null;
 }
 

@@ -1,0 +1,120 @@
+# Dependencies and build artifacts
+node_modules
+.next
+out
+dist
+build
+
+# Environment files
+.env*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+.nyc_output
+
+# IDE files
+.vscode
+
+# Temporarily exclude agent files that cause build issues on Vercel
+src/agents/
+src/run-soc2-agents.ts
+src/agents/*.ts
+src/agents/**/*.ts
+.idea
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jenkins and CI/CD files (not needed for Vercel)
+Jenkinsfile*
+.github/workflows/
+deploy/
+docker-compose*.yml
+Dockerfile*
+ecosystem.config.js
+
+# Documentation files (reduce upload size)
+docs/
+*.md
+DEPLOYMENT.md
+JENKINS_SETUP.md
+JENKINS_CI_CD_COMPLETE.md
+VERCEL_FIX_GUIDE.md
+README*.md
+COMPLETION_SUMMARY.md
+COMPREHENSIVE_*.md
+FINAL_*.md
+IMPLEMENTATION_*.md
+STRATEGIC_*.md
+SYSTEM_*.md
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+test-jenkins-setup.sh
+
+# Large compliance and documentation outputs
+compliance-output/
+compliance-validation-output/
+documentation-output/
+evaluation-output/
+implementation-output/
+integration-test-output/
+iso27001-output/
+pcidss-output/
+qa-output/
+soc2-agents-package.json
+step-by-step-execution/
+threat-intelligence-output/
+trust-center-output/
+vendor-risk-output/
+
+# Shell scripts and automation
+*.sh
+comprehensive-fix.sh
+comprehensive-template-fix.sh
+deploy.sh
+health-check.sh
+
+# Configuration files not needed for Vercel
+.editorconfig
+.gitattributes
+tsconfig.*.json
+!tsconfig.json
+
+# Large directories
+logs/
+policy-management/
+vendor-risk-output/
+
+# Temporary files
+tmp/
+temp/
+.tmp/

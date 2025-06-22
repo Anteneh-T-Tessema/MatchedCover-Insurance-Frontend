@@ -95,49 +95,10 @@ const SmartQuoteWizard: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [quoteData, setQuoteData] = useState<QuoteData>({
     coverageType: '',
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      dateOfBirth: '',
-      email: '',
-      phone: '',
-      address: {
-        street: '',
-        city: '',
-        state: '',
-        zipCode: ''
-      }
-    },
-    vehicleInfo: {
-      year: '',
-      make: '',
-      model: '',
-      vin: '',
-      currentValue: 0,
-      annualMileage: 0,
-      usage: ''
-    },
-    coveragePreferences: {
-      liability: false,
-      collision: false,
-      comprehensive: false,
-      uninsuredMotorist: false,
-      deductible: 0,
-      coverageLimits: {
-        bodilyInjury: '',
-        propertyDamage: ''
-      }
-    },
-    riskFactors: {
-      drivingHistory: {
-        violations: 0,
-        accidents: 0,
-        yearsLicensed: 0
-      },
-      creditScore: 0,
-      parkingLocation: '',
-      antiTheftDevices: false
-    }
+    personalInfo: {},
+    vehicleInfo: {},
+    coveragePreferences: {},
+    riskFactors: {}
   });
   
   const [progress, setProgress] = useState<QuoteProgress>({

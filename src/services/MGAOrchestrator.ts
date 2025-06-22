@@ -7,7 +7,7 @@
  * @version 2.0.0
  */
 
-import { SmartQuoteEngine, SmartQuoteRequest, EnhancedQuote } from './SmartQuoteEngine';
+import { SmartQuoteEngine, SmartQuoteRequest, EnhancedQuote } from '../SmartQuoteEngine';
 import { AIUnderwritingEngine, RiskFactors } from './underwriting/AIUnderwritingEngine';
 import { MGABusinessEngine } from './MGABusinessEngine';
 import { CarrierIntegrationAPI, QuoteRequest } from './carriers/CarrierIntegrationAPI';

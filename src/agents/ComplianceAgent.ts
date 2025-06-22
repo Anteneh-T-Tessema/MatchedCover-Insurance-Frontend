@@ -1,4 +1,5 @@
 import { EnhancedErrorHandler } from '../utils/enhanced-error-handling';
+import type { SecurityControlStatus, Evidence, ValidationResult, ComplianceValidationResult, ErrorContext } from '../types/platform-types';
 import { BaseAgent } from './BaseAgent';
 import { ComplianceFramework, ComplianceEvidence } from '../interfaces/ComplianceFramework';
 

@@ -8,8 +8,7 @@ import { carrierIntegrationService, QuoteRequest, QuoteResponse } from '@/servic
 import { Locale } from '@/i18n/config';
 
 export interface AgentQuoteRequest {
-  message: string;
-  userInput: string;
+  query: string;
   agentId: 'maya' | 'alex' | 'sam';
   locale: Locale;
   userProfile?: UserQuoteProfile;
@@ -86,7 +85,7 @@ class AIAgentQuoteService {
   async processQuoteRequest(request: AgentQuoteRequest): Promise<AgentQuoteResponse> {
     try {
       // Step 1: Analyze user intent and extract quote parameters
-      const extractedInfo = await this.extractQuoteInformation(request.userInput, request.locale);
+      const extractedInfo = await this.extractQuoteInformation(request.query, request.locale);
       
       // Step 2: If we have enough info, get real quotes
       let quoteData: QuoteResponse[] | undefined;
@@ -102,7 +101,7 @@ class AIAgentQuoteService {
       
       // Step 3: Generate agent-specific response
       const aiResponse = await this.generateAgentResponse(
-        request.userInput,
+        request.query,
         request.agentId,
         request.locale,
         extractedInfo,
@@ -391,10 +390,7 @@ Respond with empathy and focus on peace of mind, customer service, and making in
       }
     };
     
-    const validAgentIds = ['maya', 'alex', 'sam'] as const;
-    const validAgentId = (validAgentIds as readonly string[]).includes(agentId) ? agentId as keyof typeof responses.en : 'maya';
-    
-    return responses[locale as keyof typeof responses]?.[validAgentId] || responses.en[validAgentId];
+    return responses[locale as keyof typeof responses]?.[agentId] || responses.en[agentId];
   }
 }
 

@@ -191,7 +191,7 @@ export default function SocialCommunityFeatures() {
           insuranceExpertise: 'Auto Insurance'
         },
         content: "Question: Filed my first claim through the app. How long does processing usually take? Anyone have recent experience?",
-        type: 'question' as const,
+        type: 'question',
         timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
         likes: 12,
         comments: 15,
@@ -209,7 +209,7 @@ export default function SocialCommunityFeatures() {
           insuranceExpertise: 'Claims Expert'
         },
         content: "Achievement unlocked! 🎉 Just completed my 50th peer help session. Love helping fellow community members navigate insurance!",
-        type: 'achievement' as const,
+        type: 'achievement',
         timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000),
         likes: 47,
         comments: 12,
@@ -324,61 +324,6 @@ export default function SocialCommunityFeatures() {
     ));
   };
 
-  const handleComment = (postId: string) => {
-    // Open comment modal or navigate to post detail
-    console.log('Opening comments for post:', postId);
-    // TODO: Implement comment functionality
-    alert('Comment functionality coming soon! This would open a comment modal or navigate to the full post.');
-  };
-
-  const handleShare = (postId: string) => {
-    const post = posts.find(p => p.id === postId);
-    if (post) {
-      // Update share count
-      setPosts(posts.map(p => 
-        p.id === postId 
-          ? { ...p, shares: p.shares + 1 }
-          : p
-      ));
-      
-      // Copy to clipboard or open share modal
-      const shareText = `Check out this insurance tip: "${post.content.substring(0, 100)}..." - MatchedCover Community`;
-      if (navigator.share) {
-        navigator.share({
-          title: 'MatchedCover Community Post',
-          text: shareText,
-          url: window.location.href
-        });
-      } else {
-        navigator.clipboard.writeText(shareText);
-        alert('Post link copied to clipboard!');
-      }
-    }
-  };
-
-  const handleHelpful = (postId: string) => {
-    setPosts(posts.map(post => 
-      post.id === postId 
-        ? { 
-            ...post, 
-            helpfulVotes: (post.helpfulVotes || 0) + 1
-          }
-        : post
-    ));
-  };
-
-  const handleAddPhoto = () => {
-    // TODO: Implement photo upload functionality
-    console.log('Add photo clicked');
-    alert('Photo upload coming soon! This would open a file picker to add images to your post.');
-  };
-
-  const handleAddTag = () => {
-    // TODO: Implement tag selection functionality
-    console.log('Add tag clicked');
-    alert('Tag selection coming soon! This would open a tag picker to categorize your post.');
-  };
-
   const handleNewPost = () => {
     if (!newPostContent.trim()) return;
 
@@ -435,14 +380,12 @@ export default function SocialCommunityFeatures() {
             <div className="flex items-center justify-between mt-4">
               <div className="flex items-center space-x-4">
                 <button 
-                  onClick={handleAddPhoto}
                   className="text-gray-500 hover:text-purple-600 transition-colors"
                   aria-label="Add photo"
                 >
                   <Camera className="h-5 w-5" />
                 </button>
                 <button 
-                  onClick={handleAddTag}
                   className="text-gray-500 hover:text-purple-600 transition-colors"
                   aria-label="Add tag"
                 >
@@ -518,27 +461,18 @@ export default function SocialCommunityFeatures() {
                   <span>{post.likes}</span>
                 </button>
                 
-                <button 
-                  onClick={() => handleComment(post.id)}
-                  className="flex items-center space-x-1 hover:text-purple-600 transition-colors"
-                >
+                <button className="flex items-center space-x-1 hover:text-purple-600 transition-colors">
                   <MessageCircle className="h-4 w-4" />
                   <span>{post.comments}</span>
                 </button>
                 
-                <button 
-                  onClick={() => handleShare(post.id)}
-                  className="flex items-center space-x-1 hover:text-purple-600 transition-colors"
-                >
+                <button className="flex items-center space-x-1 hover:text-purple-600 transition-colors">
                   <Share2 className="h-4 w-4" />
                   <span>{post.shares}</span>
                 </button>
                 
                 {post.type === 'tip' && (
-                  <button 
-                    onClick={() => handleHelpful(post.id)}
-                    className="flex items-center space-x-1 text-green-600 hover:text-green-700 transition-colors"
-                  >
+                  <button className="flex items-center space-x-1 text-green-600 hover:text-green-700 transition-colors">
                     <ThumbsUp className="h-4 w-4" />
                     <span>Helpful</span>
                   </button>

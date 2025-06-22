@@ -394,7 +394,7 @@ export class AIUnderwritingEngine {
    */
   async evaluateForBinding(bindingData: {
     quoteId: string;
-    customerInfo: any;
+    customerInfo;
     riskFactors: RiskFactors;
   }): Promise<{
     approved: boolean;

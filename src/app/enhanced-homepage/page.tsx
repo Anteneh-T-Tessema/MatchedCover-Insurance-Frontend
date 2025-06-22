@@ -26,11 +26,6 @@ import { AdvancedSmartQuoteWizard } from '@/components/AdvancedSmartQuoteWizard'
 
 export default function EnhancedHomepage() {
   const [activeDemo, setActiveDemo] = React.useState<'ai' | 'rates' | 'community' | 'competitive' | 'quote' | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -98,7 +93,6 @@ export default function EnhancedHomepage() {
             {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <button 
-                onClick={toggleMobileMenu}
                 className="text-gray-600 hover:text-gray-900"
                 aria-label="Open mobile menu"
               >
@@ -108,56 +102,6 @@ export default function EnhancedHomepage() {
               </button>
             </div>
           </div>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden border-t border-gray-100 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link href="/strategic-showcase" className="text-purple-600 hover:text-purple-700 font-medium transition-colors flex items-center space-x-2">
-                  <Sparkles className="h-4 w-4" />
-                  <span>AI Experience</span>
-                </Link>
-                <button 
-                  onClick={() => setActiveDemo('ai')}
-                  className="text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-2 text-left"
-                >
-                  <Bot className="h-4 w-4" />
-                  <span>AI Demo</span>
-                </button>
-                <button 
-                  onClick={() => setActiveDemo('rates')}
-                  className="text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-2 text-left"
-                >
-                  <TrendingUp className="h-4 w-4" />
-                  <span>Live Rates</span>
-                </button>
-                <button 
-                  onClick={() => setActiveDemo('community')}
-                  className="text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-2 text-left"
-                >
-                  <Users className="h-4 w-4" />
-                  <span>Community</span>
-                </button>
-                <button 
-                  onClick={() => setActiveDemo('competitive')}
-                  className="text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-2 text-left"
-                >
-                  <Trophy className="h-4 w-4" />
-                  <span>Why We Win</span>
-                </button>
-                <Link 
-                  href="/next-gen-features"
-                  className="text-purple-600 hover:text-purple-700 transition-colors flex items-center space-x-2 font-medium"
-                >
-                  <Zap className="h-4 w-4" />
-                  <span>Next-Gen Features</span>
-                </Link>
-                <Link href="/login" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
-                  Sign In
-                </Link>
-              </nav>
-            </div>
-          )}
         </div>
       </header>
 

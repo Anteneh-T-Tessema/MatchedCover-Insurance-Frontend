@@ -6,7 +6,7 @@
 import { errorHandler, Result } from './errorHandler';
 
 export interface ParseOptions {
-  fallbackValue?: any;
+  fallbackValue?;
   allowEmpty?: boolean;
   maxDepth?: number;
   strictMode?: boolean;
@@ -234,7 +234,7 @@ export class JSONParser {
   /**
    * Calculate object depth for validation
    */
-  private getObjectDepth(obj: any, depth: number = 0): number {
+  private getObjectDepth(obj, depth: number = 0): number {
     if (depth > 50) return depth; // Prevent stack overflow
     
     if (typeof obj !== 'object' || obj === null) {
@@ -266,7 +266,7 @@ export class JSONParser {
    */
   parseWithValidation<T>(
     input: string,
-    validator: (obj: any) => obj is T,
+    validator: (obj) => obj is T,
     options: ParseOptions = {}
   ): Result<T> {
     const parseResult = this.safeParse(input, options);

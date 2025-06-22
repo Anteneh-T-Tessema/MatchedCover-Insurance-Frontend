@@ -172,6 +172,14 @@ const EnhancedAIChatInterface: React.FC<EnhancedAIChatInterfaceProps> = ({
       // Prepare conversation context
       const context: ConversationContext = {
         agentId: currentAgent,
+        agentPersonality: {
+          name: activeAgent.name,
+          tone: 'friendly',
+          style: 'conversational',
+          expertise: [activeAgent.specialty],
+          useEmojis: true,
+          responseLength: 'adaptive'
+        },
         userProfile: {
           id: user?.id || 'anonymous',
           name: user?.name || 'User',

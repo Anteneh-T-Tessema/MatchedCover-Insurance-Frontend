@@ -1,0 +1,22 @@
+# Alternative Jenkinsfile snippet that uses environment variable instead of credentials
+
+pipeline {
+    agent any
+    
+    environment {
+        NODE_VERSION = '20'
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
+        NEXT_TELEMETRY_DISABLED = '1'
+        
+        // Direct environment variable (less secure but works)
+        VERCEL_HOOK_URL = 'https://api.vercel.com/v1/integrations/deploy/prj_udp62d7l8EkGjP1LMxRbnIziYP66/uHzlBabBtW'
+    }
+    
+    // ... rest of your pipeline stages
+    
+    stage('Deploy to Vercel') {
+        steps {
+            sh "curl -X POST $VERCEL_HOOK_URL"
+        }
+    }
+}

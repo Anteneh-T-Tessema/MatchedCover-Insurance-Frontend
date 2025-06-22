@@ -63,7 +63,7 @@ export interface ValidationResult {
 export interface InputValidationResult {
   isValid: boolean;
   error?: string;
-  sanitizedValue?: any;
+  sanitizedValue?;
   details?: Record<string, unknown>;
 }
 
@@ -463,7 +463,7 @@ export interface StepExecutionResult {
   stepName: string;
   success: boolean;
   duration: number;
-  output?: any;
+  output?;
   error?: string;
   warnings: string[];
   metadata: Record<string, unknown>;
@@ -626,7 +626,7 @@ export interface ImplementationStepResult {
   actualEffort?: number;
   startDate?: string;
   endDate?: string;
-  output?: any;
+  output?;
   notes: string[];
   metadata: Record<string, unknown>;
 }

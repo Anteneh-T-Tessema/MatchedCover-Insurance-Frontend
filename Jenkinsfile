@@ -11,6 +11,9 @@ pipeline {
         STAGING_BRANCH = 'staging'
         PROD_BRANCH = 'main'
         
+        // Vercel deployment
+        VERCEL_HOOK_URL = credentials('vercel-hook-url') // Configure this in Jenkins credentials
+        
         // Docker registry (if using containerization)
         DOCKER_REGISTRY = 'your-registry.com'
         IMAGE_NAME = 'matched-cover-frontend'
@@ -257,6 +260,28 @@ pipeline {
             }
         }
         
+        stage('Deploy to Vercel') {
+            when {
+                anyOf {
+                    branch "${DEV_BRANCH}"
+                    branch "${STAGING_BRANCH}"
+                    branch "${PROD_BRANCH}"
+                }
+            }
+            steps {
+                echo 'Deploying to Vercel...'
+                script {
+                    try {
+                        sh "curl -X POST $VERCEL_HOOK_URL"
+                        echo '✅ Vercel deployment triggered successfully!'
+                    } catch (Exception e) {
+                        echo "❌ Vercel deployment failed: ${e.getMessage()}"
+                        throw e
+                    }
+                }
+            }
+        }
+        
         stage('Health Check') {
             when {
                 anyOf {
@@ -326,6 +351,32 @@ pipeline {
             notifySlack('UNSTABLE', "Pipeline unstable on ${env.BRANCH_NAME} branch ⚠️")
         }
     }
+}
+
+// Helper function for Vercel deployment
+def deployToVercel(hookUrl) {
+    echo "Triggering Vercel deployment via webhook..."
+    
+    sh """
+        echo "🚀 Starting Vercel deployment..."
+        
+        # Trigger the deployment via webhook
+        response=\$(curl -s -w "%{http_code}" -X POST "${hookUrl}")
+        http_code=\${response: -3}
+        response_body=\${response%???}
+        
+        echo "📡 Webhook triggered with response code: \$http_code"
+        
+        if [ "\$http_code" -eq 200 ] || [ "\$http_code" -eq 201 ]; then
+            echo "✅ Vercel deployment triggered successfully!"
+            echo "📊 Response: \$response_body"
+            echo "🔗 Check your Vercel dashboard for deployment status"
+        else
+            echo "❌ Vercel deployment failed with HTTP code: \$http_code"
+            echo "📊 Response: \$response_body"
+            exit 1
+        fi
+    """
 }
 
 // Helper function for deployment

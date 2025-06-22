@@ -1,4 +1,4 @@
-import { FrameworkControl, FrameworkDomain, FrameworkRequirement } from '../../types/platform-types';
+import { FrameworkControl, FrameworkDomain, FrameworkRequirement } from '../../interfaces/ComplianceFramework';
 
 /**
  * ISO 27001:2022 Controls Registry

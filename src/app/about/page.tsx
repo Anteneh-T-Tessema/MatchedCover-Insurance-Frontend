@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Shield, Users, Target, Award, Brain, Zap, Heart, TrendingUp } from 'lucide-react';
 
-export default function AboutPage() {
+export default function AboutPage() : void {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
