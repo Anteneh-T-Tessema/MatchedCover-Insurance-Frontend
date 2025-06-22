@@ -11,50 +11,33 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Experimental features for Vercel optimization
+  // Experimental features to fix font loading issues
   experimental: {
-    // Optimize for serverless
+    optimizeCss: false, // Disable CSS optimization that can conflict with Tailwind
     serverComponentsExternalPackages: ['@google/generative-ai'],
+    // Optimize font loading
+    optimizePackageImports: ['@next/font'],
   },
   
-  // Webpack optimizations for Vercel
-  webpack: (config, { dev, isServer }) => {
-    // Handle potential module resolution issues
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      net: false,
-      tls: false,
-    }
-
-    return config
-  },
-
-  // Image optimization for Vercel
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-    unoptimized: false,
-  },
-
-  // Environment variables for Vercel
-  env: {
-    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV,
-    NEXT_PUBLIC_VERCEL_URL: process.env.VERCEL_URL,
-  },
-
-  // Server external packages
-  serverExternalPackages: ['@prisma/client'],
+  // Server external packages for Vercel optimization
+  serverExternalPackages: ['@google/generative-ai', '@prisma/client'],
   
   // Disable source maps in production to reduce build size
   productionBrowserSourceMaps: false,
 
   // Optimize static generation
   trailingSlash: false,
+  
+  // Webpack configuration for better module resolution
+  webpack: (config) => {
+    // Handle Tailwind CSS module resolution
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'tailwindcss': require.resolve('tailwindcss'),
+    };
+    
+    return config;
+  },
   
   // Security headers
   async headers() {
