@@ -15,8 +15,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: false, // Disable CSS optimization that can conflict with Tailwind
     serverComponentsExternalPackages: ['@google/generative-ai'],
-    // Optimize font loading
-    optimizePackageImports: ['@next/font'],
   },
   
   // Server external packages for Vercel optimization
