@@ -26,17 +26,6 @@ const nextConfig: NextConfig = {
   // Optimize static generation
   trailingSlash: false,
   
-  // Webpack configuration for better module resolution
-  webpack: (config) => {
-    // Handle Tailwind CSS module resolution
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'tailwindcss': require.resolve('tailwindcss'),
-    };
-    
-    return config;
-  },
-  
   // Security headers
   async headers() {
     return [

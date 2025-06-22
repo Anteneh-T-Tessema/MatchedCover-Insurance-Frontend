@@ -1,49 +1,14 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "npm install && npm run build",
-  "installCommand": "npm install",
-  "functions": {
-    "app/api/**/*.ts": {
-      "maxDuration": 30
-    }
-  },
   "build": {
     "env": {
       "NODE_ENV": "production",
       "NEXT_TELEMETRY_DISABLED": "1",
-      "NODE_OPTIONS": "--max-old-space-size=4096",
-      "SKIP_ENV_VALIDATION": "1",
-      "FORCE_COLOR": "1"
+      "NODE_OPTIONS": "--max-old-space-size=4096"
     }
   },
   "env": {
     "NEXT_PUBLIC_GEMINI_API_KEY": "@gemini_api_key"
-  },
-  "regions": ["iad1"],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ]
+  }
 }
