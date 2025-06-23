@@ -9,26 +9,19 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Disable problematic features
+  // Disable font optimization to prevent manifest issues
   optimizeFonts: false,
-  productionBrowserSourceMaps: false,
   
-  // Webpack configuration
+  // Webpack configuration to handle font manifest
   webpack: (config, { isServer }) => {
-    // Remove font plugins that cause issues
+    // Remove problematic font plugins
     if (config.plugins) {
       config.plugins = config.plugins.filter(plugin => 
         plugin.constructor.name !== 'NextFontManifestPlugin'
       );
     }
     
-    // Handle font imports
-    config.module.rules.push({
-      test: /next\/font/,
-      use: 'null-loader'
-    });
-    
-    // Create empty font manifest to prevent errors
+    // Create font manifest plugin for server builds
     if (isServer) {
       const fs = require('fs');
       const path = require('path');
@@ -52,9 +45,9 @@ const nextConfig = {
               };
               
               fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+              console.log('✓ Font manifest created successfully');
             } catch (error) {
-              // Silently ignore font manifest creation errors
-              console.warn('Font manifest creation skipped:', error.message);
+              console.warn('Font manifest creation failed (non-critical):', error.message);
             }
           });
         }

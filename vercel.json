@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "framework": "nextjs",
-  "nodeVersion": "18.x",
-  "installCommand": "npm ci",
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "env": {
-    "SKIP_FONT_OPTIMIZATION": "1",
-    "NODE_ENV": "production"
-  },
   "build": {
     "env": {
       "SKIP_FONT_OPTIMIZATION": "1",
