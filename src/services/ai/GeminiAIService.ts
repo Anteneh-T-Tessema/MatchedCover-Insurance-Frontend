@@ -566,50 +566,60 @@ Respond as ${agent.name} would, maintaining their personality and expertise. Pro
   }
 
   /**
-   * Simple chat method for basic interactions
+   * Simple chat method using secure API route
    */
   async simpleChat(message: string, locale: Locale = 'en'): Promise<string> {
     try {
-      const selectedAgent = selectAgent(message);
-      
-      if (!this.model) {
-        // Use intelligent fallback
-        if (selectedAgent.name === 'Maya') {
-          return `Hi! I'm Maya! 🌟 ${message.includes('quote') ? 'I\'d love to help you find great insurance deals!' : 'I\'m here to help you with your insurance needs!'} What would you like to know?`;
-        } else if (selectedAgent.name === 'Alex') {
-          return `Hello, I'm Alex. 🧠 I'll help you understand insurance from a risk assessment perspective. What can I analyze for you?`;
-        } else {
-          return `Hi there, I'm Sam. ❤️ I'm here to help you with care and understanding. How can I support you today?`;
-        }
-      }
-      
-      const prompt = `You are ${selectedAgent.name}, a helpful insurance AI agent. 
-      Respond briefly and helpfully to: "${message}"
-      Respond in ${locale === 'en' ? 'English' : locale === 'es' ? 'Spanish' : locale === 'fr' ? 'French' : 'English'}.`;
-
-      const result = await this.model.generateContent({
-        contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 200,
-        }
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message, locale }),
       });
 
-      return result.response.text() || selectedAgent.greeting[locale] || selectedAgent.greeting.en;
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.response || this.getSimpleFallbackResponse(message, locale);
     } catch (error) {
       console.error('Simple chat error:', error);
-      const selectedAgent = selectAgent(message);
-      return selectedAgent.greeting[locale] || selectedAgent.greeting.en;
+      return this.getSimpleFallbackResponse(message, locale);
+    }
+  }
+
+  /**
+   * Simple fallback response for chat
+   */
+  private getSimpleFallbackResponse(message: string, locale: Locale): string {
+    const selectedAgent = selectAgent(message);
+    
+    if (selectedAgent.name === 'Maya') {
+      return locale === 'es' 
+        ? '¡Hola! Soy Maya, tu asistente de seguros. ¿En qué puedo ayudarte hoy? 🌟'
+        : locale === 'fr'
+        ? 'Bonjour! Je suis Maya, votre assistante d\'assurance. Comment puis-je vous aider aujourd\'hui? 🌟'
+        : 'Hi! I\'m Maya, your insurance assistant! 🌟 How can I help you today?';
+    } else if (selectedAgent.name === 'Alex') {
+      return locale === 'es'
+        ? 'Hola, soy Alex. Te ayudo con análisis de riesgos de seguros. ¿Qué puedo analizar para ti? 🧠'
+        : 'Hello, I\'m Alex. I help with insurance risk analysis. What can I analyze for you? 🧠';
+    } else {
+      return locale === 'es'
+        ? 'Hola, soy Sam. Estoy aquí para ayudarte con cuidado y comprensión. ¿Cómo puedo apoyarte? ❤️'
+        : 'Hi, I\'m Sam. I\'m here to help you with care and understanding. How can I support you? ❤️';
     }
   }
 }
 
 // Export singleton instance
 export const geminiAIService = new EnhancedGeminiAIService({
-  apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY || '',
-  model: process.env.NEXT_PUBLIC_GEMINI_MODEL || 'gemini-pro',
-  temperature: parseFloat(process.env.NEXT_PUBLIC_GEMINI_TEMPERATURE || '0.8'),
-  maxTokens: parseInt(process.env.NEXT_PUBLIC_GEMINI_MAX_TOKENS || '1000'),
+  apiKey: '', // API key is now handled server-side
+  model: 'gemini-pro',
+  temperature: 0.8,
+  maxTokens: 1000,
 });
 
 export default geminiAIService;

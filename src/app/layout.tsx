@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import ChatWrapper from "@/components/ChatWrapper";
 import { I18nProvider } from "@/i18n/provider";
 
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default function RootLayout({
       >
         <I18nProvider>
           {children}
+          <ChatWrapper />
         </I18nProvider>
       </body>
     </html>
