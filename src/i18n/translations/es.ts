@@ -37,7 +37,7 @@ const esTranslations = {
       getQuoteButton: 'Obtener Mi Cotización',
       watchDemoButton: 'Ver Demo',
       phone: 'Llámanos',
-      experienceAIPlatform: 'Experimentar Plataforma IA',
+      experienceAIPlatform: 'Obtener Cotización Inteligente',
       getSmartQuote: 'Obtener Cotización Inteligente'
     },
     features: {

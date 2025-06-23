@@ -37,7 +37,7 @@ export default {
       getQuoteButton: 'Obtenir Mon Devis',
       watchDemoButton: 'Voir la Démo',
       phone: 'Appelez-nous',
-      experienceAIPlatform: 'Découvrir la Plateforme IA',
+      experienceAIPlatform: 'Obtenir un Devis Intelligent',
       getSmartQuote: 'Obtenir un Devis Intelligent'
     },
     features: {

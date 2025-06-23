@@ -37,7 +37,7 @@ export default {
       getQuoteButton: 'Get My Quote',
       watchDemoButton: 'Watch Demo',
       phone: 'Call us',
-      experienceAIPlatform: 'Experience AI Platform',
+      experienceAIPlatform: 'Get Smart Quote',
       getSmartQuote: 'Get Smart Quote'
     },
     features: {

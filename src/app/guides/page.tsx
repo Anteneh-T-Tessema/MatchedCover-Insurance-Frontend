@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Shield, Search, BookOpen, Download, Clock, User, ArrowRight, CheckCircle } from 'lucide-react';
+import { Shield, Search, BookOpen, Download, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import ChatWrapper from '@/components/ChatWrapper';
 
 export default function GuidesPage() {

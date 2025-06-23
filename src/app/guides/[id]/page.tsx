@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Shield, ArrowLeft, Clock, Download, CheckCircle, Share2, Bookmark } from 'lucide-react';
+import { Shield, ArrowLeft, Clock, Download, Share2, Bookmark } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import ChatWrapper from '@/components/ChatWrapper';
 

@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Shield, CheckCircle, Users, Brain, ArrowRight, Play } from 'lucide-react';
-import ChatWrapper from '@/components/ChatWrapper';
 
 export default function HowItWorksPage() {
   return (
@@ -72,8 +71,8 @@ export default function HowItWorksPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-sm text-gray-500 italic">
-                  "                  &ldquo;Hi! I&rsquo;m Maya. Let&rsquo;s find you the perfect insurance coverage. 
-                  What type of property would you like to insure?&rdquo;"
+                  "Hi! I'm Maya. Let's find you the perfect insurance coverage. 
+                  What type of property would you like to insure?"
                 </p>
               </div>
             </div>
@@ -206,9 +205,6 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </footer>
-
-      {/* Floating Chat */}
-      <ChatWrapper />
     </div>
   );
 }

@@ -17,7 +17,6 @@ import {
   FileText,
   ArrowRight
 } from 'lucide-react';
-import ChatWrapper from '@/components/ChatWrapper';
 
 interface FAQItem {
   id: number;
@@ -350,9 +349,6 @@ export default function HelpPage() {
           </div>
         </div>
       </footer>
-
-      {/* Floating Chat */}
-      <ChatWrapper />
     </div>
   );
 }
