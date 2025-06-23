@@ -28,7 +28,8 @@ const nextConfig = {
       
       config.plugins.push({
         apply(compiler) {
-          compiler.hooks.afterEmit.tap('CreateFontManifest', () => {
+          // Create manifest files early in the compilation process
+          compiler.hooks.beforeCompile.tap('CreateFontManifest', () => {
             try {
               const manifestDir = path.join(process.cwd(), '.next', 'server');
               const jsonPath = path.join(manifestDir, 'next-font-manifest.json');
@@ -55,6 +56,33 @@ const nextConfig = {
               console.log('✓ Font manifest files created successfully (.json and .js)');
             } catch (error) {
               console.warn('Font manifest creation failed (non-critical):', error.message);
+            }
+          });
+          
+          // Also create during compilation for safety
+          compiler.hooks.compilation.tap('CreateFontManifestCompilation', () => {
+            try {
+              const manifestDir = path.join(process.cwd(), '.next', 'server');
+              const jsPath = path.join(manifestDir, 'next-font-manifest.js');
+              
+              if (!fs.existsSync(manifestDir)) {
+                fs.mkdirSync(manifestDir, { recursive: true });
+              }
+              
+              if (!fs.existsSync(jsPath)) {
+                const manifest = {
+                  pages: {},
+                  app: {},
+                  appUsingSizeAdjust: false,
+                  pagesUsingSizeAdjust: false
+                };
+                
+                const jsContent = `module.exports = ${JSON.stringify(manifest, null, 2)};`;
+                fs.writeFileSync(jsPath, jsContent);
+                console.log('✓ Font manifest .js file ensured during compilation');
+              }
+            } catch (error) {
+              console.warn('Font manifest compilation hook failed (non-critical):', error.message);
             }
           });
         }
