@@ -30,8 +30,9 @@ const nextConfig = {
         apply(compiler) {
           compiler.hooks.afterEmit.tap('CreateFontManifest', () => {
             try {
-              const manifestPath = path.join(process.cwd(), '.next', 'server', 'next-font-manifest.json');
-              const manifestDir = path.dirname(manifestPath);
+              const manifestDir = path.join(process.cwd(), '.next', 'server');
+              const jsonPath = path.join(manifestDir, 'next-font-manifest.json');
+              const jsPath = path.join(manifestDir, 'next-font-manifest.js');
               
               if (!fs.existsSync(manifestDir)) {
                 fs.mkdirSync(manifestDir, { recursive: true });
@@ -44,8 +45,14 @@ const nextConfig = {
                 pagesUsingSizeAdjust: false
               };
               
-              fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-              console.log('✓ Font manifest created successfully');
+              // Create JSON file
+              fs.writeFileSync(jsonPath, JSON.stringify(manifest, null, 2));
+              
+              // Create JS file that Vercel expects
+              const jsContent = `module.exports = ${JSON.stringify(manifest, null, 2)};`;
+              fs.writeFileSync(jsPath, jsContent);
+              
+              console.log('✓ Font manifest files created successfully (.json and .js)');
             } catch (error) {
               console.warn('Font manifest creation failed (non-critical):', error.message);
             }
