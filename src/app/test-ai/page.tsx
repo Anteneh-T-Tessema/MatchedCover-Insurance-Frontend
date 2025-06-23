@@ -1,96 +1,68 @@
-/**
- * Simple Gemini AI Test - Test real AI responses
- */
+import React from 'react';
+import Link from 'next/link';
+import { Shield, ArrowRight, Brain } from 'lucide-react';
 
-'use client';
-
-import { useState } from 'react';
-import { geminiAIService } from '@/services/ai/GeminiAIService';
-
-export default function TestGeminiPage() {
-  const [question, setQuestion] = useState('');
-  const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [agent, setAgent] = useState<'maya' | 'alex' | 'sam'>('maya');
-
-  const testAI = async () => {
-    if (!question.trim()) return;
-    
-    setLoading(true);
-    try {
-      let prompt = '';
-      if (agent === 'maya') {
-        prompt = `You are Maya, an enthusiastic insurance sales expert. Answer this question with excitement and focus on savings and deals: "${question}"`;
-      } else if (agent === 'alex') {
-        prompt = `You are Alex, a detail-oriented risk analyst. Provide a technical, analytical response to: "${question}"`;
-      } else {
-        prompt = `You are Sam, an empathetic support advocate. Respond with care and understanding to: "${question}"`;
-      }
-      
-      const aiResponse = await geminiAIService.simpleChat(prompt, 'en');
-      setResponse(aiResponse);
-    } catch (error) {
-      setResponse(`Error: ${error}`);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+export default function TestAIPage() {
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">🧪 Gemini AI Test</h1>
-        
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Select Agent:</label>
-            <div className="flex gap-4">
-              {(['maya', 'alex', 'sam'] as const).map((agentOption) => (
-                <button
-                  key={agentOption}
-                  onClick={() => setAgent(agentOption)}
-                  className={`px-4 py-2 rounded ${
-                    agent === agentOption
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-200 text-gray-700'
-                  }`}
-                >
-                  {agentOption === 'maya' ? '👩‍💼 Maya' : agentOption === 'alex' ? '👨‍💻 Alex' : '👩‍🔧 Sam'}
-                </button>
-              ))}
-            </div>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <Shield className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">MatchedCover</span>
+            </Link>
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
+              <Link href="/ai-demo" className="text-gray-600 hover:text-gray-900">AI Demo</Link>
+              <Link href="/support" className="text-gray-600 hover:text-gray-900">Support</Link>
+            </nav>
           </div>
-          
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Ask a question:</label>
-            <input
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              className="w-full p-3 border rounded"
-              placeholder="e.g., What is car insurance?"
-              onKeyPress={(e) => e.key === 'Enter' && testAI()}
-            />
-          </div>
-          
-          <button
-            onClick={testAI}
-            disabled={loading || !question.trim()}
-            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 disabled:bg-gray-300"
-          >
-            {loading ? 'Testing AI...' : 'Test AI Response'}
-          </button>
         </div>
-        
-        {response && (
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold mb-3">AI Response:</h3>
-            <div className="bg-gray-50 p-4 rounded border-l-4 border-blue-500">
-              <p className="whitespace-pre-wrap">{response}</p>
+      </header>
+
+      {/* Main Content */}
+      <main className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-6">
+            <Brain className="h-16 w-16 text-purple-600" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-6">
+            AI Testing Environment
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Test and validate AI-powered insurance features.
+          </p>
+          
+          <div className="bg-gray-50 rounded-lg p-8 max-w-md mx-auto">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+              Development Mode
+            </h2>
+            <p className="text-gray-600 mb-6">
+              This page is used for internal testing of AI features.
+            </p>
+            <div className="space-y-4">
+              <Link
+                href="/ai-demo"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-purple-600 hover:bg-purple-700 w-full justify-center"
+              >
+                Try AI Demo
+                <Brain className="h-5 w-5 ml-2" />
+              </Link>
+              <Link
+                href="/"
+                className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 w-full justify-center"
+              >
+                Return Home
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

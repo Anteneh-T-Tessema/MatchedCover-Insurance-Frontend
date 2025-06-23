@@ -22,6 +22,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import QuickQuoteForm from '@/components/QuickQuoteForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ChatWrapper from '@/components/ChatWrapper';
 import { useTranslation } from '@/i18n/provider';
 
 // Modal Components
@@ -856,6 +857,9 @@ export default function HomePage() {
         isOpen={showQuoteForm}
         onCloseAction={() => setShowQuoteForm(false)}
       />
+
+      {/* Floating Chat */}
+      <ChatWrapper />
     </div>
   );
 }

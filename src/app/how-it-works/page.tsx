@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Shield, CheckCircle, Users, Brain, ArrowRight, Play } from 'lucide-react';
+import ChatWrapper from '@/components/ChatWrapper';
 
 export default function HowItWorksPage() {
   return (
@@ -205,6 +206,9 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Chat */}
+      <ChatWrapper />
     </div>
   );
 }
