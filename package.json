@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/emergency-build.js",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "build:original": "next build",
