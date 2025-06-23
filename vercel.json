@@ -1,8 +1,8 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "npm run vercel:build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "node scripts/emergency-build.js",
+  "installCommand": "npm install --legacy-peer-deps --force",
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
@@ -18,26 +18,13 @@
       "SKIP_ENV_VALIDATION": "1",
       "FORCE_COLOR": "0",
       "CI": "true",
-      "VERCEL": "1"
+      "VERCEL": "1",
+      "NEXT_FONT_DISABLED": "1"
     }
   },
   "env": {
-    "NEXT_PUBLIC_GEMINI_API_KEY": "@gemini_api_key"
-  },
-  "regions": ["iad1"],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        }
-      ]
-    }
-  ]
+    "NEXT_PUBLIC_GEMINI_API_KEY": "@gemini_api_key",
+    "DISABLE_NEXT_FONT": "1",
+    "SKIP_FONT_OPTIMIZATION": "1"
+  }
 }

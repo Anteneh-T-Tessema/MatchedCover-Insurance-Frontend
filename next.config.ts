@@ -9,36 +9,63 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Experimental features - minimal and stable
+  // Experimental features - completely disable optimizations
   experimental: {
     optimizeCss: false,
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
+    optimizeServerReact: false,
+    serverComponentsExternalPackages: [],
   },
   
   // Server external packages for Vercel optimization
   serverExternalPackages: [
     '@google/generative-ai',
-    '@prisma/client'
+    '@prisma/client',
+    'tailwindcss',
+    'postcss',
+    'autoprefixer'
   ],
   
-  // Disable source maps in production to reduce build size
+  // Disable all optimizations that could interfere
   productionBrowserSourceMaps: false,
-
-  // Optimize static generation
-  trailingSlash: false,
+  optimizeFonts: false,
   
   // Output configuration for Vercel
   output: 'standalone',
+  trailingSlash: false,
   
-  // Webpack configuration for reliable builds
+  // Aggressive webpack configuration to prevent font processing
   webpack: (config, { dev }) => {
+    // Completely disable Next.js font processing
+    if (config.plugins) {
+      config.plugins = config.plugins.filter((plugin: { constructor: { name: string } }) => {
+        return plugin.constructor.name !== 'NextFontManifestPlugin';
+      });
+    }
+
+    // Add rules to ignore font imports
+    config.module.rules.push({
+      test: /next\/font/,
+      use: 'null-loader'
+    });
+
+    // Resolve fallbacks
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+      crypto: false,
+    };
+
+    // Ignore specific modules that cause issues
+    config.externals = config.externals || [];
+    if (Array.isArray(config.externals)) {
+      config.externals.push({
+        'next/font/google': 'commonjs next/font/google',
+        'next/font/local': 'commonjs next/font/local',
+      });
+    }
+
     // Optimize for production builds
     if (!dev) {
       config.optimization = {
@@ -57,55 +84,15 @@ const nextConfig: NextConfig = {
       };
     }
 
-    // Handle SVG imports
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack']
-    });
-
-    // Resolve module issues
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      net: false,
-      tls: false,
-    };
-
     return config;
   },
   
-  // Security headers
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
-          },
-        ],
-      },
-    ]
-  },
-
-  // Environment variables for build optimization
+  // Environment variables to disable font processing
   env: {
     NEXT_TELEMETRY_DISABLED: '1',
     SKIP_FONT_OPTIMIZATION: '1',
     DISABLE_NEXT_FONT: '1',
+    NEXT_FONT_DISABLED: '1',
   },
 }
 
