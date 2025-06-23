@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: false,
     optimizeServerReact: false,
-    serverComponentsExternalPackages: [],
   },
   
   // Server external packages for Vercel optimization
@@ -27,7 +26,6 @@ const nextConfig: NextConfig = {
   
   // Disable all optimizations that could interfere
   productionBrowserSourceMaps: false,
-  optimizeFonts: false,
   
   // Output configuration for Vercel
   output: 'standalone',

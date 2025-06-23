@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/emergency-build.js",
     "start": "next start",
     "lint": "next lint",
+    "build:original": "next build",
     "vercel:build": "node scripts/vercel-build.js",
     "vercel:clean": "rm -rf .next .vercel node_modules/.cache",
     "build:production": "NODE_ENV=production SKIP_FONT_OPTIMIZATION=1 next build",
