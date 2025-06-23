@@ -1,7 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ChatWrapper from "@/components/ChatWrapper";
 import { I18nProvider } from "@/i18n/provider";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "MatchedCover - Insurance Made Simple",
@@ -53,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="font-sans antialiased"
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-sans`}
       >
         <I18nProvider>
           {children}

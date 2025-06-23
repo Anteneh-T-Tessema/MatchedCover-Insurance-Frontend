@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+// Import Gemini AI Service
+import { geminiAIService } from '../services/ai/GeminiAIService';
 
 // Declare Web Speech API types
 declare global {
@@ -255,26 +257,11 @@ export default function AIChat({ isOpen, onCloseAction, isMinimized = false, onM
 
   const generateAIResponse = async (userMessage: string): Promise<string> => {
     try {
-      // Use secure API route instead of direct client-side calls
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage,
-          locale: 'en'
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
-      }
-
-      const data = await response.json();
-      return data.response || 'Sorry, I encountered an issue. Please try again.';
+      // Use Gemini AI for real responses
+      const response = await geminiAIService.simpleChat(userMessage, 'en');
+      return response;
     } catch (error) {
-      console.error('Chat API Error:', error);
+      console.error('Gemini AI Error:', error);
       
       // Fallback to mock responses if Gemini fails
       const message = userMessage.toLowerCase();

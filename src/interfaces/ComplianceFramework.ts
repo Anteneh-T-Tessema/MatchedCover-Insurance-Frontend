@@ -1,1 +1,2 @@
-# Interfaces consolidated into platform-types.ts
+// Interfaces consolidated into platform-types.ts
+export {};
