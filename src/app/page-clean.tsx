@@ -36,7 +36,7 @@ export default function HomePage() {
 
             {/* Mobile Phone */}
             <div className="md:hidden">
-              <a href="tel:1-800-555-0123" className="text-blue-600" aria-label="Call us">
+              <a href="tel:1-800-555-0123" className="text-blue-600">
                 <Phone className="h-6 w-6" />
               </a>
             </div>
