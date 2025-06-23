@@ -1,15 +1,18 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "installCommand": "npm install --legacy-peer-deps",
+  "nodeVersion": "18.x",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "env": {
+    "SKIP_FONT_OPTIMIZATION": "1",
+    "NODE_ENV": "production"
+  },
   "build": {
-    "command": "next build",
     "env": {
       "SKIP_FONT_OPTIMIZATION": "1",
       "DISABLE_NEXT_FONT": "1"
     }
-  },
-  "env": {
-    "NEXT_PUBLIC_GEMINI_API_KEY": "@gemini_api_key"
   }
 }
