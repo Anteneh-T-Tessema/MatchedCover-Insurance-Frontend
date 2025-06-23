@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Shield, Search, BookOpen, Download, Clock, User, ArrowRight, CheckCircle } from 'lucide-react';
+import ChatWrapper from '@/components/ChatWrapper';
 
 export default function GuidesPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,39 +30,39 @@ export default function GuidesPage() {
     },
     {
       id: 3,
-      title: 'Life Insurance Planning',
-      description: 'How to choose the right life insurance coverage for your family.',
+      title: 'Life Insurance Fundamentals',
+      description: 'Secure your family\'s financial future with the right life insurance policy.',
       category: 'life',
-      readTime: '20 min',
+      readTime: '18 min',
       downloadUrl: '/guides/life-insurance-guide.pdf',
       topics: ['Term vs Whole Life', 'Coverage Amount', 'Beneficiaries', 'Estate Planning']
     },
     {
       id: 4,
-      title: 'Renters Insurance Basics',
-      description: 'Protecting your personal property as a renter.',
+      title: 'Business Insurance Essentials',
+      description: 'Protect your business with comprehensive insurance coverage tailored to your industry.',
+      category: 'business',
+      readTime: '20 min',
+      downloadUrl: '/guides/business-insurance-guide.pdf',
+      topics: ['Liability Coverage', 'Property Protection', 'Workers Comp', 'Industry-Specific Needs']
+    },
+    {
+      id: 5,
+      title: 'Renters Insurance Guide',
+      description: 'Protect your belongings and liability as a renter with affordable coverage.',
       category: 'renters',
-      readTime: '8 min',
+      readTime: '10 min',
       downloadUrl: '/guides/renters-insurance-guide.pdf',
       topics: ['Personal Property', 'Liability Coverage', 'Additional Living Expenses', 'Inventory Tips']
     },
     {
-      id: 5,
-      title: 'Filing Insurance Claims',
-      description: 'Step-by-step guide to filing and managing insurance claims.',
-      category: 'claims',
-      readTime: '10 min',
-      downloadUrl: '/guides/claims-process-guide.pdf',
-      topics: ['When to File', 'Documentation', 'Working with Adjusters', 'Settlement Process']
-    },
-    {
       id: 6,
-      title: 'Insurance Savings Tips',
-      description: 'How to save money on insurance without sacrificing coverage.',
-      category: 'savings',
-      readTime: '7 min',
-      downloadUrl: '/guides/insurance-savings-guide.pdf',
-      topics: ['Bundling Discounts', 'Risk Reduction', 'Policy Reviews', 'Shopping Strategies']
+      title: 'Understanding Health Insurance',
+      description: 'Navigate health insurance options and find coverage that meets your medical and financial needs.',
+      category: 'health',
+      readTime: '16 min',
+      downloadUrl: '/guides/health-insurance-guide.pdf',
+      topics: ['Plan Types', 'Coverage Options', 'Cost Factors', 'Open Enrollment']
     }
   ];
 
@@ -70,9 +71,9 @@ export default function GuidesPage() {
     { id: 'home', name: 'Home Insurance' },
     { id: 'auto', name: 'Auto Insurance' },
     { id: 'life', name: 'Life Insurance' },
+    { id: 'business', name: 'Business Insurance' },
     { id: 'renters', name: 'Renters Insurance' },
-    { id: 'claims', name: 'Claims' },
-    { id: 'savings', name: 'Savings Tips' }
+    { id: 'health', name: 'Health Insurance' }
   ];
 
   const filteredGuides = guides.filter(guide => {
@@ -202,6 +203,7 @@ export default function GuidesPage() {
                       href={guide.downloadUrl}
                       className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                       download
+                      title="Download guide PDF"
                     >
                       <Download className="h-4 w-4 text-gray-600" />
                     </a>
@@ -272,6 +274,9 @@ export default function GuidesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Chat */}
+      <ChatWrapper />
     </div>
   );
 }
