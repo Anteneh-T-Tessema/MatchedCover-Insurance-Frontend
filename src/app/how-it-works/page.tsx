@@ -71,8 +71,8 @@ export default function HowItWorksPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-4">
                 <p className="text-sm text-gray-500 italic">
-                  "Hi! I'm Maya. Let's find you the perfect insurance coverage. 
-                  What type of property would you like to insure?"
+                  "                  &ldquo;Hi! I&rsquo;m Maya. Let&rsquo;s find you the perfect insurance coverage. 
+                  What type of property would you like to insure?&rdquo;"
                 </p>
               </div>
             </div>

@@ -103,7 +103,7 @@ export default function CarrierDashboard() {
       setCarriers(validStatuses);
 
       // Update metrics based on carrier performance
-      const totalQuotes = validStatuses.reduce((sum, carrier) => 
+      const totalQuotes = validStatuses.reduce((sum) => 
         sum + Math.floor(Math.random() * 1000), 0
       );
       
@@ -463,7 +463,7 @@ export default function CarrierDashboard() {
             </svg>
             <h3 className="mt-2 text-sm font-medium text-gray-900">No carrier data available</h3>
             <p className="mt-1 text-sm text-gray-500">
-              Click "Refresh Status" to fetch current carrier information.
+              Click &ldquo;Refresh Status&rdquo; to fetch current carrier information.
             </p>
           </div>
         )}

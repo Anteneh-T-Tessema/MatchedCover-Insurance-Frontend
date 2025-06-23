@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Shield, Calendar, User, ArrowRight, Search, Tag, TrendingUp, Lightbulb, Shield as ShieldIcon, Brain } from 'lucide-react';
+import { Shield, User, ArrowRight, Search, Tag, TrendingUp, Lightbulb, Shield as ShieldIcon, Brain } from 'lucide-react';
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
