@@ -52,36 +52,3 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 CMD ["node", "server.js"]
-             /app/soc2-alerts \
-             /app/soc2-metrics \
-             /app/logs
-
-# Copy source code
-COPY src/ ./src/
-COPY .env.soc2-agents .env
-
-# Copy configuration files
-COPY docker-config/ ./config/
-
-# Set permissions
-RUN chmod +x src/run-soc2-agents.ts && \
-    chmod 755 /app/soc2-* && \
-    chown -R node:node /app
-
-# Switch to non-root user
-USER node
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:3001/health || exit 1
-
-# Expose ports
-EXPOSE 3001
-
-# Environment variables
-ENV NODE_ENV=production
-ENV LOG_LEVEL=info
-ENV DASHBOARD_PORT=3001
-
-# Start the application
-CMD ["npm", "start"]

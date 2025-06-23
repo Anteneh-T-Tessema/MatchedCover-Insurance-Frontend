@@ -1,13 +1,16 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Essential settings for Vercel deployment
+  // Essential settings for deployment
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
+  
+  // Enable standalone output for Docker and edge deployments
+  output: 'standalone',
   
   // Disable font optimization to prevent manifest issues
   optimizeFonts: false,

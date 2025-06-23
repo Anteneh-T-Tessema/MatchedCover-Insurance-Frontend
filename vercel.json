@@ -1,10 +1,52 @@
 {
   "version": 2,
-  "buildCommand": "node scripts/create-font-manifest.js && npm run build",
+  "framework": "nextjs",
+  "buildCommand": "npm ci && npm run build",
+  "installCommand": "npm ci",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
   "build": {
     "env": {
-      "SKIP_FONT_OPTIMIZATION": "1",
-      "DISABLE_NEXT_FONT": "1"
+      "NODE_ENV": "production",
+      "NEXT_TELEMETRY_DISABLED": "1",
+      "NODE_OPTIONS": "--max-old-space-size=4096",
+      "SKIP_ENV_VALIDATION": "1",
+      "FORCE_COLOR": "1"
     }
-  }
+  },
+  "env": {
+    "NEXT_PUBLIC_GEMINI_API_KEY": "@gemini_api_key",
+    "NEXT_PUBLIC_GEMINI_MODEL": "@gemini_model",
+    "NEXT_PUBLIC_GEMINI_TEMPERATURE": "@gemini_temperature",
+    "NEXT_PUBLIC_GEMINI_MAX_TOKENS": "@gemini_max_tokens"
+  },
+  "regions": ["iad1"],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ]
 }

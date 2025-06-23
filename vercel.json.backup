@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": "node scripts/create-font-manifest.js && npm run build",
+  "build": {
+    "env": {
+      "SKIP_FONT_OPTIMIZATION": "1",
+      "DISABLE_NEXT_FONT": "1"
+    }
+  }
+}

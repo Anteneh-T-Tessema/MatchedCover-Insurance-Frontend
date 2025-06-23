@@ -1,4 +1,4 @@
-name: Deploy to Vercel
+name: Deploy MatchedCover Insurance Platform
 
 on:
   push:
@@ -23,17 +23,51 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Create font manifest files
+      run: node scripts/create-font-manifest.js
+      
     - name: Build application
       run: npm run build
       env:
         NEXT_TELEMETRY_DISABLED: 1
+        SKIP_FONT_OPTIMIZATION: 1
+        DISABLE_NEXT_FONT: 1
         
-    - name: Deploy to Vercel
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/staging'
+    - name: Validate build
       run: |
-        curl -X POST ${{ secrets.VERCEL_HOOK_URL }}
+        if [ ! -f .next/server/next-font-manifest.js ]; then
+          echo "❌ Font manifest missing!"
+          exit 1
+        fi
+        echo "✅ Build validation successful!"
+        
+    # Option 1: Deploy to Railway
+    - name: Deploy to Railway
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: bervProject/railway-deploy@v1.3.0
+      with:
+        railway_token: ${{ secrets.RAILWAY_TOKEN }}
+        service: matchedcover-insurance
+        
+    # Option 2: Deploy to Netlify
+    - name: Deploy to Netlify
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: nwtgck/actions-netlify@v2.0
+      with:
+        publish-dir: './out'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
       env:
-        VERCEL_HOOK_URL: ${{ secrets.VERCEL_HOOK_URL }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        
+    # Option 3: Build and push Docker image
+    - name: Build Docker image
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: |
+        docker build -f Dockerfile.nextjs -t matchedcover-insurance:latest .
+        echo "✅ Docker image built successfully!"
         
     - name: Notify deployment status
       if: always()
