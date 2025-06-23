@@ -3,8 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { Shield, ArrowRight, Phone } from 'lucide-react';
+import { useTranslation } from '@/i18n/provider';
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-white">
       {/* SIMPLIFIED HEADER */}
