@@ -444,10 +444,10 @@ export default function EnhancedHomepage() {
             <div>
               <h4 className="font-semibold mb-4">Insurance</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="/auto" className="hover:text-white transition-colors">Auto Insurance</Link></li>
-                <li><Link href="/home" className="hover:text-white transition-colors">Home Insurance</Link></li>
-                <li><Link href="/life" className="hover:text-white transition-colors">Life Insurance</Link></li>
-                <li><Link href="/business" className="hover:text-white transition-colors">Business Insurance</Link></li>
+                <li><Link href="/auto-insurance" className="hover:text-white transition-colors">Auto Insurance</Link></li>
+                <li><Link href="/home-insurance" className="hover:text-white transition-colors">Home Insurance</Link></li>
+                <li><Link href="/life-insurance" className="hover:text-white transition-colors">Life Insurance</Link></li>
+                <li><Link href="/renters-insurance" className="hover:text-white transition-colors">Renters Insurance</Link></li>
               </ul>
             </div>
             
