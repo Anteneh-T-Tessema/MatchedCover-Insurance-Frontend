@@ -3,27 +3,76 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   // Essential settings for Vercel deployment
   eslint: {
-    // Disable ESLint during builds to prevent timeout issues
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Disable type checking during builds - handle separately
     ignoreBuildErrors: true,
   },
   
-  // Experimental features to fix font loading issues
+  // Experimental features - minimal and stable
   experimental: {
-    optimizeCss: false, // Disable CSS optimization that can conflict with Tailwind
+    optimizeCss: false,
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
   
   // Server external packages for Vercel optimization
-  serverExternalPackages: ['@google/generative-ai', '@prisma/client'],
+  serverExternalPackages: [
+    '@google/generative-ai',
+    '@prisma/client'
+  ],
   
   // Disable source maps in production to reduce build size
   productionBrowserSourceMaps: false,
 
   // Optimize static generation
   trailingSlash: false,
+  
+  // Output configuration for Vercel
+  output: 'standalone',
+  
+  // Webpack configuration for reliable builds
+  webpack: (config, { dev }) => {
+    // Optimize for production builds
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        },
+      };
+    }
+
+    // Handle SVG imports
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
+
+    // Resolve module issues
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+    };
+
+    return config;
+  },
   
   // Security headers
   async headers() {
@@ -43,9 +92,20 @@ const nextConfig: NextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
           },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
         ],
       },
     ]
+  },
+
+  // Environment variables for build optimization
+  env: {
+    NEXT_TELEMETRY_DISABLED: '1',
+    SKIP_FONT_OPTIMIZATION: '1',
+    DISABLE_NEXT_FONT: '1',
   },
 }
 
