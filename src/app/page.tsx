@@ -47,6 +47,8 @@ export default function HomePage() {
       <main>
         {/* Hero Section - Clean & Focused */}
         <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+          {/* DEBUG: Clean Homepage Version */}
+          <div className="hidden">CLEAN_HOMEPAGE_VERSION_2025</div>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               {t('homepage.hero.title')}
